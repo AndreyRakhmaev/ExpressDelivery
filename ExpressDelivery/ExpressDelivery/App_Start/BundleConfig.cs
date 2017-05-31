@@ -23,11 +23,11 @@ namespace ExpressDelivery
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
-            bundles.Add(new StyleBundle("~/Content/bootstrap-core-css").Include(
+            bundles.Add(new StyleBundle("~/bundles/bootstrap-core-css").Include(
                       "~/Content/css/bootstrap.css",
                       "~/Content/css/theme.css",
                       "~/Content/css/bootstrap-reset.css"));
-            bundles.Add(new StyleBundle("~/Content/external-css").Include(
+            bundles.Add(new StyleBundle("~/bundles/external-css").Include(
                       "~/Content/assets/font-awesome/css/font-awesome.css",
                       "~/Content/css/flexslider.css",
                       "~/Content/assets/bxslider/jquery.bxslider.css",
@@ -37,7 +37,7 @@ namespace ExpressDelivery
                       "~/http://fonts.googleapis.com/css?family=Lato",
                       "~/Content/css/parallax-slider/parallax-slider.css",
                       "~/Content/css/animate.css"));
-            bundles.Add(new StyleBundle("~/Content/custom-styles-css").Include(
+            bundles.Add(new StyleBundle("~/bundles/custom-styles-css").Include(
                       "~/Content/css/component.css",
                       "~/Content/css/style.css",
                       "~/Content/css/style-responsive.css",
