@@ -239,7 +239,7 @@
                         <h2>Клиенты</h2>
                     </div>
                     <div id="orders" class="tab-pane fade">
-                        <h2>Заказы</h2>
+                        @{Html.RenderAction("Index", "Cart");}
                     </div>
                     <div id="parcels" class="tab-pane fade">
                         <h2>Грузы</h2>
