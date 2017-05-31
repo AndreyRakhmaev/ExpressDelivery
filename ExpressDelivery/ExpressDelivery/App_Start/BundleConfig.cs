@@ -63,6 +63,8 @@ namespace ExpressDelivery
                         "~/Content/js/common-scripts.js"));
             bundles.Add(new ScriptBundle("~/bundles/sliding-form").Include(
                   "~/Content/js/sliding.form.js"));
+
+            BundleTable.EnableOptimizations = true;
         }
     }
 }
