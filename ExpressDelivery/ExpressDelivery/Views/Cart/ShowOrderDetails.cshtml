@@ -1,0 +1,15 @@
+﻿@model ExpressDelivery.Models.OrderDetails
+
+@{
+    ViewBag.Title = "Детали заказа";
+}
+
+<div class="item">
+    @{
+        Html.RenderPartial("OrderDetailsPartial", @Model);
+    }
+    <hr />
+        <a href="@Url.Action("Index", "Manage")">Назад</a>
+        <hr />
+</div>
+

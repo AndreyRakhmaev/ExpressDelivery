@@ -1,0 +1,151 @@
+﻿@model ExpressDelivery.Models.OrderDetails
+@{
+    ViewBag.Title = "Оформление заказа";
+}
+
+<style>
+        span.reference {
+            position: fixed;
+            left: 5px;
+            top: 5px;
+            font-size: 10px;
+            text-shadow: 1px 1px 1px #fff;
+        }
+
+            span.reference a {
+                color: #555;
+                text-decoration: none;
+                text-transform: uppercase;
+            }
+
+                span.reference a:hover {
+                    color: #000;
+                }
+
+        h1 {
+            color: #ccc;
+            font-size: 36px;
+            text-shadow: 1px 1px 1px #fff;
+            padding: 20px;
+        }
+    </style>
+
+    <div id="content">
+        <h1>Оформление нового заказа</h1>
+        <div id="wrapper">
+            <div id="steps">
+@using (Html.BeginForm("AddToCart", "Cart"))
+{
+    @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+                    <fieldset class="step">
+                        <legend>Персональные данные</legend>
+                        <p>
+                            <label for="fullname">Полное имя</label>
+                            @Html.EditorFor(x => x.FioFrom)
+                        </p>
+                        <p>
+                            <label for="phonenumber">Телефон</label>
+                            @Html.EditorFor(x => x.PhoneNumberFrom)
+                        </p>
+                        <p>
+                            <label for="email">Email</label>
+                            @Html.EditorFor(x => x.EmailFrom)
+                        </p>
+                    </fieldset>
+                    <fieldset class="step">
+                        <legend>Сведения о пункте отправления</legend>
+                        <p>
+                            <label for="state">Город</label>
+                            @Html.EditorFor(x => x.AdressFrom )
+                        </p>
+                        <p>
+                            <label for="adress">Адрес</label>
+                            @Html.EditorFor(x => x.AdressFrom)
+                        </p>
+                        <p>
+                            <label for="zip">Индекс</label>
+                            @Html.EditorFor(x => x.ZipFrom)
+                        </p>
+                        <p>
+                            <label for="date">Дата</label>
+                            @Html.EditorFor(x => x.DateOrder)
+                        </p>
+                        <p>
+                            <label for="time">Время</label>
+                            @Html.EditorFor(x => x.DateOrder)
+                        </p>
+                    </fieldset>
+                    <fieldset class="step">
+                        <legend>Информация о грузе</legend>
+                        <p>
+                            <label for="dimensions">Габариты</label>
+                            @Html.EditorFor(x => x.DimensionsDelivery )
+                        </p>
+                        <p>
+                            <label for="weight">Масса груза</label>
+                            @Html.EditorFor(x => x.WeightDelivery )
+                        </p>
+                        <p>
+                            <label for="type">Тип груза</label>
+                            @Html.EditorFor(x => x.TypeDelivery)
+                        </p>
+                        <p>
+                            <label for="comment">Примечание</label>
+                            @Html.EditorFor(x => x.TypeDelivery)
+                        </p>
+                    </fieldset>
+                    <fieldset class="step">
+                        <legend>Сведения о пункте назначения</legend>
+                        <p>
+                            <label for="fullnameto">Имя получателя</label>
+                            @Html.EditorFor(x => x.FioTo )
+                        </p>
+                        <p>
+                            <label for="stateto">Город</label>
+                            @Html.EditorFor(x => x.AdressTo)
+                        </p>
+                        <p>
+                            <label for="adressto">Адрес</label>
+                            @Html.EditorFor(x => x.AdressTo)
+                        </p>
+                        <p>
+                            <label for="zipto">Индекс</label>
+                            @Html.EditorFor(x => x.ZipTo)
+                        </p>
+                    </fieldset>
+                    <fieldset class="step">
+                        <legend>Завершающий этап</legend>
+                        <p>
+                            Все обязательные поля были заполнены верно
+                            если все шаги отмечены зеленой галочкой.
+                            Красный значок указывает на то, что некоторые поля
+                            не заполнены или заполнены неверными данными. В этом
+                            случае вернитесь на нужный шаг и исправьте ошибки.
+                        </p>
+                        <p class="submit">
+                            <button id="registerButton" type="submit" >Оформить заказ</button>
+                        </p>
+                    </fieldset>
+}
+            </div>
+            <div id="navigation" style="display:none;">
+                <ul>
+                    <li class="selected">
+                        <a href="#">Данные</a>
+                    </li>
+                    <li>
+                        <a href="#">Отправление</a>
+                    </li>
+                    <li>
+                        <a href="#">Груз</a>
+                    </li>
+                    <li>
+                        <a href="#">Назначение</a>
+                    </li>
+                    <li>
+                        <a href="#">Заказ</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>

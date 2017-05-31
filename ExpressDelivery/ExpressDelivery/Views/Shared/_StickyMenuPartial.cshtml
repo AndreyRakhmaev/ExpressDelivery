@@ -1,0 +1,155 @@
+﻿<!--header start-->
+<header class="head-section">
+    <div class="navbar navbar-default navbar-static-top">
+        <div class="navbar navbar-default container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse" type="button">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"><img src="Content/img/icons/logo.png" />E<span>xpress Delivery</span></a>
+                <br />
+                Ваша транспортная компания
+            </div>
+            <div class="navbar-collapse collapse">
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div ID="aside1">
+        <div class="navbar navbar-default navbar-static-top">
+            <div class="navbar navbar-default container">
+                <div class="navbar-header">
+                    <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse" type="button">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @*<a class="navbar-brand" href="#">E<span>xpress Delivery</span></a>*@
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            @Html.ActionLink("Главная", "Index", "Home")
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-close-others="false" data-delay="0" data-hover="dropdown" data-toggle="dropdown" href="#">
+                                Клиентам <i class="fa fa-angle-down"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="#">­Заявка на вызов курьера</a>
+                                </li>
+                                <li>
+                                    <a href="#">­Договор и Регламент оказания транспортных услуг</a>
+                                </li>
+                                <li>
+                                    <a href="#">­Процесс оформления заказа</a>
+                                </li>
+                                <li>
+                                    <a href="#">­Как оформить накладную</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-close-others="false" data-delay="0" data-hover="dropdown" data-toggle="dropdown" href="#">
+                                Партнерам <i class="fa fa-angle-down"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="#">­Обращение к партнерам</a>
+                                </li>
+                                <li>
+                                    <a href="#">­Стратегия развития</a>
+                                </li>
+                                <li>
+                                    <a href="­#">­Корпоративное управление</a>
+                                </li>
+                                <li>
+                                    <a href="#">­Совет директоров</a>
+                                </li>
+                                <li>
+                                    <a href="#">­Контакты</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-close-others="false" data-delay="0" data-hover="dropdown" data-toggle="dropdown" href="#">
+                                Услуги и тарифы <i class="fa fa-angle-down"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="#">Наши тарифы</a>
+                                </li>
+                                <li>
+                                    <a href="#">­Услуги экспресс – доставки</a>
+                                </li>
+                                <li>
+                                    <a href="#">Интернет магазинам</a>
+                                </li>
+                                <li>
+                                    <a href="#">Срочная доставка</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#"> Акции и бонусы</a>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-close-others="false" data-delay="0" data-hover="dropdown" data-toggle="dropdown" href="#">
+                                О компании <i class="fa fa-angle-down"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="#">­Наша история</a>
+                                </li>
+                                <li>
+                                    <a href="#">Факты и цыфры</a>
+                                </li>
+                                <li>
+                                    <a href="#">­­Лицензии</a>
+                                </li>
+                                <li>
+                                    <a href="#">Наши награды</a>
+                                </li>
+                                <li>
+                                    @Html.ActionLink("Контактная информация", "Contact", "Home")
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            @Html.ActionLink("Помощь", "Index", "Help")
+                        </li>
+                        <li><input class="form-control search" placeholder="Search" type="text"></li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!--header end-->

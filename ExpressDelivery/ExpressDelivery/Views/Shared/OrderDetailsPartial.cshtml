@@ -1,0 +1,92 @@
+﻿@model ExpressDelivery.Models.OrderDetails
+
+<div class="item">
+    <h3>Заказ № @Model.OrderNumber</h3><br />
+    <table class="table text-center">
+        <thead>
+            <tr>
+                <th>Номер заказа</th>
+                <th>&nbsp;</th>
+                <th>ФИО</th>
+                <th>Адрес</th>
+                <th>Телефон</th>
+                <th>Эл. почта</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td rowspan="2"> @Html.TextBox("orderNumber", @Model.OrderNumber)</td>
+                <th>@Html.Label("Отправитель")</th>
+                <td>@Html.TextBox("fioFrom", @Model.FioFrom)</td>
+                <td>@Html.TextBox("adressFrom", @Model.AdressFrom)</td>
+                <td>@Html.TextBox("phoneNumberFrom", @Model.PhoneNumberFrom)</td>
+                <td>@Html.TextBox("emailFrom", @Model.EmailFrom)</td>
+            </tr>
+            <tr>
+                <th>@Html.Label("Получатель")</th>
+                <td>@Html.TextBox("fioTo", @Model.FioTo)</td>
+                <td>@Html.TextBox("adressTo", @Model.AdressTo)</td>
+                <td>@Html.TextBox("phoneNumberTo", @Model.PhoneNumberTo)</td>
+                <td>@Html.TextBox("emailTo", @Model.EmailTo)</td>
+            </tr>
+            <tr>
+                <th>Код отслеживания</th>
+                <th>Габариты груза</th>
+                <th>Масса</th>
+                <th>Тип груза</th>
+                <th>Статус груза</th>
+                <th>Тариф</th>
+            </tr>
+            <tr>
+                <td rowspan="2">@Html.TextBox("trackingNumber", @Model.TrackingNumber)</td>
+                <td>@Html.TextBox("dimensionsDelivery", @Model.DimensionsDelivery)</td>
+                <td>@Html.TextBox("weightDelivery", @Model.WeightDelivery)</td>
+                <td>@Html.DropDownList("typeDelivery", new SelectList(new string[] { "Сборный груз", "Нестандартный груз", "Генерапьный груз", "Негабаритный груз" }), "Тип груза")</td>
+                <td>@Html.DropDownList("statusDelivery", new SelectList(new string[] { "В обработке", "Ожидает отправки", "Отправлен", "Ожидает получения", "Доставлен" }), "Статус груза")</td>
+                <td>@Html.DropDownList("plan", new SelectList(new string[] { "Экономный", "Базовый", "Стандартный", "Расширенный" }), "Тариф")</td>
+            </tr>
+            <tr>
+                <th>Примечание</th>
+                <td colspan="4">@Html.TextBox("comment", @Model.Comment)</td>
+            </tr>
+            <tr>
+                <th rowspan="2">Доп. услуги</th>
+                <td rowspan="2">
+                    @Html.CheckBox("service1", true) @Html.Label("service1", "Услуга 1")<br />
+                    @Html.CheckBox("service2", false) @Html.Label("service2", "Услуга 2")<br />
+                    @Html.CheckBox("service3", false) @Html.Label("service3", "Услуга 3")
+                </td>
+                <td rowspan="2">
+                    @Html.CheckBox("service4", false) @Html.Label("service4", "Услуга 4")<br />
+                    @Html.CheckBox("service5", false) @Html.Label("service5", "Услуга 5")<br />
+                    @Html.CheckBox("service6", true) @Html.Label("service6", "Услуга 6")
+                </td>
+                <td rowspan="2">
+                    @Html.CheckBox("service7", false) @Html.Label("service7", "Услуга 7")<br />
+                    @Html.CheckBox("service8", false) @Html.Label("service8", "Услуга 8")<br />
+                    @Html.CheckBox("service9", true) @Html.Label("service9", "Услуга 9")
+                </td>
+                <th>Ответственный</th>
+                <th>Дата заказа</th>
+            </tr>
+            <tr>
+                <td>@Html.TextBox("worker", @Model.Worker)</td>
+                <td>@Html.TextBox("dateOrder", @Model.DateOrder)</td>
+            </tr>
+            <tr>
+                <th>Номер маршрута</th>
+                <th>Протяженность</th>
+                <th>Время в пути</th>
+                <th>Дата прибытия</th>
+                <th rowspan="2">Стомость</th>
+                <td rowspan="2">@Html.TextBox("priceDelivery", @Model.PriceDelivery)</td>
+            </tr>
+            <tr>
+                <td>@Html.TextBox("routeNumber", @Model.RouteNumber)</td>
+                <td>@Html.TextBox("extensionPath", @Model.ExtensionPath)</td>
+                <td>@Html.TextBox("timePath", @Model.TimePath)</td>
+                <td>@Html.TextBox("dateTo", @Model.DateTo)</td>
+            </tr>
+        </tbody>
+</table>
+</div>

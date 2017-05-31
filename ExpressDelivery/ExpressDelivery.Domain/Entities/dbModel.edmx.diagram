@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0487ff2e05184b809ea22a7426d33fd1" Name="Diagram1">
+        <EntityTypeShape EntityType="ExpressDelivery.Domain.Entities.Автомобили" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ExpressDelivery.Domain.Entities.Города" Width="1.5" PointX="3.75" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ExpressDelivery.Domain.Entities.Грузы" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ExpressDelivery.Domain.Entities.Заказы" Width="1.5" PointX="3" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ExpressDelivery.Domain.Entities.Клиенты" Width="1.5" PointX="0.75" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ExpressDelivery.Domain.Entities.Маршруты" Width="1.5" PointX="0.75" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ExpressDelivery.Domain.Entities.Платежи" Width="1.5" PointX="0.75" PointY="17.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ExpressDelivery.Domain.Entities.Сотрудники" Width="1.5" PointX="8.25" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ExpressDelivery.Domain.Entities.Тарифы" Width="1.5" PointX="0.75" PointY="20.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ExpressDelivery.Domain.Entities.Услуги" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ExpressDelivery.Domain.Entities.Филиалы" Width="1.5" PointX="6" PointY="5.125" IsExpanded="true" />
+        <AssociationConnector Association="ExpressDelivery.Domain.Entities.FK_Грузы_Автомобили" ManuallyRouted="false" />
+        <AssociationConnector Association="ExpressDelivery.Domain.Entities.FK_Филиалы_Города" ManuallyRouted="false" />
+        <AssociationConnector Association="ExpressDelivery.Domain.Entities.FK_Грузы_Заказы" ManuallyRouted="false" />
+        <AssociationConnector Association="ExpressDelivery.Domain.Entities.FK_Заказ_Клиенты" ManuallyRouted="false" />
+        <AssociationConnector Association="ExpressDelivery.Domain.Entities.FK_Заказ_Тарифы" ManuallyRouted="false" />
+        <AssociationConnector Association="ExpressDelivery.Domain.Entities.FK_Заказы_Маршруты" ManuallyRouted="false" />
+        <AssociationConnector Association="ExpressDelivery.Domain.Entities.FK_Заказы_Платежи" ManuallyRouted="false" />
+        <AssociationConnector Association="ExpressDelivery.Domain.Entities.FK_Заказы_Сотрудники" ManuallyRouted="false" />
+        <AssociationConnector Association="ExpressDelivery.Domain.Entities.FK_Заказы_Услуги" ManuallyRouted="false" />
+        <AssociationConnector Association="ExpressDelivery.Domain.Entities.FK_Сотрудники_Филиалы" ManuallyRouted="false" />
+        <AssociationConnector Association="ExpressDelivery.Domain.Entities.ДоступныеТарифы" ManuallyRouted="false" />
+        <AssociationConnector Association="ExpressDelivery.Domain.Entities.ПредоставляемыеУслуги" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
