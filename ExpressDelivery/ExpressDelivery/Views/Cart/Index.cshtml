@@ -1,0 +1,144 @@
+﻿@model ExpressDelivery.Models.CartIndexViewModel
+@{
+    Layout = null;
+    ViewBag.Title = "Мои заказы";
+}
+
+        
+            <div class="item">
+@{
+            
+    if (Model.Cart.Lines.Count() != 0) {
+        if (User.IsInRole("user")){
+            <h2>Мои заказы</h2>
+            <table class="table text-center">
+                <thead>
+                    <tr>
+                        <th>Номер заказ</th>
+                        <th>Дата заказа</th>
+                        <th>Дата доставки</th>
+                        <th>Стоимость</th>
+                        <th>Статус заказа</th>
+                    </tr>
+                </thead>
+                <tbody>
+                @foreach (var line in Model.Cart.Lines) {
+                    <tr>
+                        <td>
+                            @line.Product.OrderNumber <br />
+                            @using (Html.BeginForm("ShowOrderDetails", "Cart"))
+                            {
+                                @Html.Hidden("orderId", line.Product.OrderNumber)
+                                <button class="btn btn-info">Детали заказа</button>
+                            }
+                        </td>
+                        <td>@line.Product.DateOrder</td>
+                        <td>@line.Product.DateTo</td>
+                        <td>
+                            @line.Product.PriceDelivery.ToString("c")<br />
+                            <button class="btn btn-info">Оплатить</button>
+                        </td>
+                        <td>
+                            Заказ в обработке <br />
+                            @using (Html.BeginForm("RemoveFromCart", "Cart"))
+                            {
+                                @Html.Hidden("orderId", line.Product.OrderNumber)
+                                @Html.HiddenFor(x => x.ReturnUrl)
+                                <button class="btn btn-info">Отменить заказ</button>
+                            }
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+            }
+        else {
+            <h2>Новых заказов: @Model.Cart.Lines.Count()</h2>
+            <table class="table text-center">
+            <thead>
+                <tr>
+                    <th>Номер заказ</th>
+                    <th>Дата заказа</th>
+                    <th>Дата доставки</th>
+                    <th>Стоимость</th>
+                    <th>Статус заказа</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var line in Model.Cart.Lines) {
+                    <tr>
+                        <td>
+                            @line.Product.OrderNumber
+                        </td>
+                        <td>@line.Product.DateOrder</td>
+                        <td>@line.Product.DateTo</td>
+                        <td>
+                            @line.Product.PriceDelivery.ToString("c")
+                        </td>
+                        <td>
+                        @using (Html.BeginForm("ShowMassage", "Cart"))
+                        {
+                            @Html.Hidden("orderId", line.Product.OrderNumber)
+                            @Html.DropDownList("OrderStatus",  new[] {
+                           new SelectListItem() { Text = "Заказ в обработке", Value = "1"},
+                           new SelectListItem() { Text = "Подтверждён", Value = "2" },
+                           new SelectListItem() { Text = "Отменён", Value = "3" }
+                       })
+                            //<button class="btn btn-info">Сохранить</button> <br />
+                        }
+                        </td>
+                    </tr>
+                    <tr>
+`                       <td colspan="5">
+                        <!-- PANEL 1 -->
+                                         <div class="panel panel-default">
+                                             <div class="panel-heading panel-heading-faq">
+                                                 <h4 class="panel-title">
+                                                     <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" + @line.Product.OrderNumber.ToString()>
+                                                         Комментарий
+                                                     </a>
+                                                 </h4>
+                                             </div>
+
+                                             <div id="collapseOne" + @line.Product.OrderNumber.ToString() class="panel-collapse collapse">
+                                                 <div class="panel-body panel-faq">
+                                                 @Html.TextBox("OrderComment", "Комментарий") 
+                                                 </div>
+                                             </div>
+                                         </div>
+                        </td>
+                    </tr>
+                    <tr>
+                            <td>
+                                @using (Html.BeginForm("ShowOrderDetails", "Cart"))
+                                {
+                                    @Html.Hidden("orderId", line.Product.OrderNumber)
+                                    <button class="btn btn-info">Детали заказа</button> 
+                                    <br/>
+                                }
+                            </td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        <td>
+                            @using (Html.BeginForm("RemoveFromCart", "Cart"))
+                            {
+                                @Html.Hidden("orderId", line.Product.OrderNumber)
+                                @Html.HiddenFor(x => x.ReturnUrl)
+
+                                <button class="btn btn-info">Подтвердить заказ</button>
+                            <br />
+                            }
+                        </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+                     }
+        }
+        else
+        {
+            <h2>Нет ноаых заказов</h2>
+            }
+        }
+</div>

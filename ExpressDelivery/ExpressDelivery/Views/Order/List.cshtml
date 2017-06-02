@@ -1,0 +1,53 @@
+﻿@model  ExpressDelivery.Models.OrdersListViewModel
+
+@{
+    Layout = null;
+    ViewBag.Title = "Заказы";
+}
+
+<h2>@ViewBag.Title</h2>
+<table class="table text-center">
+    <thead>
+        <tr>
+            <th>Номер заказ</th>
+            <th>ФИО отправителя</th>
+            <th>Дата заказа</th>
+            <th>Стоимость</th>
+            <th>Статус заказа</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var line in Model.Orders)
+        {
+            <tr>
+                <td>
+                    @line.кодЗаказа <br />
+                    @using (Html.BeginForm())
+                    {
+                        @Html.Hidden("orderId", line.кодЗаказа)
+                        <button class="btn btn-info">Детали заказа</button>
+                    }
+                </td>
+                <td>@line.Клиенты.фиоКлиента</td>
+                <td>@line.датаЗаказа</td>
+                <td>@line.стоимостьЗзаказа.ToString("c")</td>
+                <td>Заказ в обработке<br />
+                    @using (Html.BeginForm("RemoveFromDB","Order"))
+                    {
+                        @Html.Hidden("orderId", line.кодЗаказа)
+                        //@Html.HiddenFor(x => x.ReturnUrl)
+                        <button class="btn btn-info">Отменить заказ</button>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<hr>
+<p> Число записей @ViewBag.count</p>
+@ViewBag.srvName
+@ViewBag.userName
+
+<div class="pager">
+    @Html.PageLinks(Model.PagingInfo, x => Url.Action("List", new { page = x }))
+</div>

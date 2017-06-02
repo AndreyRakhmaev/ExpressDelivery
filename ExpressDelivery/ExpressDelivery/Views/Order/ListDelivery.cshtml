@@ -1,0 +1,44 @@
+﻿@model List<ExpressDelivery.Domain.Entities.ИсторияОтслеживания>
+
+@{
+    ViewBag.Title = "История перевозок";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm("ListDelivery", "Order"))
+{
+    @Html.TextBox("TrackNumber","Номер отслеживания груза");
+
+    <button class="btn btn-info">Отследить заказ</button>
+
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Дата регистрации</th>
+            <th>Пункт регистрации</th>
+            <th>Примечание</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var line in Model)
+        {
+            <tr>
+                <td>@line.датаЗаписи </td>
+                <td>@line.пунктРегистрации </td>
+                <td>@line.примечание </td>
+            </tr>
+        }
+             <tr>
+                <td colspan="4">
+                    @using (Html.BeginForm())
+                    {
+                        <button class="btn btn-info">Показать на карте</button>
+                    }
+                </td>
+            </tr>
+    </tbody>
+</table>
+

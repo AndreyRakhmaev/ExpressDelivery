@@ -1,0 +1,516 @@
+﻿@{
+    Layout = "~/Views/_LayoutHomePage.cshtml";
+    ViewBag.Title = "Главная";
+}
+
+<div class="container">
+    <div class="row mar-b-50">
+        <div class="col-md-12">
+            <div class="text-center feature-head wow fadeInDown">
+                <h1 class="">
+                    Добро пожаловать в Express Delivery
+                </h1>
+            </div>
+
+            <div class="feature-box">
+                <div class="col-md-2 col-sm-2 text-center wow fadeInUp">
+                    <div class="feature-box-heading">
+                        <a href="@Url.Action("Develop", "Home")"><img src="Content/img/icons/1.png" alt="" width="150" height="150"></a>
+                        <b>Калькулятор</b>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-2 text-center wow fadeInUp">
+                    <div class="feature-box-heading">
+                        <a href="@Url.Action("NewOrder", "Order")">
+                            <img src="Content/img/icons/2.png" alt="" width="150" height="150"></a>
+                            <b>Оформить заказ</b>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-2 text-center wow fadeInUp">
+                    <div class="feature-box-heading">
+                        <a href="@Url.Action("Develop", "Home")"><img src="Content/img/icons/3.png" alt="" width="150" height="150"></a>
+                        <b>Вызвать курьера</b>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-2 text-center wow fadeInUp">
+                    <div class="feature-box-heading">
+                        <a href="@Url.Action("ListDelivery", "Order")"><img src="Content/img/icons/4.png" alt="" width="150" height="150"></a>
+                        <b>Отследить заказ</b>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-2 text-center wow fadeInUp">
+                    <div class="feature-box-heading">
+                        <a href="@Url.Action("Develop", "Home")"><img src="Content/img/icons/5.png" alt="" width="150" height="150"></a>
+                        <b>Оплатить услуги</b>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-2 text-center wow fadeInUp">
+                    <div class="feature-box-heading">
+                        <a href="@Url.Action("Index", "Help")">
+                            <img src="Content/img/icons/6.png" alt="" width="150" height="150"></a>
+                            <b>Поддержка</b>
+                    </div>
+                    <br /><br /><br /><br />
+                </div>
+            </div>
+
+            <!--property start-->
+            <div class="property gray-bg">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 col-sm-6 wow fadeInRight">
+                            <h1>
+                                Что мы предлагаем?
+                            </h1>
+                            <hr>
+                            <p>
+                                Транспортная компания «Express Delivery» предлагает полный комплекс услуг, связанный с автомобильными грузоперевозками. Мы осуществим доставку Вашего груза качественно, бережно и вовремя, в независимости от объема Вашего груза. Менеджеры компании подберут максимально выгодные условия для перевозки груза, с учетом Ваших потребностей. Мы осуществляем доставку сборных грузов более чем в 1000 городов и населенных пунктов России. Зона охвата постоянно расширяется. Сегодня это 32 субъекта федерации, обслуживаемые с помощью 60 территориальных подразделений.
+                            </p>
+                            <p>Мы предлагаем комфортные условия для всех клиентов без исключения, создаем особые предложения, нацеленные на работу с представителями бизнеса.</p>
+                            <p>Автопарк компании насчитывает более 250 новых автомобилей грузоподъемностью от 1-й до 20-ти тонн. Каждая единица оснащена средствами геопозиционирования, что позволяет осуществлять мониторинг местонахождения груза в режиме реального времени. </p>
+                            <hr>
+                            <a href="#" class="btn btn-info">
+                                Подробнее
+                            </a>
+                        </div>
+                        <div class="col-lg-6 col-sm-6 text-center wow fadeInLeft">
+                            <img src="Content/img/medium.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--property end-->
+
+                        <div class="feature-box">
+                            <div class="col-md-4 col-sm-4 text-center wow fadeInUp">
+                                <div class="feature-box-heading">
+                                    <em>
+                                        <img src="Content/img/icons/7.png" alt="" width="100" height="100">
+                                    </em>
+                                    <h4>
+                                        <b>Тарифы</b>
+                                    </h4>
+                                </div>
+                                <p class="text-center">
+                                    Мы предлагаем самые выгодные тарифы в сфере автомобильных грузовых перевозок.
+                                </p>
+                            </div>
+                            <div class="col-md-4 col-sm-4 text-center wow fadeInUp">
+                                <div class="feature-box-heading">
+                                    <em>
+                                        <img src="Content/img/icons/8.png" alt="" width="100" height="100">
+                                    </em>
+                                    <h4>
+                                        <b>Услуги</b>
+                                    </h4>
+                                </div>
+                                <p class="text-center">
+                                    Мы предоставляем полный комплекс услуг по перевозке грузов.
+                                </p>
+                            </div>
+                            <div class="col-md-4 col-sm-4 text-center wow fadeInUp">
+                                <div class="feature-box-heading">
+                                    <em>
+                                        <img src="Content/img/icons/9.png" alt="" width="100" height="100">
+                                    </em>
+                                    <h4>
+                                        <b>Акции и бонусы</b>
+                                    </h4>
+                                </div>
+                                <p class="text-center">
+                                    Высокое качество услуг и индивидуальный подход к клиентам - главные приоритеты компании.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!--feature end-->
+                    </div>
+                </div>
+            </div>
+
+            <!--property start-->
+            <div class="property gray-bg">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 col-sm-6 text-center wow fadeInLeft">
+                            <img src="Content/img/102.jpg" alt="">
+                        </div>
+                        <div class="col-lg-6 col-sm-6 wow fadeInRight">
+                            <h1>
+                                Наши преимущества
+                            </h1>
+                            <hr>
+                            <p>
+                                <i class="fa fa-check fa-lg pr-10">
+                                </i>
+                                Автомобильные грузовые перевозки по всей России
+                            </p>
+                            <p>
+                                <i class="fa fa-check fa-lg pr-10">
+                                </i>
+                                Перевозка сборных грузов
+                            </p>
+                            <p>
+                                <i class="fa fa-check fa-lg pr-10">
+                                </i>
+                                Автомобили на полную загрузку до 20 т.
+                            </p>
+                            <p>
+                                <i class="fa fa-check fa-lg pr-10">
+                                </i>
+                                Гарантия сохранности груза
+                            </p>
+                            <p>
+                                <i class="fa fa-check fa-lg pr-10">
+                                </i>
+                                Широкий спектр дополнительных услуг
+                            </p>
+                            <p>
+                                <i class="fa fa-check fa-lg pr-10">
+                                </i>
+                                Наличие собственного автопарка
+                            </p>
+                            <hr>
+                            <a href="#" class="btn btn-info">
+                                Подробнее
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--property end-->
+
+            <div class="container">
+
+                <div class="row mar-b-60">
+                    <div class="col-lg-6">
+                        <!--tab start-->
+                        <section class="tab wow fadeInLeft">
+                            <header class="panel-heading tab-bg-dark-navy-blue">
+                                <ul class="nav nav-tabs nav-justified ">
+                                    <li class="active">
+                                        <a data-toggle="tab" href="#news">
+                                            Новости
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a data-toggle="tab" href="#events">
+                                            События
+                                        </a>
+                                    </li>
+                                    <li class="">
+                                        <a data-toggle="tab" href="#notice-board">
+                                            Доска объявлений
+                                        </a>
+                                    </li>
+                                </ul>
+                            </header>
+                            <div class="panel-body">
+                                <div class="tab-content tasi-tab">
+                                    <div id="news" class="tab-pane fade in active">
+                                        <article class="media">
+                                            <a class="pull-left thumb p-thumb">
+                                                <img src="Content/img/product1.jpg" alt="">
+                                            </a>
+                                            <div class="media-body b-btm">
+                                                <a href="#" class="" p-head">
+                                                    Заголовок первой новости
+                                                </a>
+                                                <p>
+                                                    Текст первой новости.
+                                                </p>
+                                            </div>
+                                        </article>
+                                        <article class="media">
+                                            <a class="pull-left thumb p-thumb">
+                                                <img src="Content/img/product2.jpg" alt="">
+                                            </a>
+                                            <div class="media-body b-btm">
+                                                <a href="#" class="" p-head">
+                                                    Здесь будет заголовок второй новости
+                                                </a>
+                                                <p>
+                                                    Здесь будет текст второй новости.
+                                                </p>
+                                            </div>
+                                        </article>
+                                    </div>
+                                    <div id="events" class="tab-pane fade">
+                                        <article class="media">
+                                            <a class="pull-left thumb p-thumb">
+                                                <!--image goes here-->
+                                            </a>
+                                            <div class="media-body b-btm">
+                                                <a href="#" class="cmt-head">
+                                                    Очень важное событие
+                                                </a>
+                                                <p>
+
+                                                    <i class="fa fa-time">
+                                                    </i>
+                                                    1 час назад
+                                                </p>
+                                            </div>
+                                        </article>
+                                        <article class="media">
+                                            <a class="pull-left thumb p-thumb">
+                                                <!--image goes here-->
+                                            </a>
+                                            <div class="media-body b-btm">
+                                                <a href="#" class="cmt-head">
+                                                    Сегодна произошло что-то интересное
+                                                </a>
+                                                <p>
+
+                                                    <i class="fa fa-time">
+                                                    </i>
+                                                    2 часа назад
+                                                </p>
+                                            </div>
+                                        </article>
+                                        <article class="media">
+                                            <a class="pull-left thumb p-thumb">
+                                                <!--image goes here-->
+                                            </a>
+                                            <div class="media-body b-btm">
+                                                <a href="#" class="cmt-head">
+                                                    Больше ничего не происходит. И это событие!
+                                                </a>
+                                                <p>
+
+                                                    <i class="fa fa-time">
+                                                    </i>
+                                                    4 часа назад
+                                                </p>
+                                            </div>
+                                        </article>
+                                    </div>
+                                    <div id="notice-board" class="tab-pane fade">
+                                        <p>
+                                            Продается компания Express Delivery. Цена договорная. Писать в Поддержку!
+                                        </p>
+                                        <p>
+                                            Распродается автопарк компания Express Delivery. Не дорого!
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <!--tab end-->
+                    </div>
+                    <div class="col-lg-6">
+                        <!--testimonial start-->
+                        <div class="about-testimonial boxed-style about-flexslider ">
+                            <section class="slider wow fadeInRight">
+                                <div class="flexslider">
+                                    <ul class="slides about-flex-slides">
+                                        <li>
+                                            <div class="about-testimonial-image ">
+                                                <img alt="" src="Content/img/person_1.png">
+                                            </div>
+                                            <a class="about-testimonial-author" href="#">
+                                                Анна Иванова
+                                            </a>
+                                            <span class="about-testimonial-company">
+                                                Омск
+                                            </span>
+                                            <div class="about-testimonial-content">
+                                                <p class="about-testimonial-quote">
+                                                    Компания хорошая. Работает быстро и качественно. Мне груз из Омска в Москву перевезли за 4 дня. Спасибо!
+                                                </p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="about-testimonial-image ">
+                                                <img alt="" src="Content/img/person_2.png">
+                                            </div>
+                                            <a class="about-testimonial-author" href="#">
+                                                Михаил Петрович
+                                            </a>
+                                            <span class="about-testimonial-company">
+                                                Новосибирск
+                                            </span>
+                                            <div class="about-testimonial-content">
+                                                <p class="about-testimonial-quote">
+                                                    Не нашел никакой информации в интернете о деятельности компании. Странно.
+                                                </p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </section>
+                        </div>
+                        <!--testimonial end-->
+                    </div>
+                </div>
+            </div>
+
+            <div id="home-services">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <h2>
+                                Остались вопросы?
+                            </h2>
+                            <p>
+                                Сотрудники компании помогут и проконсультируют Вас по всем интересующим вопросам и предоставят полную информацию о деятельности компании.
+                                <br /><br /><br />
+                            </p>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="h-service">
+                                <div class="icon-wrap ico-bg round-fifty wow fadeInDown">
+                                    <i class="fa fa-question">
+                                    </i>
+                                </div>
+                                <div class="h-service-content wow fadeInUp">
+                                    <h3>
+                                        Часто задаваемые вопросы
+                                    </h3>
+                                    <p>
+                                        Посетите страницу с ответами на часто задаваемые вопросы. Там Вы точно найдете  интересующую вас информацию.
+                                        <br>
+                                        <a href="#">
+                                            Перейти
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="h-service">
+                                <div class="icon-wrap ico-bg round-fifty wow fadeInDown">
+                                    <i class="fa fa-h-square">
+                                    </i>
+                                </div>
+                                <div class="h-service-content wow fadeInUp">
+                                    <h3>
+                                        Онлайн консультант
+                                    </h3>
+                                    <p>
+                                        Задайте вопрос нашему менеджеру и получите ответ в режиме онлайн.
+                                        <br>
+                                        <a href="#">
+                                            Задать вопрос
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="h-service">
+                                <div class="icon-wrap ico-bg round-fifty wow fadeInDown">
+                                    <i class="fa fa-users">
+                                    </i>
+                                </div>
+                                <div class="h-service-content wow fadeInUp">
+                                    <h3>
+                                        Заказать звонок
+                                    </h3>
+                                    <p>
+                                        Закажите бесплатный исходящий звонок с сайта и наш менеджер перезвонит Вам в течении 10 минут.
+                                        <br>
+                                        <a href="#">
+                                            Заказать звонок
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /row -->
+
+                </div>
+                <!-- /container -->
+
+            </div>
+            <!-- service end -->
+            <div class="hr">
+                <span class="hr-inner"></span>
+            </div>
+
+            <div class="container">
+                <div class="row mar-b-50 our-clients">
+                    <div class="col-md-3">
+                        <h2>
+                            Наши пертнеры
+                        </h2>
+                        <p>
+                            Для обеспечения высокого качества и скорости оказания транспортных услуг, а также формирования наиболее оптимального маршрута «Express Delivery» сотрудничает с ведущими российскими логистическими и курьерскими компаниями.
+                        </p>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="outside">
+                            <p>
+                                <span id="slider-prev">
+                                </span>
+                                |
+                                <span id="slider-next">
+                                </span>
+                            </p>
+                        </div>
+
+                        <ul class="bxslider1 clients-list">
+                            <li>
+                                <a href="#">
+                                    <img src="Content/img/clients/graylogo6.png" alt="" />
+
+                                    <img src="Content/img/clients/newlogo6.png" class="color-img" alt="" />
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="Content/img/clients/graylogo6.png" alt="" />
+
+                                    <img src="Content/img/clients/newlogo6.png" class="color-img" alt="" />
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="Content/img/clients/graylogo6.png" alt="" />
+
+                                    <img src="Content/img/clients/newlogo6.png" class="color-img" alt="" />
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="Content/img/clients/graylogo6.png" alt="" />
+
+                                    <img src="Content/img/clients/newlogo6.png" class="color-img" alt="" />
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="Content/img/clients/graylogo6.png" alt="" />
+
+                                    <img src="Content/img/clients/newlogo6.png" class="color-img" alt="" />
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="Content/img/clients/graylogo6.png" alt="" />
+
+                                    <img src="Content/img/clients/newlogo6.png" class="color-img" alt="" />
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="Content/img/clients/graylogo6.png" alt="" />
+
+                                    <img src="Content/img/clients/newlogo6.png" class="color-img" alt="" />
+                                </a>
+                            </li>
+
+                        </ul>
+
+
+                    </div>
+                </div>
+                <!-- END CLIENTS -->
+            </div>
+
+
+
+
+            <!--container end-->

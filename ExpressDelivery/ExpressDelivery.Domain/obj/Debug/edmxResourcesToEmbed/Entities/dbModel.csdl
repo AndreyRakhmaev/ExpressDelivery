@@ -1,0 +1,375 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ExpressDelivery.Domain.Entities" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Автомобили">
+    <Key>
+      <PropertyRef Name="кодАвтомобиля" />
+    </Key>
+    <Property Name="кодАвтомобиля" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="грнАвтомобиля" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="модельАвтомобиля" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="грузоподъёмность" Type="Double" Nullable="false" />
+    <Property Name="габаритыАвтомобиля" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="степеньЗагруженности" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Грузы" Relationship="Self.FK_Грузы_Автомобили" FromRole="Автомобили" ToRole="Грузы" />
+  </EntityType>
+  <EntityType Name="Города">
+    <Key>
+      <PropertyRef Name="кодГорода" />
+    </Key>
+    <Property Name="кодГорода" Type="Int32" Nullable="false" />
+    <Property Name="наименованиеГорода" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Филиалы" Relationship="Self.FK_Филиалы_Города" FromRole="Города" ToRole="Филиалы" />
+  </EntityType>
+  <EntityType Name="Грузы">
+    <Key>
+      <PropertyRef Name="кодГруза" />
+    </Key>
+    <Property Name="кодГруза" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="габаритыГруза" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="массаГруза" Type="Double" Nullable="false" />
+    <Property Name="типГруза" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="статусГруза" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="номерОтслеживания" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="примечание" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="грнАвтомобиля" Type="Int32" Nullable="false" />
+    <Property Name="кодЗаказа" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Автомобили" Relationship="Self.FK_Грузы_Автомобили" FromRole="Грузы" ToRole="Автомобили" />
+    <NavigationProperty Name="Заказы" Relationship="Self.FK_Грузы_Заказы" FromRole="Грузы" ToRole="Заказы" />
+    <NavigationProperty Name="ИсторияОтслеживания" Relationship="ExpressDelivery.Domain.Entities.FK_ИсторияОтслеживания_Грузы" FromRole="Грузы" ToRole="ИсторияОтслеживания" />
+  </EntityType>
+  <EntityType Name="Заказы">
+    <Key>
+      <PropertyRef Name="кодЗаказа" />
+    </Key>
+    <Property Name="кодЗаказа" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="датаЗаказа" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="фиоПолучателя" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="адресПолучателя" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="почтовыйИндекс" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="стоимостьЗзаказа" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="примечаниеКЗаказу" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="табельныйНомерСотрудника" Type="Int32" Nullable="false" />
+    <Property Name="кодКлиента" Type="Int32" Nullable="false" />
+    <Property Name="кодТарифа" Type="Int32" Nullable="false" />
+    <Property Name="кодУслуги" Type="Int32" />
+    <Property Name="номерПлатежа" Type="Int32" Nullable="false" />
+    <Property Name="кодМаршрута" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Грузы" Relationship="Self.FK_Грузы_Заказы" FromRole="Заказы" ToRole="Грузы" />
+    <NavigationProperty Name="Клиенты" Relationship="Self.FK_Заказ_Клиенты" FromRole="Заказы" ToRole="Клиенты" />
+    <NavigationProperty Name="Тарифы" Relationship="Self.FK_Заказ_Тарифы" FromRole="Заказы" ToRole="Тарифы" />
+    <NavigationProperty Name="Маршруты" Relationship="Self.FK_Заказы_Маршруты" FromRole="Заказы" ToRole="Маршруты" />
+    <NavigationProperty Name="Платежи" Relationship="Self.FK_Заказы_Платежи" FromRole="Заказы" ToRole="Платежи" />
+    <NavigationProperty Name="Сотрудники" Relationship="Self.FK_Заказы_Сотрудники" FromRole="Заказы" ToRole="Сотрудники" />
+    <NavigationProperty Name="Услуги" Relationship="Self.FK_Заказы_Услуги" FromRole="Заказы" ToRole="Услуги" />
+  </EntityType>
+  <EntityType Name="Клиенты">
+    <Key>
+      <PropertyRef Name="кодКлиента" />
+    </Key>
+    <Property Name="кодКлиента" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="фиоКлиента" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="датаРождения" Type="DateTime" Precision="0" />
+    <Property Name="aдресПроживания" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="индекс" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="рабочийТелефон" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Заказы" Relationship="Self.FK_Заказ_Клиенты" FromRole="Клиенты" ToRole="Заказы" />
+  </EntityType>
+  <EntityType Name="Маршруты">
+    <Key>
+      <PropertyRef Name="кодМаршрута" />
+    </Key>
+    <Property Name="кодМаршрута" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="наименованиеМаршрута" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="пунктОтправления" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="датаОтправления" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="протяженностьМаршрута" Type="Double" Nullable="false" />
+    <Property Name="пунктНазначения" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="датаПрибытия" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="длительностьПеревозки" Type="Double" Nullable="false" />
+    <Property Name="стоимостьПеревозки" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <NavigationProperty Name="Заказы" Relationship="Self.FK_Заказы_Маршруты" FromRole="Маршруты" ToRole="Заказы" />
+  </EntityType>
+  <EntityType Name="Платежи">
+    <Key>
+      <PropertyRef Name="номерПлатежа" />
+    </Key>
+    <Property Name="номерПлатежа" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="видПлатежнойСистемы" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="датаПлатежа" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="суммаПлатежа" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="номерСчетаОткуда" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="номерСчетаКуда" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="комиссия" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="примечаниеКПлатежу" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Заказы" Relationship="Self.FK_Заказы_Платежи" FromRole="Платежи" ToRole="Заказы" />
+  </EntityType>
+  <EntityType Name="Сотрудники">
+    <Key>
+      <PropertyRef Name="табельныйНомер" />
+    </Key>
+    <Property Name="табельныйНомер" Type="Int32" Nullable="false" />
+    <Property Name="фиоСотрудника" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="должность" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="датаРождения" Type="DateTime" Precision="0" />
+    <Property Name="рабочийТелефон" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="кодФилиала" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Заказы" Relationship="Self.FK_Заказы_Сотрудники" FromRole="Сотрудники" ToRole="Заказы" />
+    <NavigationProperty Name="Филиалы" Relationship="Self.FK_Сотрудники_Филиалы" FromRole="Сотрудники" ToRole="Филиалы" />
+  </EntityType>
+  <EntityType Name="Тарифы">
+    <Key>
+      <PropertyRef Name="кодТарифа" />
+    </Key>
+    <Property Name="кодТарифа" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="наименованиеТарифа" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="стоимостьТарифа" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="описаниеТарифа" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Заказы" Relationship="Self.FK_Заказ_Тарифы" FromRole="Тарифы" ToRole="Заказы" />
+    <NavigationProperty Name="Филиалы" Relationship="Self.ДоступныеТарифы" FromRole="Тарифы" ToRole="Филиалы" />
+  </EntityType>
+  <EntityType Name="Услуги">
+    <Key>
+      <PropertyRef Name="кодУслуги" />
+    </Key>
+    <Property Name="кодУслуги" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="наименованиеУслуги" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="стоимостьУслуги" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="описаниеУслуги" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Заказы" Relationship="Self.FK_Заказы_Услуги" FromRole="Услуги" ToRole="Заказы" />
+    <NavigationProperty Name="Филиалы" Relationship="Self.ПредоставляемыеУслуги" FromRole="Услуги" ToRole="Филиалы" />
+  </EntityType>
+  <EntityType Name="Филиалы">
+    <Key>
+      <PropertyRef Name="кодФилиала" />
+    </Key>
+    <Property Name="кодФилиала" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="наименованиеФилиала" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="адресФилиала" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="почтовыйИндекс" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="телефонФилиала" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="кодГорода" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Города" Relationship="Self.FK_Филиалы_Города" FromRole="Филиалы" ToRole="Города" />
+    <NavigationProperty Name="Сотрудники" Relationship="Self.FK_Сотрудники_Филиалы" FromRole="Филиалы" ToRole="Сотрудники" />
+    <NavigationProperty Name="Тарифы" Relationship="Self.ДоступныеТарифы" FromRole="Филиалы" ToRole="Тарифы" />
+    <NavigationProperty Name="Услуги" Relationship="Self.ПредоставляемыеУслуги" FromRole="Филиалы" ToRole="Услуги" />
+  </EntityType>
+  <Association Name="FK_Грузы_Автомобили">
+    <End Role="Автомобили" Type="Self.Автомобили" Multiplicity="1" />
+    <End Role="Грузы" Type="Self.Грузы" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Автомобили">
+        <PropertyRef Name="кодАвтомобиля" />
+      </Principal>
+      <Dependent Role="Грузы">
+        <PropertyRef Name="грнАвтомобиля" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Филиалы_Города">
+    <End Role="Города" Type="Self.Города" Multiplicity="1" />
+    <End Role="Филиалы" Type="Self.Филиалы" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Города">
+        <PropertyRef Name="кодГорода" />
+      </Principal>
+      <Dependent Role="Филиалы">
+        <PropertyRef Name="кодГорода" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Грузы_Заказы">
+    <End Role="Заказы" Type="Self.Заказы" Multiplicity="1" />
+    <End Role="Грузы" Type="Self.Грузы" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Заказы">
+        <PropertyRef Name="кодЗаказа" />
+      </Principal>
+      <Dependent Role="Грузы">
+        <PropertyRef Name="кодЗаказа" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Заказ_Клиенты">
+    <End Role="Клиенты" Type="Self.Клиенты" Multiplicity="1" />
+    <End Role="Заказы" Type="Self.Заказы" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Клиенты">
+        <PropertyRef Name="кодКлиента" />
+      </Principal>
+      <Dependent Role="Заказы">
+        <PropertyRef Name="кодКлиента" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Заказ_Тарифы">
+    <End Role="Тарифы" Type="Self.Тарифы" Multiplicity="1" />
+    <End Role="Заказы" Type="Self.Заказы" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Тарифы">
+        <PropertyRef Name="кодТарифа" />
+      </Principal>
+      <Dependent Role="Заказы">
+        <PropertyRef Name="кодТарифа" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Заказы_Маршруты">
+    <End Role="Маршруты" Type="Self.Маршруты" Multiplicity="1" />
+    <End Role="Заказы" Type="Self.Заказы" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Маршруты">
+        <PropertyRef Name="кодМаршрута" />
+      </Principal>
+      <Dependent Role="Заказы">
+        <PropertyRef Name="кодМаршрута" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Заказы_Платежи">
+    <End Role="Платежи" Type="Self.Платежи" Multiplicity="1" />
+    <End Role="Заказы" Type="Self.Заказы" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Платежи">
+        <PropertyRef Name="номерПлатежа" />
+      </Principal>
+      <Dependent Role="Заказы">
+        <PropertyRef Name="номерПлатежа" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Заказы_Сотрудники">
+    <End Role="Сотрудники" Type="Self.Сотрудники" Multiplicity="1" />
+    <End Role="Заказы" Type="Self.Заказы" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Сотрудники">
+        <PropertyRef Name="табельныйНомер" />
+      </Principal>
+      <Dependent Role="Заказы">
+        <PropertyRef Name="табельныйНомерСотрудника" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Заказы_Услуги">
+    <End Role="Услуги" Type="Self.Услуги" Multiplicity="0..1" />
+    <End Role="Заказы" Type="Self.Заказы" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Услуги">
+        <PropertyRef Name="кодУслуги" />
+      </Principal>
+      <Dependent Role="Заказы">
+        <PropertyRef Name="кодУслуги" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Сотрудники_Филиалы">
+    <End Role="Филиалы" Type="Self.Филиалы" Multiplicity="1" />
+    <End Role="Сотрудники" Type="Self.Сотрудники" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Филиалы">
+        <PropertyRef Name="кодФилиала" />
+      </Principal>
+      <Dependent Role="Сотрудники">
+        <PropertyRef Name="кодФилиала" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ДоступныеТарифы">
+    <End Role="Тарифы" Type="Self.Тарифы" Multiplicity="*" />
+    <End Role="Филиалы" Type="Self.Филиалы" Multiplicity="*" />
+  </Association>
+  <Association Name="ПредоставляемыеУслуги">
+    <End Role="Услуги" Type="Self.Услуги" Multiplicity="*" />
+    <End Role="Филиалы" Type="Self.Филиалы" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="ExpressDeliveryEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Автомобили" EntityType="Self.Автомобили" />
+    <EntitySet Name="Города" EntityType="Self.Города" />
+    <EntitySet Name="Грузы" EntityType="Self.Грузы" />
+    <EntitySet Name="Заказы" EntityType="Self.Заказы" />
+    <EntitySet Name="Клиенты" EntityType="Self.Клиенты" />
+    <EntitySet Name="Маршруты" EntityType="Self.Маршруты" />
+    <EntitySet Name="Платежи" EntityType="Self.Платежи" />
+    <EntitySet Name="Сотрудники" EntityType="Self.Сотрудники" />
+    <EntitySet Name="Тарифы" EntityType="Self.Тарифы" />
+    <EntitySet Name="Услуги" EntityType="Self.Услуги" />
+    <EntitySet Name="Филиалы" EntityType="Self.Филиалы" />
+    <AssociationSet Name="FK_Грузы_Автомобили" Association="Self.FK_Грузы_Автомобили">
+      <End Role="Автомобили" EntitySet="Автомобили" />
+      <End Role="Грузы" EntitySet="Грузы" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Филиалы_Города" Association="Self.FK_Филиалы_Города">
+      <End Role="Города" EntitySet="Города" />
+      <End Role="Филиалы" EntitySet="Филиалы" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Грузы_Заказы" Association="Self.FK_Грузы_Заказы">
+      <End Role="Заказы" EntitySet="Заказы" />
+      <End Role="Грузы" EntitySet="Грузы" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Заказ_Клиенты" Association="Self.FK_Заказ_Клиенты">
+      <End Role="Клиенты" EntitySet="Клиенты" />
+      <End Role="Заказы" EntitySet="Заказы" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Заказ_Тарифы" Association="Self.FK_Заказ_Тарифы">
+      <End Role="Тарифы" EntitySet="Тарифы" />
+      <End Role="Заказы" EntitySet="Заказы" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Заказы_Маршруты" Association="Self.FK_Заказы_Маршруты">
+      <End Role="Маршруты" EntitySet="Маршруты" />
+      <End Role="Заказы" EntitySet="Заказы" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Заказы_Платежи" Association="Self.FK_Заказы_Платежи">
+      <End Role="Платежи" EntitySet="Платежи" />
+      <End Role="Заказы" EntitySet="Заказы" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Заказы_Сотрудники" Association="Self.FK_Заказы_Сотрудники">
+      <End Role="Сотрудники" EntitySet="Сотрудники" />
+      <End Role="Заказы" EntitySet="Заказы" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Заказы_Услуги" Association="Self.FK_Заказы_Услуги">
+      <End Role="Услуги" EntitySet="Услуги" />
+      <End Role="Заказы" EntitySet="Заказы" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Сотрудники_Филиалы" Association="Self.FK_Сотрудники_Филиалы">
+      <End Role="Филиалы" EntitySet="Филиалы" />
+      <End Role="Сотрудники" EntitySet="Сотрудники" />
+    </AssociationSet>
+    <AssociationSet Name="ДоступныеТарифы" Association="Self.ДоступныеТарифы">
+      <End Role="Тарифы" EntitySet="Тарифы" />
+      <End Role="Филиалы" EntitySet="Филиалы" />
+    </AssociationSet>
+    <AssociationSet Name="ПредоставляемыеУслуги" Association="Self.ПредоставляемыеУслуги">
+      <End Role="Услуги" EntitySet="Услуги" />
+      <End Role="Филиалы" EntitySet="Филиалы" />
+    </AssociationSet>
+    <EntitySet Name="ИсторияОтслеживания" EntityType="ExpressDelivery.Domain.Entities.ИсторияОтслеживания" />
+    <AssociationSet Name="FK_ИсторияОтслеживания_Грузы" Association="ExpressDelivery.Domain.Entities.FK_ИсторияОтслеживания_Грузы">
+      <End Role="Грузы" EntitySet="Грузы" />
+      <End Role="ИсторияОтслеживания" EntitySet="ИсторияОтслеживания" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="ИсторияОтслеживания">
+    <Key>
+      <PropertyRef Name="кодЗаписи" />
+    </Key>
+    <Property Name="кодЗаписи" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="кодГруза" Type="Int32" Nullable="false" />
+    <Property Name="датаЗаписи" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="пунктРегистрации" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="примечание" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Грузы" Relationship="ExpressDelivery.Domain.Entities.FK_ИсторияОтслеживания_Грузы" FromRole="ИсторияОтслеживания" ToRole="Грузы" />
+  </EntityType>
+  <Association Name="FK_ИсторияОтслеживания_Грузы">
+    <End Type="ExpressDelivery.Domain.Entities.Грузы" Role="Грузы" Multiplicity="1" />
+    <End Type="ExpressDelivery.Domain.Entities.ИсторияОтслеживания" Role="ИсторияОтслеживания" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Грузы">
+        <PropertyRef Name="кодГруза" />
+      </Principal>
+      <Dependent Role="ИсторияОтслеживания">
+        <PropertyRef Name="кодГруза" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
