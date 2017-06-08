@@ -87,6 +87,15 @@
           <Property Name="рабочийТелефон" Type="varchar" MaxLength="16" Nullable="false" />
           <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
+        <EntityType Name="Комментарии">
+          <Key>
+            <PropertyRef Name="кодКомментария" />
+          </Key>
+          <Property Name="кодКомментария" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="кодКлиента" Type="int" Nullable="false" />
+          <Property Name="текстКомментария" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="оценка" Type="int" />
+        </EntityType>
         <EntityType Name="Маршруты">
           <Key>
             <PropertyRef Name="кодМаршрута" />
@@ -124,6 +133,17 @@
           <Property Name="кодФилиала" Type="int" Nullable="false" />
           <Property Name="кодУслуги" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="Сообщения">
+          <Key>
+            <PropertyRef Name="кодСообщения" />
+          </Key>
+          <Property Name="кодСообщения" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="датаСообщения" Type="date" Nullable="false" />
+          <Property Name="темаСообщения" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="текстСообщения" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="табельныйНомер" Type="int" Nullable="false" />
+          <Property Name="категорияСообщения" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <EntityType Name="Сотрудники">
           <Key>
             <PropertyRef Name="табельныйНомер" />
@@ -144,6 +164,18 @@
           <Property Name="наименованиеТарифа" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="стоимостьТарифа" Type="money" Nullable="false" />
           <Property Name="описаниеТарифа" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Уведомления">
+          <Key>
+            <PropertyRef Name="кодУведомления" />
+          </Key>
+          <Property Name="кодУведомления" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="датаУведомления" Type="date" Nullable="false" />
+          <Property Name="темаУведомления" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="текстУведомления" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="кодКлиента" Type="int" Nullable="false" />
+          <Property Name="табельныйНомер" Type="int" Nullable="false" />
+          <Property Name="прочитано" Type="bigint" Nullable="false" />
         </EntityType>
         <EntityType Name="Услуги">
           <Key>
@@ -297,6 +329,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Комментарии_Клиенты">
+          <End Role="Клиенты" Type="Self.Клиенты" Multiplicity="1" />
+          <End Role="Комментарии" Type="Self.Комментарии" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Клиенты">
+              <PropertyRef Name="кодКлиента" />
+            </Principal>
+            <Dependent Role="Комментарии">
+              <PropertyRef Name="кодКлиента" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_ПредоставляемыеУслуги_Услуги">
           <End Role="Услуги" Type="Self.Услуги" Multiplicity="1" />
           <End Role="ПредоставляемыеУслуги" Type="Self.ПредоставляемыеУслуги" Multiplicity="*" />
@@ -321,6 +365,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Сообщения_Сотрудники">
+          <End Role="Сотрудники" Type="Self.Сотрудники" Multiplicity="1" />
+          <End Role="Сообщения" Type="Self.Сообщения" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Сотрудники">
+              <PropertyRef Name="табельныйНомер" />
+            </Principal>
+            <Dependent Role="Сообщения">
+              <PropertyRef Name="табельныйНомер" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Сотрудники_Филиалы">
           <End Role="Филиалы" Type="Self.Филиалы" Multiplicity="1" />
           <End Role="Сотрудники" Type="Self.Сотрудники" Multiplicity="*" />
@@ -330,6 +386,18 @@
             </Principal>
             <Dependent Role="Сотрудники">
               <PropertyRef Name="кодФилиала" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Уведомления_Сотрудники">
+          <End Role="Сотрудники" Type="Self.Сотрудники" Multiplicity="1" />
+          <End Role="Уведомления" Type="Self.Уведомления" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Сотрудники">
+              <PropertyRef Name="табельныйНомер" />
+            </Principal>
+            <Dependent Role="Уведомления">
+              <PropertyRef Name="табельныйНомер" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -352,10 +420,13 @@
           <EntitySet Name="Заказы" EntityType="Self.Заказы" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ИсторияОтслеживания" EntityType="Self.ИсторияОтслеживания" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Клиенты" EntityType="Self.Клиенты" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Комментарии" EntityType="Self.Комментарии" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Маршруты" EntityType="Self.Маршруты" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Платежи" EntityType="Self.Платежи" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Сообщения" EntityType="Self.Сообщения" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Сотрудники" EntityType="Self.Сотрудники" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Тарифы" EntityType="Self.Тарифы" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Уведомления" EntityType="Self.Уведомления" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Услуги" EntityType="Self.Услуги" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Филиалы" EntityType="Self.Филиалы" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ДоступныеТарифы" EntityType="Self.ДоступныеТарифы" store:Type="Tables" store:Schema="dbo">
@@ -414,6 +485,10 @@
             <End Role="Грузы" EntitySet="Грузы" />
             <End Role="ИсторияОтслеживания" EntitySet="ИсторияОтслеживания" />
           </AssociationSet>
+          <AssociationSet Name="FK_Комментарии_Клиенты" Association="Self.FK_Комментарии_Клиенты">
+            <End Role="Клиенты" EntitySet="Клиенты" />
+            <End Role="Комментарии" EntitySet="Комментарии" />
+          </AssociationSet>
           <AssociationSet Name="FK_ПредоставляемыеУслуги_Услуги" Association="Self.FK_ПредоставляемыеУслуги_Услуги">
             <End Role="Услуги" EntitySet="Услуги" />
             <End Role="ПредоставляемыеУслуги" EntitySet="ПредоставляемыеУслуги" />
@@ -422,9 +497,17 @@
             <End Role="Филиалы" EntitySet="Филиалы" />
             <End Role="ПредоставляемыеУслуги" EntitySet="ПредоставляемыеУслуги" />
           </AssociationSet>
+          <AssociationSet Name="FK_Сообщения_Сотрудники" Association="Self.FK_Сообщения_Сотрудники">
+            <End Role="Сотрудники" EntitySet="Сотрудники" />
+            <End Role="Сообщения" EntitySet="Сообщения" />
+          </AssociationSet>
           <AssociationSet Name="FK_Сотрудники_Филиалы" Association="Self.FK_Сотрудники_Филиалы">
             <End Role="Филиалы" EntitySet="Филиалы" />
             <End Role="Сотрудники" EntitySet="Сотрудники" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Уведомления_Сотрудники" Association="Self.FK_Уведомления_Сотрудники">
+            <End Role="Сотрудники" EntitySet="Сотрудники" />
+            <End Role="Уведомления" EntitySet="Уведомления" />
           </AssociationSet>
           <AssociationSet Name="FK_Филиалы_Города" Association="Self.FK_Филиалы_Города">
             <End Role="Города" EntitySet="Города" />
@@ -509,6 +592,7 @@
           <Property Name="рабочийТелефон" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Заказы" Relationship="Self.FK_Заказ_Клиенты" FromRole="Клиенты" ToRole="Заказы" />
+          <NavigationProperty Name="Комментарии" Relationship="ExpressDelivery.Domain.Entities.FK_Комментарии_Клиенты" FromRole="Клиенты" ToRole="Комментарии" />
         </EntityType>
         <EntityType Name="Маршруты">
           <Key>
@@ -552,6 +636,8 @@
           <Property Name="кодФилиала" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Заказы" Relationship="Self.FK_Заказы_Сотрудники" FromRole="Сотрудники" ToRole="Заказы" />
           <NavigationProperty Name="Филиалы" Relationship="Self.FK_Сотрудники_Филиалы" FromRole="Сотрудники" ToRole="Филиалы" />
+          <NavigationProperty Name="Сообщения" Relationship="ExpressDelivery.Domain.Entities.FK_Сообщения_Сотрудники" FromRole="Сотрудники" ToRole="Сообщения" />
+          <NavigationProperty Name="Уведомления" Relationship="ExpressDelivery.Domain.Entities.FK_Уведомления_Сотрудники" FromRole="Сотрудники" ToRole="Уведомления" />
         </EntityType>
         <EntityType Name="Тарифы">
           <Key>
@@ -783,6 +869,21 @@
             <End Role="Грузы" EntitySet="Грузы" />
             <End Role="ИсторияОтслеживания" EntitySet="ИсторияОтслеживания" />
           </AssociationSet>
+          <EntitySet Name="Комментарии" EntityType="ExpressDelivery.Domain.Entities.Комментарии" />
+          <EntitySet Name="Сообщения" EntityType="ExpressDelivery.Domain.Entities.Сообщения" />
+          <EntitySet Name="Уведомления" EntityType="ExpressDelivery.Domain.Entities.Уведомления" />
+          <AssociationSet Name="FK_Комментарии_Клиенты" Association="ExpressDelivery.Domain.Entities.FK_Комментарии_Клиенты">
+            <End Role="Клиенты" EntitySet="Клиенты" />
+            <End Role="Комментарии" EntitySet="Комментарии" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Сообщения_Сотрудники" Association="ExpressDelivery.Domain.Entities.FK_Сообщения_Сотрудники">
+            <End Role="Сотрудники" EntitySet="Сотрудники" />
+            <End Role="Сообщения" EntitySet="Сообщения" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Уведомления_Сотрудники" Association="ExpressDelivery.Domain.Entities.FK_Уведомления_Сотрудники">
+            <End Role="Сотрудники" EntitySet="Сотрудники" />
+            <End Role="Уведомления" EntitySet="Уведомления" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="ИсторияОтслеживания">
           <Key>
@@ -804,6 +905,77 @@
             </Principal>
             <Dependent Role="ИсторияОтслеживания">
               <PropertyRef Name="кодГруза" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Комментарии">
+          <Key>
+            <PropertyRef Name="кодКомментария" />
+          </Key>
+          <Property Name="кодКомментария" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="кодКлиента" Type="Int32" Nullable="false" />
+          <Property Name="текстКомментария" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="оценка" Type="Int32" />
+          <NavigationProperty Name="Клиенты" Relationship="ExpressDelivery.Domain.Entities.FK_Комментарии_Клиенты" FromRole="Комментарии" ToRole="Клиенты" />
+        </EntityType>
+        <EntityType Name="Сообщения">
+          <Key>
+            <PropertyRef Name="кодСообщения" />
+          </Key>
+          <Property Name="кодСообщения" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="датаСообщения" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="темаСообщения" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="текстСообщения" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="табельныйНомер" Type="Int32" Nullable="false" />
+          <Property Name="категорияСообщения" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Сотрудники" Relationship="ExpressDelivery.Domain.Entities.FK_Сообщения_Сотрудники" FromRole="Сообщения" ToRole="Сотрудники" />
+        </EntityType>
+        <EntityType Name="Уведомления">
+          <Key>
+            <PropertyRef Name="кодУведомления" />
+          </Key>
+          <Property Name="кодУведомления" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="датаУведомления" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="темаУведомления" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="текстУведомления" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="кодКлиента" Type="Int32" Nullable="false" />
+          <Property Name="табельныйНомер" Type="Int32" Nullable="false" />
+          <Property Name="прочитано" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="Сотрудники" Relationship="ExpressDelivery.Domain.Entities.FK_Уведомления_Сотрудники" FromRole="Уведомления" ToRole="Сотрудники" />
+        </EntityType>
+        <Association Name="FK_Комментарии_Клиенты">
+          <End Type="ExpressDelivery.Domain.Entities.Клиенты" Role="Клиенты" Multiplicity="1" />
+          <End Type="ExpressDelivery.Domain.Entities.Комментарии" Role="Комментарии" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Клиенты">
+              <PropertyRef Name="кодКлиента" />
+            </Principal>
+            <Dependent Role="Комментарии">
+              <PropertyRef Name="кодКлиента" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Сообщения_Сотрудники">
+          <End Type="ExpressDelivery.Domain.Entities.Сотрудники" Role="Сотрудники" Multiplicity="1" />
+          <End Type="ExpressDelivery.Domain.Entities.Сообщения" Role="Сообщения" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Сотрудники">
+              <PropertyRef Name="табельныйНомер" />
+            </Principal>
+            <Dependent Role="Сообщения">
+              <PropertyRef Name="табельныйНомер" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Уведомления_Сотрудники">
+          <End Type="ExpressDelivery.Domain.Entities.Сотрудники" Role="Сотрудники" Multiplicity="1" />
+          <End Type="ExpressDelivery.Domain.Entities.Уведомления" Role="Уведомления" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Сотрудники">
+              <PropertyRef Name="табельныйНомер" />
+            </Principal>
+            <Dependent Role="Уведомления">
+              <PropertyRef Name="табельныйНомер" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -978,6 +1150,41 @@
                 <ScalarProperty Name="датаЗаписи" ColumnName="датаЗаписи" />
                 <ScalarProperty Name="кодГруза" ColumnName="кодГруза" />
                 <ScalarProperty Name="кодЗаписи" ColumnName="кодЗаписи" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Комментарии">
+            <EntityTypeMapping TypeName="ExpressDelivery.Domain.Entities.Комментарии">
+              <MappingFragment StoreEntitySet="Комментарии">
+                <ScalarProperty Name="оценка" ColumnName="оценка" />
+                <ScalarProperty Name="текстКомментария" ColumnName="текстКомментария" />
+                <ScalarProperty Name="кодКлиента" ColumnName="кодКлиента" />
+                <ScalarProperty Name="кодКомментария" ColumnName="кодКомментария" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Сообщения">
+            <EntityTypeMapping TypeName="ExpressDelivery.Domain.Entities.Сообщения">
+              <MappingFragment StoreEntitySet="Сообщения">
+                <ScalarProperty Name="категорияСообщения" ColumnName="категорияСообщения" />
+                <ScalarProperty Name="табельныйНомер" ColumnName="табельныйНомер" />
+                <ScalarProperty Name="текстСообщения" ColumnName="текстСообщения" />
+                <ScalarProperty Name="темаСообщения" ColumnName="темаСообщения" />
+                <ScalarProperty Name="датаСообщения" ColumnName="датаСообщения" />
+                <ScalarProperty Name="кодСообщения" ColumnName="кодСообщения" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Уведомления">
+            <EntityTypeMapping TypeName="ExpressDelivery.Domain.Entities.Уведомления">
+              <MappingFragment StoreEntitySet="Уведомления">
+                <ScalarProperty Name="прочитано" ColumnName="прочитано" />
+                <ScalarProperty Name="табельныйНомер" ColumnName="табельныйНомер" />
+                <ScalarProperty Name="кодКлиента" ColumnName="кодКлиента" />
+                <ScalarProperty Name="текстУведомления" ColumnName="текстУведомления" />
+                <ScalarProperty Name="темаУведомления" ColumnName="темаУведомления" />
+                <ScalarProperty Name="датаУведомления" ColumnName="датаУведомления" />
+                <ScalarProperty Name="кодУведомления" ColumnName="кодУведомления" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -74,6 +74,7 @@
     <Property Name="рабочийТелефон" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="Заказы" Relationship="Self.FK_Заказ_Клиенты" FromRole="Клиенты" ToRole="Заказы" />
+    <NavigationProperty Name="Комментарии" Relationship="ExpressDelivery.Domain.Entities.FK_Комментарии_Клиенты" FromRole="Клиенты" ToRole="Комментарии" />
   </EntityType>
   <EntityType Name="Маршруты">
     <Key>
@@ -117,6 +118,8 @@
     <Property Name="кодФилиала" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Заказы" Relationship="Self.FK_Заказы_Сотрудники" FromRole="Сотрудники" ToRole="Заказы" />
     <NavigationProperty Name="Филиалы" Relationship="Self.FK_Сотрудники_Филиалы" FromRole="Сотрудники" ToRole="Филиалы" />
+    <NavigationProperty Name="Сообщения" Relationship="ExpressDelivery.Domain.Entities.FK_Сообщения_Сотрудники" FromRole="Сотрудники" ToRole="Сообщения" />
+    <NavigationProperty Name="Уведомления" Relationship="ExpressDelivery.Domain.Entities.FK_Уведомления_Сотрудники" FromRole="Сотрудники" ToRole="Уведомления" />
   </EntityType>
   <EntityType Name="Тарифы">
     <Key>
@@ -348,6 +351,21 @@
       <End Role="Грузы" EntitySet="Грузы" />
       <End Role="ИсторияОтслеживания" EntitySet="ИсторияОтслеживания" />
     </AssociationSet>
+    <EntitySet Name="Комментарии" EntityType="ExpressDelivery.Domain.Entities.Комментарии" />
+    <EntitySet Name="Сообщения" EntityType="ExpressDelivery.Domain.Entities.Сообщения" />
+    <EntitySet Name="Уведомления" EntityType="ExpressDelivery.Domain.Entities.Уведомления" />
+    <AssociationSet Name="FK_Комментарии_Клиенты" Association="ExpressDelivery.Domain.Entities.FK_Комментарии_Клиенты">
+      <End Role="Клиенты" EntitySet="Клиенты" />
+      <End Role="Комментарии" EntitySet="Комментарии" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Сообщения_Сотрудники" Association="ExpressDelivery.Domain.Entities.FK_Сообщения_Сотрудники">
+      <End Role="Сотрудники" EntitySet="Сотрудники" />
+      <End Role="Сообщения" EntitySet="Сообщения" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Уведомления_Сотрудники" Association="ExpressDelivery.Domain.Entities.FK_Уведомления_Сотрудники">
+      <End Role="Сотрудники" EntitySet="Сотрудники" />
+      <End Role="Уведомления" EntitySet="Уведомления" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="ИсторияОтслеживания">
     <Key>
@@ -369,6 +387,77 @@
       </Principal>
       <Dependent Role="ИсторияОтслеживания">
         <PropertyRef Name="кодГруза" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Комментарии">
+    <Key>
+      <PropertyRef Name="кодКомментария" />
+    </Key>
+    <Property Name="кодКомментария" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="кодКлиента" Type="Int32" Nullable="false" />
+    <Property Name="текстКомментария" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="оценка" Type="Int32" />
+    <NavigationProperty Name="Клиенты" Relationship="ExpressDelivery.Domain.Entities.FK_Комментарии_Клиенты" FromRole="Комментарии" ToRole="Клиенты" />
+  </EntityType>
+  <EntityType Name="Сообщения">
+    <Key>
+      <PropertyRef Name="кодСообщения" />
+    </Key>
+    <Property Name="кодСообщения" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="датаСообщения" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="темаСообщения" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="текстСообщения" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="табельныйНомер" Type="Int32" Nullable="false" />
+    <Property Name="категорияСообщения" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Сотрудники" Relationship="ExpressDelivery.Domain.Entities.FK_Сообщения_Сотрудники" FromRole="Сообщения" ToRole="Сотрудники" />
+  </EntityType>
+  <EntityType Name="Уведомления">
+    <Key>
+      <PropertyRef Name="кодУведомления" />
+    </Key>
+    <Property Name="кодУведомления" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="датаУведомления" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="темаУведомления" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="текстУведомления" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="кодКлиента" Type="Int32" Nullable="false" />
+    <Property Name="табельныйНомер" Type="Int32" Nullable="false" />
+    <Property Name="прочитано" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="Сотрудники" Relationship="ExpressDelivery.Domain.Entities.FK_Уведомления_Сотрудники" FromRole="Уведомления" ToRole="Сотрудники" />
+  </EntityType>
+  <Association Name="FK_Комментарии_Клиенты">
+    <End Type="ExpressDelivery.Domain.Entities.Клиенты" Role="Клиенты" Multiplicity="1" />
+    <End Type="ExpressDelivery.Domain.Entities.Комментарии" Role="Комментарии" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Клиенты">
+        <PropertyRef Name="кодКлиента" />
+      </Principal>
+      <Dependent Role="Комментарии">
+        <PropertyRef Name="кодКлиента" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Сообщения_Сотрудники">
+    <End Type="ExpressDelivery.Domain.Entities.Сотрудники" Role="Сотрудники" Multiplicity="1" />
+    <End Type="ExpressDelivery.Domain.Entities.Сообщения" Role="Сообщения" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Сотрудники">
+        <PropertyRef Name="табельныйНомер" />
+      </Principal>
+      <Dependent Role="Сообщения">
+        <PropertyRef Name="табельныйНомер" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Уведомления_Сотрудники">
+    <End Type="ExpressDelivery.Domain.Entities.Сотрудники" Role="Сотрудники" Multiplicity="1" />
+    <End Type="ExpressDelivery.Domain.Entities.Уведомления" Role="Уведомления" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Сотрудники">
+        <PropertyRef Name="табельныйНомер" />
+      </Principal>
+      <Dependent Role="Уведомления">
+        <PropertyRef Name="табельныйНомер" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

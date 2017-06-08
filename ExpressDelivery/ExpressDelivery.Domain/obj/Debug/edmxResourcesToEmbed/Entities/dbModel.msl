@@ -169,5 +169,40 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Комментарии">
+      <EntityTypeMapping TypeName="ExpressDelivery.Domain.Entities.Комментарии">
+        <MappingFragment StoreEntitySet="Комментарии">
+          <ScalarProperty Name="оценка" ColumnName="оценка" />
+          <ScalarProperty Name="текстКомментария" ColumnName="текстКомментария" />
+          <ScalarProperty Name="кодКлиента" ColumnName="кодКлиента" />
+          <ScalarProperty Name="кодКомментария" ColumnName="кодКомментария" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Сообщения">
+      <EntityTypeMapping TypeName="ExpressDelivery.Domain.Entities.Сообщения">
+        <MappingFragment StoreEntitySet="Сообщения">
+          <ScalarProperty Name="категорияСообщения" ColumnName="категорияСообщения" />
+          <ScalarProperty Name="табельныйНомер" ColumnName="табельныйНомер" />
+          <ScalarProperty Name="текстСообщения" ColumnName="текстСообщения" />
+          <ScalarProperty Name="темаСообщения" ColumnName="темаСообщения" />
+          <ScalarProperty Name="датаСообщения" ColumnName="датаСообщения" />
+          <ScalarProperty Name="кодСообщения" ColumnName="кодСообщения" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Уведомления">
+      <EntityTypeMapping TypeName="ExpressDelivery.Domain.Entities.Уведомления">
+        <MappingFragment StoreEntitySet="Уведомления">
+          <ScalarProperty Name="прочитано" ColumnName="прочитано" />
+          <ScalarProperty Name="табельныйНомер" ColumnName="табельныйНомер" />
+          <ScalarProperty Name="кодКлиента" ColumnName="кодКлиента" />
+          <ScalarProperty Name="текстУведомления" ColumnName="текстУведомления" />
+          <ScalarProperty Name="темаУведомления" ColumnName="темаУведомления" />
+          <ScalarProperty Name="датаУведомления" ColumnName="датаУведомления" />
+          <ScalarProperty Name="кодУведомления" ColumnName="кодУведомления" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

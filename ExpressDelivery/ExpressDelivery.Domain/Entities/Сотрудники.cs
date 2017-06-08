@@ -18,6 +18,8 @@ namespace ExpressDelivery.Domain.Entities
         public Сотрудники()
         {
             this.Заказы = new HashSet<Заказы>();
+            this.Сообщения = new HashSet<Сообщения>();
+            this.Уведомления = new HashSet<Уведомления>();
         }
     
         public int табельныйНомер { get; set; }
@@ -31,5 +33,9 @@ namespace ExpressDelivery.Domain.Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Заказы> Заказы { get; set; }
         public virtual Филиалы Филиалы { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Сообщения> Сообщения { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Уведомления> Уведомления { get; set; }
     }
 }

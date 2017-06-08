@@ -31,7 +31,7 @@
                 <td>@line.Клиенты.фиоКлиента</td>
                 <td>@line.датаЗаказа</td>
                 <td>@line.стоимостьЗзаказа.ToString("c")</td>
-                <td>Заказ в обработке<br />
+                <td>Заказ подтвержден<br />
                     @using (Html.BeginForm("RemoveFromDB","Order"))
                     {
                         @Html.Hidden("orderId", line.кодЗаказа)

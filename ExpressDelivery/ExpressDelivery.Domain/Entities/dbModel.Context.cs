@@ -37,5 +37,8 @@ namespace ExpressDelivery.Domain.Entities
         public virtual DbSet<Услуги> Услуги { get; set; }
         public virtual DbSet<Филиалы> Филиалы { get; set; }
         public virtual DbSet<ИсторияОтслеживания> ИсторияОтслеживания { get; set; }
+        public virtual DbSet<Комментарии> Комментарии { get; set; }
+        public virtual DbSet<Сообщения> Сообщения { get; set; }
+        public virtual DbSet<Уведомления> Уведомления { get; set; }
     }
 }

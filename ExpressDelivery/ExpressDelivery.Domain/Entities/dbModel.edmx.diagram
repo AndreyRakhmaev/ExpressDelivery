@@ -30,6 +30,12 @@
         <AssociationConnector Association="ExpressDelivery.Domain.Entities.ПредоставляемыеУслуги" ManuallyRouted="false" />
         <EntityTypeShape EntityType="ExpressDelivery.Domain.Entities.ИсторияОтслеживания" Width="1.5" PointX="7.5" PointY="1.75" />
         <AssociationConnector Association="ExpressDelivery.Domain.Entities.FK_ИсторияОтслеживания_Грузы" />
+        <EntityTypeShape EntityType="ExpressDelivery.Domain.Entities.Комментарии" Width="1.5" PointX="3" PointY="12.5" />
+        <EntityTypeShape EntityType="ExpressDelivery.Domain.Entities.Сообщения" Width="1.5" PointX="10.5" PointY="4" />
+        <EntityTypeShape EntityType="ExpressDelivery.Domain.Entities.Уведомления" Width="1.5" PointX="10.5" PointY="7.125" />
+        <AssociationConnector Association="ExpressDelivery.Domain.Entities.FK_Комментарии_Клиенты" />
+        <AssociationConnector Association="ExpressDelivery.Domain.Entities.FK_Сообщения_Сотрудники" />
+        <AssociationConnector Association="ExpressDelivery.Domain.Entities.FK_Уведомления_Сотрудники" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
