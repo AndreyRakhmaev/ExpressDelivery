@@ -399,6 +399,7 @@
     <Property Name="текстКомментария" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
     <Property Name="оценка" Type="Int32" />
     <NavigationProperty Name="Клиенты" Relationship="ExpressDelivery.Domain.Entities.FK_Комментарии_Клиенты" FromRole="Комментарии" ToRole="Клиенты" />
+    <Property Name="датаКомментария" Type="DateTime" Precision="0" />
   </EntityType>
   <EntityType Name="Сообщения">
     <Key>

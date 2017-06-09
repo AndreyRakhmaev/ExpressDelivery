@@ -95,6 +95,7 @@
           <Property Name="кодКлиента" Type="int" Nullable="false" />
           <Property Name="текстКомментария" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="оценка" Type="int" />
+          <Property Name="датаКомментария" Type="date" />
         </EntityType>
         <EntityType Name="Маршруты">
           <Key>
@@ -917,6 +918,7 @@
           <Property Name="текстКомментария" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="оценка" Type="Int32" />
           <NavigationProperty Name="Клиенты" Relationship="ExpressDelivery.Domain.Entities.FK_Комментарии_Клиенты" FromRole="Комментарии" ToRole="Клиенты" />
+          <Property Name="датаКомментария" Type="DateTime" Precision="0" />
         </EntityType>
         <EntityType Name="Сообщения">
           <Key>
@@ -1156,6 +1158,7 @@
           <EntitySetMapping Name="Комментарии">
             <EntityTypeMapping TypeName="ExpressDelivery.Domain.Entities.Комментарии">
               <MappingFragment StoreEntitySet="Комментарии">
+                <ScalarProperty Name="датаКомментария" ColumnName="датаКомментария" />
                 <ScalarProperty Name="оценка" ColumnName="оценка" />
                 <ScalarProperty Name="текстКомментария" ColumnName="текстКомментария" />
                 <ScalarProperty Name="кодКлиента" ColumnName="кодКлиента" />

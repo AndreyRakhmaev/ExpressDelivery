@@ -90,6 +90,7 @@
     <Property Name="кодКлиента" Type="int" Nullable="false" />
     <Property Name="текстКомментария" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="оценка" Type="int" />
+    <Property Name="датаКомментария" Type="date" />
   </EntityType>
   <EntityType Name="Маршруты">
     <Key>

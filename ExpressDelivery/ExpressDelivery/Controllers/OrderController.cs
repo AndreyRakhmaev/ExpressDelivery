@@ -69,7 +69,7 @@ namespace ExpressDelivery.Controllers
 
         public ViewResult ListDelivery(string TrackNumber)
         {
-            List<ИсторияОтслеживания> h = Repository.Select<ИсторияОтслеживания>().Where(x => x.Грузы.номерОтслеживания == TrackNumber).ToList();
+            var h = Repository.Select<ИсторияОтслеживания>().Where(x => x.Грузы.номерОтслеживания == TrackNumber).ToList();
             return View(h);
         }
 

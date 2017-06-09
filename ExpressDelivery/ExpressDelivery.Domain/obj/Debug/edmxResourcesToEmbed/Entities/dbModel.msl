@@ -172,6 +172,7 @@
     <EntitySetMapping Name="Комментарии">
       <EntityTypeMapping TypeName="ExpressDelivery.Domain.Entities.Комментарии">
         <MappingFragment StoreEntitySet="Комментарии">
+          <ScalarProperty Name="датаКомментария" ColumnName="датаКомментария" />
           <ScalarProperty Name="оценка" ColumnName="оценка" />
           <ScalarProperty Name="текстКомментария" ColumnName="текстКомментария" />
           <ScalarProperty Name="кодКлиента" ColumnName="кодКлиента" />

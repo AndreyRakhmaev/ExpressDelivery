@@ -1,18 +1,16 @@
-﻿<!--header start-->
+﻿
 <header class="head-section">
     <div class="navbar navbar-default navbar-static-top">
         <div class="navbar navbar-default container">
             <div class="navbar-header">
-                <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse" type="button">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
+                <button class="navbar-toggle" data-target="#navbar-collapse-login" data-toggle="collapse" type="button">
+                    <span class="glyphicon glyphicon-user"></span>
                 </button>
                 <a class="navbar-brand" href="#"><img src="Content/img/icons/logo.png" />E<span>xpress Delivery</span></a>
                 <br />
                 Ваша транспортная компания
             </div>
-            <div class="navbar-collapse collapse">
+            <div class="navbar-collapse collapse" id="navbar-collapse-login">
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
@@ -44,14 +42,19 @@
         <div class="navbar navbar-default navbar-static-top">
             <div class="navbar navbar-default container">
                 <div class="navbar-header">
-                    <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse" type="button">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    @*<a class="navbar-brand" href="#">E<span>xpress Delivery</span></a>*@
+                        <div class="btn-group">
+                            <button class="navbar-toggle" data-target="#navbar-collapse-search" data-toggle="collapse" type="button">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                                <button class="navbar-toggle" data-target="#navbar-collapse-menu" data-toggle="collapse" type="button">
+                                    <span class="glyphicon glyphicon-th"></span>
+                                </button>
+                        </div>
                 </div>
-                <div class="navbar-collapse collapse">
+
+
+
+                <div class="navbar-collapse collapse" id="navbar-collapse-menu">
                     <ul class="nav navbar-nav">
                         <li>
                             @Html.ActionLink("Главная", "Index", "Home")
@@ -117,7 +120,7 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="#"> Акции и бонусы</a>
+                            @Html.ActionLink("Акции и бонусы", "Index", "Home")
                         </li>
                         <li class="dropdown">
                             <a class="dropdown-toggle" data-close-others="false" data-delay="0" data-hover="dropdown" data-toggle="dropdown" href="#">
@@ -144,11 +147,11 @@
                         <li>
                             @Html.ActionLink("Помощь", "Index", "Help")
                         </li>
-                        <li><input class="form-control search" placeholder="Search" type="text"></li>
+                        <li><input class="form-control search" placeholder="Поиск" type="text"></li>
                     </ul>
 
+                    </div>
                 </div>
-            </div>
         </div>
     </div>
 </header>

@@ -18,6 +18,7 @@ namespace ExpressDelivery.Domain.Entities
         public int кодКлиента { get; set; }
         public string текстКомментария { get; set; }
         public Nullable<int> оценка { get; set; }
+        public Nullable<System.DateTime> датаКомментария { get; set; }
     
         public virtual Клиенты Клиенты { get; set; }
     }

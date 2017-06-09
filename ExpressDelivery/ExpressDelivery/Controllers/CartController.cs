@@ -59,8 +59,8 @@ namespace ExpressDelivery.Controllers
         {
             CartLine cartLie = cart.Lines.Where(p => p.Product.OrderNumber == orderId).FirstOrDefault();
             OrderDetails order = cartLie.Product;
-            //order.OrderStatus = ;
-            //order.Comment = OrderStatus;
+            order.OrderStatus = order.OrderStatus;
+            order.Comment = order.Comment;
 
             string massage = "";
             switch (order.OrderStatus)
@@ -76,7 +76,7 @@ namespace ExpressDelivery.Controllers
                     break;
             }
             
-            return View("ShowMassage", order);
+            return View(order);
         }
     }
 }

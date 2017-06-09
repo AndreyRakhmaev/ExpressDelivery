@@ -299,6 +299,9 @@
     <Content Include="Views\Home\Develop.cshtml" />
     <Content Include="Views\Cart\ShowMassage.cshtml" />
     <Content Include="Views\Order\ListDelivery.cshtml" />
+    <Content Include="Views\Shared\MassagePartial.cshtml" />
+    <Content Include="Views\Home\Comments.cshtml" />
+    <Content Include="Views\Shared\NotificationsPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

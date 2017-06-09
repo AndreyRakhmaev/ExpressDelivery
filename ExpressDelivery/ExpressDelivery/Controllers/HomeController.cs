@@ -1,4 +1,5 @@
 ﻿using ExpressDelivery.Domain.Abstract;
+using ExpressDelivery.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,6 +39,12 @@ namespace ExpressDelivery.Controllers
         public ActionResult Develop()
         {
             return View();
+        }
+
+        public ActionResult Comments()
+        {
+            var comments = Repository.Select<Комментарии>().OrderBy(x => x.датаКомментария).ToList();
+            return View(comments);
         }
     }
 }

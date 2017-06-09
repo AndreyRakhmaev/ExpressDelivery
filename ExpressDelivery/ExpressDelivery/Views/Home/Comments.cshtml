@@ -1,0 +1,28 @@
+﻿@model List<ExpressDelivery.Domain.Entities.Комментарии>
+@{ 
+    Layout = null;
+}
+
+@{
+    <ul class="slides about-flex-slides">
+    @foreach (var c in Model)
+    {
+            <li>
+                <div class="about-testimonial-image ">
+                    <img alt="" src="Content/img/photo.png">
+                </div>
+                <a class="about-testimonial-author" href="#">
+                    @c.Клиенты.фиоКлиента
+                </a>
+                <span class="about-testimonial-company">
+                    Дата: @c.датаКомментария | Оценка: @c.оценка/10
+                </span>
+                <div class="about-testimonial-content">
+                    <p class="about-testimonial-quote">
+                        @c.текстКомментария
+                    </p>
+                </div>
+            </li>
+    }
+     </ul>
+}
