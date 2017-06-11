@@ -105,14 +105,12 @@ C:\Users\Андрей\Documents\GitHub\ExpressDelivery\ExpressDelivery\ExpressDe
 C:\Users\Андрей\Documents\GitHub\ExpressDelivery\ExpressDelivery\ExpressDelivery.UnitTests\bin\Debug\System.Web.WebPages.dll
 C:\Users\Андрей\Documents\GitHub\ExpressDelivery\ExpressDelivery\ExpressDelivery.UnitTests\bin\Debug\Microsoft.Owin.Host.SystemWeb.dll
 C:\Users\Андрей\Documents\GitHub\ExpressDelivery\ExpressDelivery\ExpressDelivery.UnitTests\bin\Debug\System.Web.Razor.dll
-C:\Users\Андрей\Documents\GitHub\ExpressDelivery\ExpressDelivery\ExpressDelivery.UnitTests\bin\Debug\System.Web.WebPages.Razor.dll
 C:\Users\Андрей\Documents\GitHub\ExpressDelivery\ExpressDelivery\ExpressDelivery.UnitTests\bin\Debug\Microsoft.Web.Infrastructure.dll
 C:\Users\Андрей\Documents\GitHub\ExpressDelivery\ExpressDelivery\ExpressDelivery.UnitTests\bin\Debug\System.Web.WebPages.Deployment.dll
 C:\Users\Андрей\Documents\GitHub\ExpressDelivery\ExpressDelivery\ExpressDelivery.UnitTests\bin\Debug\ExpressDelivery.Domain.pdb
 C:\Users\Андрей\Documents\GitHub\ExpressDelivery\ExpressDelivery\ExpressDelivery.UnitTests\bin\Debug\ExpressDelivery.pdb
 C:\Users\Андрей\Documents\GitHub\ExpressDelivery\ExpressDelivery\ExpressDelivery.UnitTests\bin\Debug\Castle.Core.xml
 C:\Users\Андрей\Documents\GitHub\ExpressDelivery\ExpressDelivery\ExpressDelivery.UnitTests\bin\Debug\Moq.xml
-C:\Users\Андрей\Documents\GitHub\ExpressDelivery\ExpressDelivery\ExpressDelivery.UnitTests\bin\Debug\System.Web.Mvc.xml
 C:\Users\Андрей\Documents\GitHub\ExpressDelivery\ExpressDelivery\ExpressDelivery.UnitTests\bin\Debug\EntityFramework.xml
 C:\Users\Андрей\Documents\GitHub\ExpressDelivery\ExpressDelivery\ExpressDelivery.UnitTests\bin\Debug\Microsoft.Owin.xml
 C:\Users\Андрей\Documents\GitHub\ExpressDelivery\ExpressDelivery\ExpressDelivery.UnitTests\bin\Debug\System.Web.Optimization.xml
@@ -125,9 +123,7 @@ C:\Users\Андрей\Documents\GitHub\ExpressDelivery\ExpressDelivery\ExpressDe
 C:\Users\Андрей\Documents\GitHub\ExpressDelivery\ExpressDelivery\ExpressDelivery.UnitTests\bin\Debug\System.Web.WebPages.xml
 C:\Users\Андрей\Documents\GitHub\ExpressDelivery\ExpressDelivery\ExpressDelivery.UnitTests\bin\Debug\Microsoft.Owin.Host.SystemWeb.xml
 C:\Users\Андрей\Documents\GitHub\ExpressDelivery\ExpressDelivery\ExpressDelivery.UnitTests\bin\Debug\System.Web.Razor.xml
-C:\Users\Андрей\Documents\GitHub\ExpressDelivery\ExpressDelivery\ExpressDelivery.UnitTests\bin\Debug\System.Web.WebPages.Razor.xml
 C:\Users\Андрей\Documents\GitHub\ExpressDelivery\ExpressDelivery\ExpressDelivery.UnitTests\bin\Debug\System.Web.WebPages.Deployment.xml
-C:\Users\Андрей\Documents\GitHub\ExpressDelivery\ExpressDelivery\ExpressDelivery.UnitTests\bin\Debug\ru\System.Web.Mvc.resources.dll
 C:\Users\Андрей\Documents\GitHub\ExpressDelivery\ExpressDelivery\ExpressDelivery.UnitTests\bin\Debug\ru\Microsoft.VisualStudio.QualityTools.UnitTestFramework.resources.dll
 C:\Users\Андрей\Documents\GitHub\ExpressDelivery\ExpressDelivery\ExpressDelivery.UnitTests\bin\Debug\ru\EntityFramework.resources.dll
 C:\Users\Андрей\Documents\GitHub\ExpressDelivery\ExpressDelivery\ExpressDelivery.UnitTests\bin\Debug\ru\Microsoft.Owin.resources.dll
@@ -139,7 +135,6 @@ C:\Users\Андрей\Documents\GitHub\ExpressDelivery\ExpressDelivery\ExpressDe
 C:\Users\Андрей\Documents\GitHub\ExpressDelivery\ExpressDelivery\ExpressDelivery.UnitTests\bin\Debug\ru\System.Web.WebPages.resources.dll
 C:\Users\Андрей\Documents\GitHub\ExpressDelivery\ExpressDelivery\ExpressDelivery.UnitTests\bin\Debug\ru\Microsoft.Owin.Host.SystemWeb.resources.dll
 C:\Users\Андрей\Documents\GitHub\ExpressDelivery\ExpressDelivery\ExpressDelivery.UnitTests\bin\Debug\ru\System.Web.Razor.resources.dll
-C:\Users\Андрей\Documents\GitHub\ExpressDelivery\ExpressDelivery\ExpressDelivery.UnitTests\bin\Debug\ru\System.Web.WebPages.Razor.resources.dll
 C:\Users\Андрей\Documents\GitHub\ExpressDelivery\ExpressDelivery\ExpressDelivery.UnitTests\bin\Debug\ru\System.Web.WebPages.Deployment.resources.dll
 C:\Users\Андрей\Documents\GitHub\ExpressDelivery\ExpressDelivery\ExpressDelivery.UnitTests\obj\Debug\ExpressDelivery.UnitTests.csprojResolveAssemblyReference.cache
 C:\Users\Андрей\Documents\GitHub\ExpressDelivery\ExpressDelivery\ExpressDelivery.UnitTests\obj\Debug\ExpressDelivery.UnitTests.dll
