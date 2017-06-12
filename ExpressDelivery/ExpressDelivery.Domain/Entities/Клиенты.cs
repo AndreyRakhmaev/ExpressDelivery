@@ -21,14 +21,14 @@ namespace ExpressDelivery.Domain.Entities
             this.Комментарии = new HashSet<Комментарии>();
         }
     
-        public int кодКлиента { get; set; }
+        public string кодКлиента { get; set; }
         public string фиоКлиента { get; set; }
         public Nullable<System.DateTime> датаРождения { get; set; }
+        public string городПроживания { get; set; }
         public string aдресПроживания { get; set; }
         public string индекс { get; set; }
-        public string рабочийТелефон { get; set; }
-        public string email { get; set; }
     
+        public virtual AspNetUsers AspNetUsers { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Заказы> Заказы { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

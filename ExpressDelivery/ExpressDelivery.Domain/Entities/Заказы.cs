@@ -23,12 +23,13 @@ namespace ExpressDelivery.Domain.Entities
         public int кодЗаказа { get; set; }
         public System.DateTime датаЗаказа { get; set; }
         public string фиоПолучателя { get; set; }
+        public string ГородПолучателя { get; set; }
         public string адресПолучателя { get; set; }
         public string почтовыйИндекс { get; set; }
         public decimal стоимостьЗзаказа { get; set; }
         public string примечаниеКЗаказу { get; set; }
         public int табельныйНомерСотрудника { get; set; }
-        public int кодКлиента { get; set; }
+        public string кодКлиента { get; set; }
         public int кодТарифа { get; set; }
         public Nullable<int> кодУслуги { get; set; }
         public int номерПлатежа { get; set; }
@@ -36,8 +37,8 @@ namespace ExpressDelivery.Domain.Entities
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Грузы> Грузы { get; set; }
-        public virtual Клиенты Клиенты { get; set; }
         public virtual Тарифы Тарифы { get; set; }
+        public virtual Клиенты Клиенты { get; set; }
         public virtual Маршруты Маршруты { get; set; }
         public virtual Платежи Платежи { get; set; }
         public virtual Сотрудники Сотрудники { get; set; }

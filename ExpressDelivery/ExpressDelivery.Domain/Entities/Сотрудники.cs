@@ -32,9 +32,9 @@ namespace ExpressDelivery.Domain.Entities
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Заказы> Заказы { get; set; }
-        public virtual Филиалы Филиалы { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Сообщения> Сообщения { get; set; }
+        public virtual Филиалы Филиалы { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Уведомления> Уведомления { get; set; }
     }

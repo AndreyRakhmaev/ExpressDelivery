@@ -6,7 +6,7 @@ namespace ExpressDelivery.Domain.Concrete
 {
     public class EFOrderRepository : IOrdersRepository
     {
-        private ExpressDeliveryEntities context = new ExpressDeliveryEntities();
+        private strExpressDeliveryEntities context = new strExpressDeliveryEntities();
 
         public IQueryable<Заказы> Orders
         {

@@ -15,7 +15,7 @@ namespace ExpressDelivery.Domain.Entities
     public partial class Комментарии
     {
         public int кодКомментария { get; set; }
-        public int кодКлиента { get; set; }
+        public string кодКлиента { get; set; }
         public string текстКомментария { get; set; }
         public Nullable<int> оценка { get; set; }
         public Nullable<System.DateTime> датаКомментария { get; set; }

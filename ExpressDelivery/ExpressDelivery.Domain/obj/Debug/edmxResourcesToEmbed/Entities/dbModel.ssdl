@@ -1,5 +1,66 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="Хранилище ExpressDelivery.Domain.Entities" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="Хранилище ExpressDeliveryModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AspNetRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaims">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ClaimType" Type="nvarchar(max)" />
+    <Property Name="ClaimValue" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogins">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserRoles">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="256" />
+    <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+    <Property Name="PasswordHash" Type="nvarchar(max)" />
+    <Property Name="SecurityStamp" Type="nvarchar(max)" />
+    <Property Name="PhoneNumber" Type="nvarchar(max)" />
+    <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="datetime" />
+    <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
   <EntityType Name="Автомобили">
     <Key>
       <PropertyRef Name="кодАвтомобиля" />
@@ -54,11 +115,12 @@
     <Property Name="стоимостьЗзаказа" Type="money" Nullable="false" />
     <Property Name="примечаниеКЗаказу" Type="varchar" MaxLength="255" />
     <Property Name="табельныйНомерСотрудника" Type="int" Nullable="false" />
-    <Property Name="кодКлиента" Type="int" Nullable="false" />
+    <Property Name="кодКлиента" Type="nvarchar" MaxLength="128" Nullable="false" />
     <Property Name="кодТарифа" Type="int" Nullable="false" />
     <Property Name="кодУслуги" Type="int" />
     <Property Name="номерПлатежа" Type="int" Nullable="false" />
     <Property Name="кодМаршрута" Type="int" Nullable="false" />
+    <Property Name="городПолучателя" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="ИсторияОтслеживания">
     <Key>
@@ -74,20 +136,19 @@
     <Key>
       <PropertyRef Name="кодКлиента" />
     </Key>
-    <Property Name="кодКлиента" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="кодКлиента" Type="nvarchar" MaxLength="128" Nullable="false" />
     <Property Name="фиоКлиента" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="датаРождения" Type="date" />
+    <Property Name="городПроживания" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="aдресПроживания" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="датаРождения" Type="date" />
     <Property Name="индекс" Type="varchar" MaxLength="6" Nullable="false" />
-    <Property Name="рабочийТелефон" Type="varchar" MaxLength="16" Nullable="false" />
-    <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="Комментарии">
     <Key>
       <PropertyRef Name="кодКомментария" />
     </Key>
     <Property Name="кодКомментария" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="кодКлиента" Type="int" Nullable="false" />
+    <Property Name="кодКлиента" Type="nvarchar" MaxLength="128" Nullable="false" />
     <Property Name="текстКомментария" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="оценка" Type="int" />
     <Property Name="датаКомментария" Type="date" />
@@ -193,6 +254,74 @@
     <Property Name="телефонФилиала" Type="varchar" MaxLength="16" Nullable="false" />
     <Property Name="кодГорода" Type="int" Nullable="false" />
   </EntityType>
+  <Association Name="FK_AspNetUsers_Клиенты">
+    <End Role="Клиенты" Type="Self.Клиенты" Multiplicity="1" />
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Клиенты">
+        <PropertyRef Name="кодКлиента" />
+      </Principal>
+      <Dependent Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+    <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetRoles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Грузы_Автомобили">
     <End Role="Автомобили" Type="Self.Автомобили" Multiplicity="1" />
     <End Role="Грузы" Type="Self.Грузы" Multiplicity="*" />
@@ -241,18 +370,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Заказ_Клиенты">
-    <End Role="Клиенты" Type="Self.Клиенты" Multiplicity="1" />
-    <End Role="Заказы" Type="Self.Заказы" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Клиенты">
-        <PropertyRef Name="кодКлиента" />
-      </Principal>
-      <Dependent Role="Заказы">
-        <PropertyRef Name="кодКлиента" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_Заказ_Тарифы">
     <End Role="Тарифы" Type="Self.Тарифы" Multiplicity="1" />
     <End Role="Заказы" Type="Self.Заказы" Multiplicity="*" />
@@ -262,6 +379,18 @@
       </Principal>
       <Dependent Role="Заказы">
         <PropertyRef Name="кодТарифа" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Заказы_Клиенты">
+    <End Role="Клиенты" Type="Self.Клиенты" Multiplicity="1" />
+    <End Role="Заказы" Type="Self.Заказы" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Клиенты">
+        <PropertyRef Name="кодКлиента" />
+      </Principal>
+      <Dependent Role="Заказы">
+        <PropertyRef Name="кодКлиента" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -409,7 +538,13 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="Хранилище ExpressDeliveryDomainEntitiesContainer">
+  <EntityContainer Name="Хранилище ExpressDeliveryModelContainer">
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Автомобили" EntityType="Self.Автомобили" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Города" EntityType="Self.Города" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Грузы" EntityType="Self.Грузы" Schema="dbo" store:Type="Tables" />
@@ -437,6 +572,26 @@
     [ПредоставляемыеУслуги].[кодУслуги] AS [кодУслуги]
     FROM [dbo].[ПредоставляемыеУслуги] AS [ПредоставляемыеУслуги]</DefiningQuery>
     </EntitySet>
+    <AssociationSet Name="FK_AspNetUsers_Клиенты" Association="Self.FK_AspNetUsers_Клиенты">
+      <End Role="Клиенты" EntitySet="Клиенты" />
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
     <AssociationSet Name="FK_Грузы_Автомобили" Association="Self.FK_Грузы_Автомобили">
       <End Role="Автомобили" EntitySet="Автомобили" />
       <End Role="Грузы" EntitySet="Грузы" />
@@ -453,12 +608,12 @@
       <End Role="Филиалы" EntitySet="Филиалы" />
       <End Role="ДоступныеТарифы" EntitySet="ДоступныеТарифы" />
     </AssociationSet>
-    <AssociationSet Name="FK_Заказ_Клиенты" Association="Self.FK_Заказ_Клиенты">
-      <End Role="Клиенты" EntitySet="Клиенты" />
-      <End Role="Заказы" EntitySet="Заказы" />
-    </AssociationSet>
     <AssociationSet Name="FK_Заказ_Тарифы" Association="Self.FK_Заказ_Тарифы">
       <End Role="Тарифы" EntitySet="Тарифы" />
+      <End Role="Заказы" EntitySet="Заказы" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Заказы_Клиенты" Association="Self.FK_Заказы_Клиенты">
+      <End Role="Клиенты" EntitySet="Клиенты" />
       <End Role="Заказы" EntitySet="Заказы" />
     </AssociationSet>
     <AssociationSet Name="FK_Заказы_Маршруты" Association="Self.FK_Заказы_Маршруты">

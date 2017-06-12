@@ -1,0 +1,273 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище ExpressDeliveryModelContainer" CdmEntityContainer="strExpressDeliveryEntities">
+    <EntitySetMapping Name="AspNetRoles">
+      <EntityTypeMapping TypeName="ExpressDeliveryModel.AspNetRoles">
+        <MappingFragment StoreEntitySet="AspNetRoles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserClaims">
+      <EntityTypeMapping TypeName="ExpressDeliveryModel.AspNetUserClaims">
+        <MappingFragment StoreEntitySet="AspNetUserClaims">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserLogins">
+      <EntityTypeMapping TypeName="ExpressDeliveryModel.AspNetUserLogins">
+        <MappingFragment StoreEntitySet="AspNetUserLogins">
+          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUsers">
+      <EntityTypeMapping TypeName="ExpressDeliveryModel.AspNetUsers">
+        <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="ExpressDeliveryModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Автомобили">
+      <EntityTypeMapping TypeName="ExpressDeliveryModel.Автомобили">
+        <MappingFragment StoreEntitySet="Автомобили">
+          <ScalarProperty Name="кодАвтомобиля" ColumnName="кодАвтомобиля" />
+          <ScalarProperty Name="грнАвтомобиля" ColumnName="грнАвтомобиля" />
+          <ScalarProperty Name="модельАвтомобиля" ColumnName="модельАвтомобиля" />
+          <ScalarProperty Name="грузоподъёмность" ColumnName="грузоподъёмность" />
+          <ScalarProperty Name="габаритыАвтомобиля" ColumnName="габаритыАвтомобиля" />
+          <ScalarProperty Name="степеньЗагруженности" ColumnName="степеньЗагруженности" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Города">
+      <EntityTypeMapping TypeName="ExpressDeliveryModel.Города">
+        <MappingFragment StoreEntitySet="Города">
+          <ScalarProperty Name="кодГорода" ColumnName="кодГорода" />
+          <ScalarProperty Name="наименованиеГорода" ColumnName="наименованиеГорода" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Грузы">
+      <EntityTypeMapping TypeName="ExpressDeliveryModel.Грузы">
+        <MappingFragment StoreEntitySet="Грузы">
+          <ScalarProperty Name="кодГруза" ColumnName="кодГруза" />
+          <ScalarProperty Name="габаритыГруза" ColumnName="габаритыГруза" />
+          <ScalarProperty Name="массаГруза" ColumnName="массаГруза" />
+          <ScalarProperty Name="типГруза" ColumnName="типГруза" />
+          <ScalarProperty Name="статусГруза" ColumnName="статусГруза" />
+          <ScalarProperty Name="номерОтслеживания" ColumnName="номерОтслеживания" />
+          <ScalarProperty Name="примечание" ColumnName="примечание" />
+          <ScalarProperty Name="грнАвтомобиля" ColumnName="грнАвтомобиля" />
+          <ScalarProperty Name="кодЗаказа" ColumnName="кодЗаказа" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Заказы">
+      <EntityTypeMapping TypeName="ExpressDeliveryModel.Заказы">
+        <MappingFragment StoreEntitySet="Заказы">
+          <ScalarProperty Name="кодЗаказа" ColumnName="кодЗаказа" />
+          <ScalarProperty Name="датаЗаказа" ColumnName="датаЗаказа" />
+          <ScalarProperty Name="фиоПолучателя" ColumnName="фиоПолучателя" />
+          <ScalarProperty Name="ГородПолучателя" ColumnName="ГородПолучателя" />
+          <ScalarProperty Name="адресПолучателя" ColumnName="адресПолучателя" />
+          <ScalarProperty Name="почтовыйИндекс" ColumnName="почтовыйИндекс" />
+          <ScalarProperty Name="стоимостьЗзаказа" ColumnName="стоимостьЗзаказа" />
+          <ScalarProperty Name="примечаниеКЗаказу" ColumnName="примечаниеКЗаказу" />
+          <ScalarProperty Name="табельныйНомерСотрудника" ColumnName="табельныйНомерСотрудника" />
+          <ScalarProperty Name="кодКлиента" ColumnName="кодКлиента" />
+          <ScalarProperty Name="кодТарифа" ColumnName="кодТарифа" />
+          <ScalarProperty Name="кодУслуги" ColumnName="кодУслуги" />
+          <ScalarProperty Name="номерПлатежа" ColumnName="номерПлатежа" />
+          <ScalarProperty Name="кодМаршрута" ColumnName="кодМаршрута" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ИсторияОтслеживания">
+      <EntityTypeMapping TypeName="ExpressDeliveryModel.ИсторияОтслеживания">
+        <MappingFragment StoreEntitySet="ИсторияОтслеживания">
+          <ScalarProperty Name="кодЗаписи" ColumnName="кодЗаписи" />
+          <ScalarProperty Name="кодГруза" ColumnName="кодГруза" />
+          <ScalarProperty Name="датаЗаписи" ColumnName="датаЗаписи" />
+          <ScalarProperty Name="пунктРегистрации" ColumnName="пунктРегистрации" />
+          <ScalarProperty Name="примечание" ColumnName="примечание" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Клиенты">
+      <EntityTypeMapping TypeName="ExpressDeliveryModel.Клиенты">
+        <MappingFragment StoreEntitySet="Клиенты">
+          <ScalarProperty Name="кодКлиента" ColumnName="кодКлиента" />
+          <ScalarProperty Name="фиоКлиента" ColumnName="фиоКлиента" />
+          <ScalarProperty Name="датаРождения" ColumnName="датаРождения" />
+          <ScalarProperty Name="городПроживания" ColumnName="городПроживания" />
+          <ScalarProperty Name="aдресПроживания" ColumnName="aдресПроживания" />
+          <ScalarProperty Name="индекс" ColumnName="индекс" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Комментарии">
+      <EntityTypeMapping TypeName="ExpressDeliveryModel.Комментарии">
+        <MappingFragment StoreEntitySet="Комментарии">
+          <ScalarProperty Name="кодКомментария" ColumnName="кодКомментария" />
+          <ScalarProperty Name="кодКлиента" ColumnName="кодКлиента" />
+          <ScalarProperty Name="текстКомментария" ColumnName="текстКомментария" />
+          <ScalarProperty Name="оценка" ColumnName="оценка" />
+          <ScalarProperty Name="датаКомментария" ColumnName="датаКомментария" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Маршруты">
+      <EntityTypeMapping TypeName="ExpressDeliveryModel.Маршруты">
+        <MappingFragment StoreEntitySet="Маршруты">
+          <ScalarProperty Name="кодМаршрута" ColumnName="кодМаршрута" />
+          <ScalarProperty Name="наименованиеМаршрута" ColumnName="наименованиеМаршрута" />
+          <ScalarProperty Name="пунктОтправления" ColumnName="пунктОтправления" />
+          <ScalarProperty Name="датаОтправления" ColumnName="датаОтправления" />
+          <ScalarProperty Name="протяженностьМаршрута" ColumnName="протяженностьМаршрута" />
+          <ScalarProperty Name="пунктНазначения" ColumnName="пунктНазначения" />
+          <ScalarProperty Name="датаПрибытия" ColumnName="датаПрибытия" />
+          <ScalarProperty Name="длительностьПеревозки" ColumnName="длительностьПеревозки" />
+          <ScalarProperty Name="стоимостьПеревозки" ColumnName="стоимостьПеревозки" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Платежи">
+      <EntityTypeMapping TypeName="ExpressDeliveryModel.Платежи">
+        <MappingFragment StoreEntitySet="Платежи">
+          <ScalarProperty Name="номерПлатежа" ColumnName="номерПлатежа" />
+          <ScalarProperty Name="видПлатежнойСистемы" ColumnName="видПлатежнойСистемы" />
+          <ScalarProperty Name="датаПлатежа" ColumnName="датаПлатежа" />
+          <ScalarProperty Name="суммаПлатежа" ColumnName="суммаПлатежа" />
+          <ScalarProperty Name="номерСчетаОткуда" ColumnName="номерСчетаОткуда" />
+          <ScalarProperty Name="номерСчетаКуда" ColumnName="номерСчетаКуда" />
+          <ScalarProperty Name="комиссия" ColumnName="комиссия" />
+          <ScalarProperty Name="примечаниеКПлатежу" ColumnName="примечаниеКПлатежу" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Сообщения">
+      <EntityTypeMapping TypeName="ExpressDeliveryModel.Сообщения">
+        <MappingFragment StoreEntitySet="Сообщения">
+          <ScalarProperty Name="кодСообщения" ColumnName="кодСообщения" />
+          <ScalarProperty Name="датаСообщения" ColumnName="датаСообщения" />
+          <ScalarProperty Name="темаСообщения" ColumnName="темаСообщения" />
+          <ScalarProperty Name="текстСообщения" ColumnName="текстСообщения" />
+          <ScalarProperty Name="табельныйНомер" ColumnName="табельныйНомер" />
+          <ScalarProperty Name="категорияСообщения" ColumnName="категорияСообщения" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Сотрудники">
+      <EntityTypeMapping TypeName="ExpressDeliveryModel.Сотрудники">
+        <MappingFragment StoreEntitySet="Сотрудники">
+          <ScalarProperty Name="табельныйНомер" ColumnName="табельныйНомер" />
+          <ScalarProperty Name="фиоСотрудника" ColumnName="фиоСотрудника" />
+          <ScalarProperty Name="должность" ColumnName="должность" />
+          <ScalarProperty Name="датаРождения" ColumnName="датаРождения" />
+          <ScalarProperty Name="рабочийТелефон" ColumnName="рабочийТелефон" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="кодФилиала" ColumnName="кодФилиала" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Тарифы">
+      <EntityTypeMapping TypeName="ExpressDeliveryModel.Тарифы">
+        <MappingFragment StoreEntitySet="Тарифы">
+          <ScalarProperty Name="кодТарифа" ColumnName="кодТарифа" />
+          <ScalarProperty Name="наименованиеТарифа" ColumnName="наименованиеТарифа" />
+          <ScalarProperty Name="стоимостьТарифа" ColumnName="стоимостьТарифа" />
+          <ScalarProperty Name="описаниеТарифа" ColumnName="описаниеТарифа" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Уведомления">
+      <EntityTypeMapping TypeName="ExpressDeliveryModel.Уведомления">
+        <MappingFragment StoreEntitySet="Уведомления">
+          <ScalarProperty Name="кодУведомления" ColumnName="кодУведомления" />
+          <ScalarProperty Name="датаУведомления" ColumnName="датаУведомления" />
+          <ScalarProperty Name="темаУведомления" ColumnName="темаУведомления" />
+          <ScalarProperty Name="текстУведомления" ColumnName="текстУведомления" />
+          <ScalarProperty Name="кодКлиента" ColumnName="кодКлиента" />
+          <ScalarProperty Name="табельныйНомер" ColumnName="табельныйНомер" />
+          <ScalarProperty Name="прочитано" ColumnName="прочитано" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Услуги">
+      <EntityTypeMapping TypeName="ExpressDeliveryModel.Услуги">
+        <MappingFragment StoreEntitySet="Услуги">
+          <ScalarProperty Name="кодУслуги" ColumnName="кодУслуги" />
+          <ScalarProperty Name="наименованиеУслуги" ColumnName="наименованиеУслуги" />
+          <ScalarProperty Name="стоимостьУслуги" ColumnName="стоимостьУслуги" />
+          <ScalarProperty Name="описаниеУслуги" ColumnName="описаниеУслуги" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Филиалы">
+      <EntityTypeMapping TypeName="ExpressDeliveryModel.Филиалы">
+        <MappingFragment StoreEntitySet="Филиалы">
+          <ScalarProperty Name="кодФилиала" ColumnName="кодФилиала" />
+          <ScalarProperty Name="наименованиеФилиала" ColumnName="наименованиеФилиала" />
+          <ScalarProperty Name="адресФилиала" ColumnName="адресФилиала" />
+          <ScalarProperty Name="почтовыйИндекс" ColumnName="почтовыйИндекс" />
+          <ScalarProperty Name="телефонФилиала" ColumnName="телефонФилиала" />
+          <ScalarProperty Name="кодГорода" ColumnName="кодГорода" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="AspNetUserRoles" TypeName="ExpressDeliveryModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+      <EndProperty Name="AspNetRoles">
+        <ScalarProperty Name="Id" ColumnName="RoleId" />
+      </EndProperty>
+      <EndProperty Name="AspNetUsers">
+        <ScalarProperty Name="Id" ColumnName="UserId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ДоступныеТарифы" TypeName="ExpressDeliveryModel.ДоступныеТарифы" StoreEntitySet="ДоступныеТарифы">
+      <EndProperty Name="Тарифы">
+        <ScalarProperty Name="кодТарифа" ColumnName="кодТарифа" />
+      </EndProperty>
+      <EndProperty Name="Филиалы">
+        <ScalarProperty Name="кодФилиала" ColumnName="кодФилиала" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ПредоставляемыеУслуги" TypeName="ExpressDeliveryModel.ПредоставляемыеУслуги" StoreEntitySet="ПредоставляемыеУслуги">
+      <EndProperty Name="Услуги">
+        <ScalarProperty Name="кодУслуги" ColumnName="кодУслуги" />
+      </EndProperty>
+      <EndProperty Name="Филиалы">
+        <ScalarProperty Name="кодФилиала" ColumnName="кодФилиала" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

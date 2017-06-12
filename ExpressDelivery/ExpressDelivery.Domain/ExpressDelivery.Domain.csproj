@@ -54,93 +54,109 @@
     <Compile Include="Abstract\IOrdersRepository.cs" />
     <Compile Include="Concrete\EFDbContext.cs" />
     <Compile Include="Concrete\EFOrderRepository.cs" />
-    <Compile Include="Entities\dbModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>dbModel.Context.tt</DependentUpon>
+    <Compile Include="Entities\AspNetRoles.cs">
+      <DependentUpon>EFDbModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\dbModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>dbModel.tt</DependentUpon>
+    <Compile Include="Entities\AspNetUserClaims.cs">
+      <DependentUpon>EFDbModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\dbModel.Designer.cs">
+    <Compile Include="Entities\AspNetUserLogins.cs">
+      <DependentUpon>EFDbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\AspNetUsers.cs">
+      <DependentUpon>EFDbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\EFDbModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>dbModel.edmx</DependentUpon>
+      <DependentUpon>EFDbModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\EFDbModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EFDbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\EFDbModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EFDbModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\sysdiagrams.cs">
+      <DependentUpon>EFDbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Автомобили.cs">
-      <DependentUpon>dbModel.tt</DependentUpon>
+      <DependentUpon>EFDbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Города.cs">
-      <DependentUpon>dbModel.tt</DependentUpon>
+      <DependentUpon>EFDbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Грузы.cs">
-      <DependentUpon>dbModel.tt</DependentUpon>
+      <DependentUpon>EFDbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Заказы.cs">
-      <DependentUpon>dbModel.tt</DependentUpon>
+      <DependentUpon>EFDbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\ИсторияОтслеживания.cs">
-      <DependentUpon>dbModel.tt</DependentUpon>
+      <DependentUpon>EFDbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Клиенты.cs">
-      <DependentUpon>dbModel.tt</DependentUpon>
+      <DependentUpon>EFDbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Комментарии.cs">
-      <DependentUpon>dbModel.tt</DependentUpon>
+      <DependentUpon>EFDbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Маршруты.cs">
-      <DependentUpon>dbModel.tt</DependentUpon>
+      <DependentUpon>EFDbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Платежи.cs">
-      <DependentUpon>dbModel.tt</DependentUpon>
+      <DependentUpon>EFDbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Сообщения.cs">
-      <DependentUpon>dbModel.tt</DependentUpon>
+      <DependentUpon>EFDbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Сотрудники.cs">
-      <DependentUpon>dbModel.tt</DependentUpon>
+      <DependentUpon>EFDbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Тарифы.cs">
-      <DependentUpon>dbModel.tt</DependentUpon>
+      <DependentUpon>EFDbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Уведомления.cs">
-      <DependentUpon>dbModel.tt</DependentUpon>
+      <DependentUpon>EFDbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Услуги.cs">
-      <DependentUpon>dbModel.tt</DependentUpon>
+      <DependentUpon>EFDbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Филиалы.cs">
-      <DependentUpon>dbModel.tt</DependentUpon>
+      <DependentUpon>EFDbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <EntityDeploy Include="Entities\dbModel.edmx">
+    <EntityDeploy Include="Entities\EFDbModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>dbModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>EFDbModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Entities\dbModel.edmx.diagram">
-      <DependentUpon>dbModel.edmx</DependentUpon>
+    <None Include="Entities\EFDbModel.edmx.diagram">
+      <DependentUpon>EFDbModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Entities\dbModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>dbModel.edmx</DependentUpon>
-      <LastGenOutput>dbModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Entities\dbModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>dbModel.edmx</DependentUpon>
-      <LastGenOutput>dbModel.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Entities\EFDbModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EFDbModel.edmx</DependentUpon>
+      <LastGenOutput>EFDbModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Entities\EFDbModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EFDbModel.edmx</DependentUpon>
+      <LastGenOutput>EFDbModel.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

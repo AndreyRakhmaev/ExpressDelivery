@@ -15,7 +15,7 @@ namespace ExpressDelivery.Controllers
     {
         public int PageSize = 5;
 
-        private ExpressDeliveryEntities context = new ExpressDeliveryEntities();
+        private strExpressDeliveryEntities context = new strExpressDeliveryEntities();
         private IOrdersRepository repository;
         public OrderController(IOrdersRepository orderRepository)
         {

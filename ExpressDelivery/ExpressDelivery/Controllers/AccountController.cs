@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using ExpressDelivery.Models;
+using ExpressDelivery.Domain.Entities;
 
 namespace ExpressDelivery.Controllers
 {
@@ -152,7 +153,14 @@ namespace ExpressDelivery.Controllers
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+
+                Клиенты customer = new Клиенты {
+                    кодКлиента = user.Id,
+                    фиоКлиента = user.UserName
+                };
+                Repository.Insert(customer);
                 var result = await UserManager.CreateAsync(user, model.Password);
+                
                 if (result.Succeeded)
                 {
                     // если создание прошло успешно, то добавляем роль пользователя

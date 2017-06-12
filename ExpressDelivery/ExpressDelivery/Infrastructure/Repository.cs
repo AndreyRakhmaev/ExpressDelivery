@@ -13,14 +13,14 @@ public class Repository
     public static IQueryable<TEntity> Select<TEntity>() where TEntity : class
     {
         // Переменная, представляющая модель базы данных Платежи
-        ExpressDeliveryEntities context = new ExpressDeliveryEntities();
+        strExpressDeliveryEntities context = new strExpressDeliveryEntities();
         // Загрузка данных с помощью универсального метода Set
         return context.Set<TEntity>();
     }
     public static void Insert<TEntity>(TEntity entity) where TEntity : class
     {
         // Переменная, представляющая модель базы данных Платежи
-        ExpressDeliveryEntities context = new ExpressDeliveryEntities();
+        strExpressDeliveryEntities context = new strExpressDeliveryEntities();
         context.Entry(entity).State = EntityState.Added;
         context.SaveChanges();
     }
@@ -29,7 +29,7 @@ public class Repository
     public static void Inserts<TEntity>(IEnumerable<TEntity> entities) where TEntity : class
     {
         // Переменная, представляющая модель базы данных Платежи
-        ExpressDeliveryEntities context = new ExpressDeliveryEntities();
+        strExpressDeliveryEntities context = new strExpressDeliveryEntities();
         //Отключаем отслеживание и проверку изменений для оптимизации вставки множества полей
         context.Configuration.AutoDetectChangesEnabled = false;
         context.Configuration.ValidateOnSaveEnabled = false;
@@ -49,7 +49,7 @@ public class Repository
     public static void Delete<TEntity>(TEntity entity) where TEntity : class
     {
         // Переменная, представляющая модель базы данных Платежи
-        ExpressDeliveryEntities context = new ExpressDeliveryEntities();
+        strExpressDeliveryEntities context = new strExpressDeliveryEntities();
         context.Entry<TEntity>(entity).State = EntityState.Deleted;
         context.SaveChanges();
     }

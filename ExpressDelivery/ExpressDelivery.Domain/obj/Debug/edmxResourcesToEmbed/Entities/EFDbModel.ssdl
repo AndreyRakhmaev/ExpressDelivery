@@ -1,0 +1,668 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище ExpressDeliveryModel" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AspNetRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaims">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ClaimType" Type="nvarchar(max)" />
+    <Property Name="ClaimValue" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogins">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserRoles">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="256" />
+    <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+    <Property Name="PasswordHash" Type="nvarchar(max)" />
+    <Property Name="SecurityStamp" Type="nvarchar(max)" />
+    <Property Name="PhoneNumber" Type="nvarchar(max)" />
+    <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="datetime" />
+    <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Автомобили">
+    <Key>
+      <PropertyRef Name="кодАвтомобиля" />
+    </Key>
+    <Property Name="кодАвтомобиля" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="грнАвтомобиля" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="модельАвтомобиля" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="грузоподъёмность" Type="float" Nullable="false" />
+    <Property Name="габаритыАвтомобиля" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="степеньЗагруженности" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Города">
+    <Key>
+      <PropertyRef Name="кодГорода" />
+    </Key>
+    <Property Name="кодГорода" Type="int" Nullable="false" />
+    <Property Name="наименованиеГорода" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Грузы">
+    <Key>
+      <PropertyRef Name="кодГруза" />
+    </Key>
+    <Property Name="кодГруза" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="габаритыГруза" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="массаГруза" Type="float" Nullable="false" />
+    <Property Name="типГруза" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="статусГруза" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="номерОтслеживания" Type="varchar" MaxLength="13" Nullable="false" />
+    <Property Name="примечание" Type="varchar" MaxLength="255" />
+    <Property Name="грнАвтомобиля" Type="int" Nullable="false" />
+    <Property Name="кодЗаказа" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "dbb95fb7d3e6594a6ba0a8a78f01878071.dbo.ДоступныеТарифы" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="ДоступныеТарифы">
+    <Key>
+      <PropertyRef Name="кодФилиала" />
+      <PropertyRef Name="кодТарифа" />
+    </Key>
+    <Property Name="кодФилиала" Type="int" Nullable="false" />
+    <Property Name="кодТарифа" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Заказы">
+    <Key>
+      <PropertyRef Name="кодЗаказа" />
+    </Key>
+    <Property Name="кодЗаказа" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="датаЗаказа" Type="date" Nullable="false" />
+    <Property Name="фиоПолучателя" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ГородПолучателя" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="адресПолучателя" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="почтовыйИндекс" Type="nvarchar" MaxLength="50" />
+    <Property Name="стоимостьЗзаказа" Type="money" Nullable="false" />
+    <Property Name="примечаниеКЗаказу" Type="nvarchar" MaxLength="255" />
+    <Property Name="табельныйНомерСотрудника" Type="int" Nullable="false" />
+    <Property Name="кодКлиента" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="кодТарифа" Type="int" Nullable="false" />
+    <Property Name="кодУслуги" Type="int" />
+    <Property Name="номерПлатежа" Type="int" Nullable="false" />
+    <Property Name="кодМаршрута" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ИсторияОтслеживания">
+    <Key>
+      <PropertyRef Name="кодЗаписи" />
+    </Key>
+    <Property Name="кодЗаписи" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="кодГруза" Type="int" Nullable="false" />
+    <Property Name="датаЗаписи" Type="date" Nullable="false" />
+    <Property Name="пунктРегистрации" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="примечание" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Клиенты">
+    <Key>
+      <PropertyRef Name="кодКлиента" />
+    </Key>
+    <Property Name="кодКлиента" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="фиоКлиента" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="датаРождения" Type="date" />
+    <Property Name="городПроживания" Type="nvarchar" MaxLength="50" />
+    <Property Name="aдресПроживания" Type="nvarchar" MaxLength="150" />
+    <Property Name="индекс" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Комментарии">
+    <Key>
+      <PropertyRef Name="кодКомментария" />
+    </Key>
+    <Property Name="кодКомментария" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="кодКлиента" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="текстКомментария" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="оценка" Type="int" />
+    <Property Name="датаКомментария" Type="date" />
+  </EntityType>
+  <EntityType Name="Маршруты">
+    <Key>
+      <PropertyRef Name="кодМаршрута" />
+    </Key>
+    <Property Name="кодМаршрута" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="наименованиеМаршрута" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="пунктОтправления" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="датаОтправления" Type="date" Nullable="false" />
+    <Property Name="протяженностьМаршрута" Type="float" Nullable="false" />
+    <Property Name="пунктНазначения" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="датаПрибытия" Type="date" Nullable="false" />
+    <Property Name="длительностьПеревозки" Type="float" Nullable="false" />
+    <Property Name="стоимостьПеревозки" Type="money" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Платежи">
+    <Key>
+      <PropertyRef Name="номерПлатежа" />
+    </Key>
+    <Property Name="номерПлатежа" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="видПлатежнойСистемы" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="датаПлатежа" Type="date" Nullable="false" />
+    <Property Name="суммаПлатежа" Type="money" Nullable="false" />
+    <Property Name="номерСчетаОткуда" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="номерСчетаКуда" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="комиссия" Type="money" Nullable="false" />
+    <Property Name="примечаниеКПлатежу" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "dbb95fb7d3e6594a6ba0a8a78f01878071.dbo.ПредоставляемыеУслуги" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="ПредоставляемыеУслуги">
+    <Key>
+      <PropertyRef Name="кодФилиала" />
+      <PropertyRef Name="кодУслуги" />
+    </Key>
+    <Property Name="кодФилиала" Type="int" Nullable="false" />
+    <Property Name="кодУслуги" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Сообщения">
+    <Key>
+      <PropertyRef Name="кодСообщения" />
+    </Key>
+    <Property Name="кодСообщения" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="датаСообщения" Type="date" Nullable="false" />
+    <Property Name="темаСообщения" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="текстСообщения" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="табельныйНомер" Type="int" Nullable="false" />
+    <Property Name="категорияСообщения" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Сотрудники">
+    <Key>
+      <PropertyRef Name="табельныйНомер" />
+    </Key>
+    <Property Name="табельныйНомер" Type="int" Nullable="false" />
+    <Property Name="фиоСотрудника" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="должность" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="датаРождения" Type="date" />
+    <Property Name="рабочийТелефон" Type="varchar" MaxLength="16" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="кодФилиала" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Тарифы">
+    <Key>
+      <PropertyRef Name="кодТарифа" />
+    </Key>
+    <Property Name="кодТарифа" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="наименованиеТарифа" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="стоимостьТарифа" Type="money" Nullable="false" />
+    <Property Name="описаниеТарифа" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Уведомления">
+    <Key>
+      <PropertyRef Name="кодУведомления" />
+    </Key>
+    <Property Name="кодУведомления" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="датаУведомления" Type="date" Nullable="false" />
+    <Property Name="темаУведомления" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="текстУведомления" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="кодКлиента" Type="int" Nullable="false" />
+    <Property Name="табельныйНомер" Type="int" Nullable="false" />
+    <Property Name="прочитано" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Услуги">
+    <Key>
+      <PropertyRef Name="кодУслуги" />
+    </Key>
+    <Property Name="кодУслуги" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="наименованиеУслуги" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="стоимостьУслуги" Type="money" Nullable="false" />
+    <Property Name="описаниеУслуги" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Филиалы">
+    <Key>
+      <PropertyRef Name="кодФилиала" />
+    </Key>
+    <Property Name="кодФилиала" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="наименованиеФилиала" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="адресФилиала" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="почтовыйИндекс" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="телефонФилиала" Type="varchar" MaxLength="16" Nullable="false" />
+    <Property Name="кодГорода" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_AspNetUsers_Клиенты">
+    <End Role="Клиенты" Type="Self.Клиенты" Multiplicity="1" />
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Клиенты">
+        <PropertyRef Name="кодКлиента" />
+      </Principal>
+      <Dependent Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+    <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetRoles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Грузы_Автомобили">
+    <End Role="Автомобили" Type="Self.Автомобили" Multiplicity="1" />
+    <End Role="Грузы" Type="Self.Грузы" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Автомобили">
+        <PropertyRef Name="кодАвтомобиля" />
+      </Principal>
+      <Dependent Role="Грузы">
+        <PropertyRef Name="грнАвтомобиля" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Грузы_Заказы">
+    <End Role="Заказы" Type="Self.Заказы" Multiplicity="1" />
+    <End Role="Грузы" Type="Self.Грузы" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Заказы">
+        <PropertyRef Name="кодЗаказа" />
+      </Principal>
+      <Dependent Role="Грузы">
+        <PropertyRef Name="кодЗаказа" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ДоступныеТарифы_Тарифы">
+    <End Role="Тарифы" Type="Self.Тарифы" Multiplicity="1" />
+    <End Role="ДоступныеТарифы" Type="Self.ДоступныеТарифы" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Тарифы">
+        <PropertyRef Name="кодТарифа" />
+      </Principal>
+      <Dependent Role="ДоступныеТарифы">
+        <PropertyRef Name="кодТарифа" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ДоступныеТарифы_Филиалы">
+    <End Role="Филиалы" Type="Self.Филиалы" Multiplicity="1" />
+    <End Role="ДоступныеТарифы" Type="Self.ДоступныеТарифы" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Филиалы">
+        <PropertyRef Name="кодФилиала" />
+      </Principal>
+      <Dependent Role="ДоступныеТарифы">
+        <PropertyRef Name="кодФилиала" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Заказ_Тарифы">
+    <End Role="Тарифы" Type="Self.Тарифы" Multiplicity="1" />
+    <End Role="Заказы" Type="Self.Заказы" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Тарифы">
+        <PropertyRef Name="кодТарифа" />
+      </Principal>
+      <Dependent Role="Заказы">
+        <PropertyRef Name="кодТарифа" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Заказы_Клиенты">
+    <End Role="Клиенты" Type="Self.Клиенты" Multiplicity="1" />
+    <End Role="Заказы" Type="Self.Заказы" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Клиенты">
+        <PropertyRef Name="кодКлиента" />
+      </Principal>
+      <Dependent Role="Заказы">
+        <PropertyRef Name="кодКлиента" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Заказы_Маршруты">
+    <End Role="Маршруты" Type="Self.Маршруты" Multiplicity="1" />
+    <End Role="Заказы" Type="Self.Заказы" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Маршруты">
+        <PropertyRef Name="кодМаршрута" />
+      </Principal>
+      <Dependent Role="Заказы">
+        <PropertyRef Name="кодМаршрута" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Заказы_Платежи">
+    <End Role="Платежи" Type="Self.Платежи" Multiplicity="1" />
+    <End Role="Заказы" Type="Self.Заказы" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Платежи">
+        <PropertyRef Name="номерПлатежа" />
+      </Principal>
+      <Dependent Role="Заказы">
+        <PropertyRef Name="номерПлатежа" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Заказы_Сотрудники">
+    <End Role="Сотрудники" Type="Self.Сотрудники" Multiplicity="1" />
+    <End Role="Заказы" Type="Self.Заказы" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Сотрудники">
+        <PropertyRef Name="табельныйНомер" />
+      </Principal>
+      <Dependent Role="Заказы">
+        <PropertyRef Name="табельныйНомерСотрудника" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Заказы_Услуги">
+    <End Role="Услуги" Type="Self.Услуги" Multiplicity="0..1" />
+    <End Role="Заказы" Type="Self.Заказы" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Услуги">
+        <PropertyRef Name="кодУслуги" />
+      </Principal>
+      <Dependent Role="Заказы">
+        <PropertyRef Name="кодУслуги" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ИсторияОтслеживания_Грузы">
+    <End Role="Грузы" Type="Self.Грузы" Multiplicity="1" />
+    <End Role="ИсторияОтслеживания" Type="Self.ИсторияОтслеживания" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Грузы">
+        <PropertyRef Name="кодГруза" />
+      </Principal>
+      <Dependent Role="ИсторияОтслеживания">
+        <PropertyRef Name="кодГруза" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Комментарии_Клиенты">
+    <End Role="Клиенты" Type="Self.Клиенты" Multiplicity="1" />
+    <End Role="Комментарии" Type="Self.Комментарии" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Клиенты">
+        <PropertyRef Name="кодКлиента" />
+      </Principal>
+      <Dependent Role="Комментарии">
+        <PropertyRef Name="кодКлиента" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ПредоставляемыеУслуги_Услуги">
+    <End Role="Услуги" Type="Self.Услуги" Multiplicity="1" />
+    <End Role="ПредоставляемыеУслуги" Type="Self.ПредоставляемыеУслуги" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Услуги">
+        <PropertyRef Name="кодУслуги" />
+      </Principal>
+      <Dependent Role="ПредоставляемыеУслуги">
+        <PropertyRef Name="кодУслуги" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ПредоставляемыеУслуги_Филиалы">
+    <End Role="Филиалы" Type="Self.Филиалы" Multiplicity="1" />
+    <End Role="ПредоставляемыеУслуги" Type="Self.ПредоставляемыеУслуги" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Филиалы">
+        <PropertyRef Name="кодФилиала" />
+      </Principal>
+      <Dependent Role="ПредоставляемыеУслуги">
+        <PropertyRef Name="кодФилиала" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Сообщения_Сотрудники">
+    <End Role="Сотрудники" Type="Self.Сотрудники" Multiplicity="1" />
+    <End Role="Сообщения" Type="Self.Сообщения" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Сотрудники">
+        <PropertyRef Name="табельныйНомер" />
+      </Principal>
+      <Dependent Role="Сообщения">
+        <PropertyRef Name="табельныйНомер" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Сотрудники_Филиалы">
+    <End Role="Филиалы" Type="Self.Филиалы" Multiplicity="1" />
+    <End Role="Сотрудники" Type="Self.Сотрудники" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Филиалы">
+        <PropertyRef Name="кодФилиала" />
+      </Principal>
+      <Dependent Role="Сотрудники">
+        <PropertyRef Name="кодФилиала" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Уведомления_Сотрудники">
+    <End Role="Сотрудники" Type="Self.Сотрудники" Multiplicity="1" />
+    <End Role="Уведомления" Type="Self.Уведомления" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Сотрудники">
+        <PropertyRef Name="табельныйНомер" />
+      </Principal>
+      <Dependent Role="Уведомления">
+        <PropertyRef Name="табельныйНомер" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Филиалы_Города">
+    <End Role="Города" Type="Self.Города" Multiplicity="1" />
+    <End Role="Филиалы" Type="Self.Филиалы" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Города">
+        <PropertyRef Name="кодГорода" />
+      </Principal>
+      <Dependent Role="Филиалы">
+        <PropertyRef Name="кодГорода" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище ExpressDeliveryModelContainer">
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Автомобили" EntityType="Self.Автомобили" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Города" EntityType="Self.Города" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Грузы" EntityType="Self.Грузы" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Заказы" EntityType="Self.Заказы" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ИсторияОтслеживания" EntityType="Self.ИсторияОтслеживания" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Клиенты" EntityType="Self.Клиенты" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Комментарии" EntityType="Self.Комментарии" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Маршруты" EntityType="Self.Маршруты" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Платежи" EntityType="Self.Платежи" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Сообщения" EntityType="Self.Сообщения" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Сотрудники" EntityType="Self.Сотрудники" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Тарифы" EntityType="Self.Тарифы" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Уведомления" EntityType="Self.Уведомления" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Услуги" EntityType="Self.Услуги" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Филиалы" EntityType="Self.Филиалы" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ДоступныеТарифы" EntityType="Self.ДоступныеТарифы" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ДоступныеТарифы].[кодФилиала] AS [кодФилиала], 
+    [ДоступныеТарифы].[кодТарифа] AS [кодТарифа]
+    FROM [dbo].[ДоступныеТарифы] AS [ДоступныеТарифы]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ПредоставляемыеУслуги" EntityType="Self.ПредоставляемыеУслуги" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ПредоставляемыеУслуги].[кодФилиала] AS [кодФилиала], 
+    [ПредоставляемыеУслуги].[кодУслуги] AS [кодУслуги]
+    FROM [dbo].[ПредоставляемыеУслуги] AS [ПредоставляемыеУслуги]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_AspNetUsers_Клиенты" Association="Self.FK_AspNetUsers_Клиенты">
+      <End Role="Клиенты" EntitySet="Клиенты" />
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Грузы_Автомобили" Association="Self.FK_Грузы_Автомобили">
+      <End Role="Автомобили" EntitySet="Автомобили" />
+      <End Role="Грузы" EntitySet="Грузы" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Грузы_Заказы" Association="Self.FK_Грузы_Заказы">
+      <End Role="Заказы" EntitySet="Заказы" />
+      <End Role="Грузы" EntitySet="Грузы" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ДоступныеТарифы_Тарифы" Association="Self.FK_ДоступныеТарифы_Тарифы">
+      <End Role="Тарифы" EntitySet="Тарифы" />
+      <End Role="ДоступныеТарифы" EntitySet="ДоступныеТарифы" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ДоступныеТарифы_Филиалы" Association="Self.FK_ДоступныеТарифы_Филиалы">
+      <End Role="Филиалы" EntitySet="Филиалы" />
+      <End Role="ДоступныеТарифы" EntitySet="ДоступныеТарифы" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Заказ_Тарифы" Association="Self.FK_Заказ_Тарифы">
+      <End Role="Тарифы" EntitySet="Тарифы" />
+      <End Role="Заказы" EntitySet="Заказы" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Заказы_Клиенты" Association="Self.FK_Заказы_Клиенты">
+      <End Role="Клиенты" EntitySet="Клиенты" />
+      <End Role="Заказы" EntitySet="Заказы" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Заказы_Маршруты" Association="Self.FK_Заказы_Маршруты">
+      <End Role="Маршруты" EntitySet="Маршруты" />
+      <End Role="Заказы" EntitySet="Заказы" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Заказы_Платежи" Association="Self.FK_Заказы_Платежи">
+      <End Role="Платежи" EntitySet="Платежи" />
+      <End Role="Заказы" EntitySet="Заказы" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Заказы_Сотрудники" Association="Self.FK_Заказы_Сотрудники">
+      <End Role="Сотрудники" EntitySet="Сотрудники" />
+      <End Role="Заказы" EntitySet="Заказы" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Заказы_Услуги" Association="Self.FK_Заказы_Услуги">
+      <End Role="Услуги" EntitySet="Услуги" />
+      <End Role="Заказы" EntitySet="Заказы" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ИсторияОтслеживания_Грузы" Association="Self.FK_ИсторияОтслеживания_Грузы">
+      <End Role="Грузы" EntitySet="Грузы" />
+      <End Role="ИсторияОтслеживания" EntitySet="ИсторияОтслеживания" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Комментарии_Клиенты" Association="Self.FK_Комментарии_Клиенты">
+      <End Role="Клиенты" EntitySet="Клиенты" />
+      <End Role="Комментарии" EntitySet="Комментарии" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ПредоставляемыеУслуги_Услуги" Association="Self.FK_ПредоставляемыеУслуги_Услуги">
+      <End Role="Услуги" EntitySet="Услуги" />
+      <End Role="ПредоставляемыеУслуги" EntitySet="ПредоставляемыеУслуги" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ПредоставляемыеУслуги_Филиалы" Association="Self.FK_ПредоставляемыеУслуги_Филиалы">
+      <End Role="Филиалы" EntitySet="Филиалы" />
+      <End Role="ПредоставляемыеУслуги" EntitySet="ПредоставляемыеУслуги" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Сообщения_Сотрудники" Association="Self.FK_Сообщения_Сотрудники">
+      <End Role="Сотрудники" EntitySet="Сотрудники" />
+      <End Role="Сообщения" EntitySet="Сообщения" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Сотрудники_Филиалы" Association="Self.FK_Сотрудники_Филиалы">
+      <End Role="Филиалы" EntitySet="Филиалы" />
+      <End Role="Сотрудники" EntitySet="Сотрудники" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Уведомления_Сотрудники" Association="Self.FK_Уведомления_Сотрудники">
+      <End Role="Сотрудники" EntitySet="Сотрудники" />
+      <End Role="Уведомления" EntitySet="Уведомления" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Филиалы_Города" Association="Self.FK_Филиалы_Города">
+      <End Role="Города" EntitySet="Города" />
+      <End Role="Филиалы" EntitySet="Филиалы" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
