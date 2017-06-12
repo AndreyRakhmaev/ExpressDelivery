@@ -21,3 +21,4 @@ C:\Users\Андрей\Documents\GitHub\ExpressDelivery\ExpressDelivery\ExpressDe
 C:\Users\Андрей\Documents\GitHub\ExpressDelivery\ExpressDelivery\ExpressDelivery.Domain\bin\Debug\ru\EntityFramework.SqlServer.resources.dll
 C:\Users\Андрей\Documents\GitHub\ExpressDelivery\ExpressDelivery\ExpressDelivery.Domain\obj\Debug\ExpressDelivery.Domain.dll
 C:\Users\Андрей\Documents\GitHub\ExpressDelivery\ExpressDelivery\ExpressDelivery.Domain\obj\Debug\ExpressDelivery.Domain.pdb
+C:\Users\Андрей\Documents\GitHub\ExpressDelivery\ExpressDelivery\ExpressDelivery.Domain\obj\Debug\ExpressDelivery.Domain.csprojResolveAssemblyReference.cache

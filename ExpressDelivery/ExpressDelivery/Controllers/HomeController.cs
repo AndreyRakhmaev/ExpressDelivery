@@ -45,6 +45,10 @@ namespace ExpressDelivery.Controllers
         {
             var comments = Repository.Select<Комментарии>().OrderBy(x => x.датаКомментария).ToList();
             return View(comments);
+        }
+
+        public ActionResult Geolocation()
+        {
             return View();
         }
     }
