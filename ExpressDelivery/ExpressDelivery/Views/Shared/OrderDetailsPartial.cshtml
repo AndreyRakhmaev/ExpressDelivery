@@ -18,14 +18,14 @@
                 <td rowspan="2"> @Html.TextBox("orderNumber", @Model.OrderNumber)</td>
                 <th>@Html.Label("Отправитель")</th>
                 <td>@Html.TextBox("fioFrom", @Model.FioFrom)</td>
-                <td>@Html.TextBox("adressFrom", @Model.AdressFrom)</td>
+                <td>@Html.TextBox("adressFrom", "г " + @Model.City + ", " + @Model.AdressFrom)</td>
                 <td>@Html.TextBox("phoneNumberFrom", @Model.PhoneNumberFrom)</td>
                 <td>@Html.TextBox("emailFrom", @Model.EmailFrom)</td>
             </tr>
             <tr>
                 <th>@Html.Label("Получатель")</th>
                 <td>@Html.TextBox("fioTo", @Model.FioTo)</td>
-                <td>@Html.TextBox("adressTo", @Model.AdressTo)</td>
+                <td>@Html.TextBox("adressTo", "г " + @Model.City + ", " + @Model.AdressTo)</td>
                 <td>@Html.TextBox("phoneNumberTo", @Model.PhoneNumberTo)</td>
                 <td>@Html.TextBox("emailTo", @Model.EmailTo)</td>
             </tr>

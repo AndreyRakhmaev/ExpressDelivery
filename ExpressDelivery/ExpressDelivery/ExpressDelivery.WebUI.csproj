@@ -210,6 +210,7 @@
     <Compile Include="Binders\CartModelBinder.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CartController.cs" />
+    <Compile Include="Controllers\forCustomersController.cs" />
     <Compile Include="Controllers\HelpController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -304,6 +305,7 @@
     <Content Include="Views\Home\Comments.cshtml" />
     <Content Include="Views\Shared\NotificationsPartial.cshtml" />
     <Content Include="Views\Home\Geolocation.cshtml" />
+    <Content Include="Views\forCustomers\POZ.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

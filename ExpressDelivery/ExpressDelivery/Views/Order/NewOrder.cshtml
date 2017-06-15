@@ -57,7 +57,7 @@
                         <legend>Сведения о пункте отправления</legend>
                         <p>
                             <label for="state">Город</label>
-                            @Html.EditorFor(x => x.AdressFrom )
+                            @Html.EditorFor(x => x.City)
                         </p>
                         <p>
                             <label for="adress">Адрес</label>
@@ -92,7 +92,7 @@
                         </p>
                         <p>
                             <label for="comment">Примечание</label>
-                            @Html.EditorFor(x => x.TypeDelivery)
+                            @Html.EditorFor(x => x.Comment)
                         </p>
                     </fieldset>
                     <fieldset class="step">
@@ -103,7 +103,7 @@
                         </p>
                         <p>
                             <label for="stateto">Город</label>
-                            @Html.EditorFor(x => x.AdressTo)
+                            @Html.EditorFor(x => x.CityTo)
                         </p>
                         <p>
                             <label for="adressto">Адрес</label>
