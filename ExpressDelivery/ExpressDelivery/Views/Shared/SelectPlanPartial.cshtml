@@ -1,0 +1,52 @@
+﻿@model ExpressDelivery.Models.CalculatorViewModel
+
+@using (Ajax.BeginForm("kalkulyator", "forCustomers", new AjaxOptions { UpdateTargetId = "titlePlan" }))
+{
+    @Html.Label("lblPlan", "Выберите тарифный план");
+    <br />
+    @Html.DropDownListFor(
+            m => m.PlanId,
+            new SelectList(Model.Plans, "кодТарифа", "наименованиеТарифа"),
+            "Тариф не выбран"
+        )
+    <br />
+    if (Model.PlanId != null)
+    {
+        <input id="perCost" type="hidden" value="@Model.getPlan().стоимостьТарифа" />
+        @Html.Label("titlePlan", Model.getPlan().описаниеТарифа + "\nСтоимость перевозки за 1 км. составляет " + Model.getPlan().стоимостьТарифа.ToString("c"));
+    }
+    <br />
+    <table>
+        <thead>
+            <tr>
+                <th colspan="4">Параметры груза</th>
+            </tr>
+            <tr>
+                <th>Длина (см)</th>
+                <th>Ширина (см)</th>
+                <th>Высота (см)</th>
+                <th>Масса (кг)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Html.TextBoxFor(m => m.Length, "Length")</td>
+                <td>@Html.TextBoxFor(m => m.Width, "Width")</td>
+                <td>@Html.TextBoxFor(m => m.Height, "Height")</td>
+                <td>@Html.TextBoxFor(m => m.Weight, "Weight")</td>
+            </tr>
+        </tbody>
+    </table>
+    if (Model.Height != null && Model.Length != null && Model.Width != null && Model.Weight != null)
+    {
+        <input id="perDelivery" type="hidden" value="@Model.getCost()" />
+        @Html.Label("lblAmount", "Объём груза " + Model.getAmount().ToString() + " см. куб. Стоимость перевозки составляет " + Model.getCost().ToString("c"));
+    }
+}
+            <script type="text/javascript">
+                $('#PlanId').change(function () {
+                    $(this).parents('form').submit();
+                });
+                var perCostPlan = JSON.parse(document.getElementById("perCost").value);
+                alert("Тариф");
+            </script>
