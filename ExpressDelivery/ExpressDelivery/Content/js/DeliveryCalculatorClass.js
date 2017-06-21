@@ -99,6 +99,13 @@ ymaps.modules.define(
 
             },
 
+            _reverseGeocodeReturn: function (point) {
+                return ymaps.geocode(point).then(function (res) {
+                        res.geoObjects.get(0).properties.get('balloonContentBody') || '';
+                });
+
+            },
+
             /**
              * Проводим прямое геокодирование (определяем координаты по адресу) для точки маршрута.
              * @param {String} address Адрес.
@@ -149,8 +156,8 @@ ymaps.modules.define(
                         finish = this._finishPoint.geometry.getCoordinates(),
                         startBalloon = this._startPointBalloonContent,
                         finishBalloon = this._finishPointBalloonContent;
-                        document.getElementById("AdressFrom").value = this._reverseGeocode(start);
-                        document.getElementById("AdressTo").value = this._reverseGeocode(finish);
+                        document.getElementById("AdressFrom").value = this._reverseGeocode(start).properties.get('metaDataProperty.GeocoderMetaData.AddressDetails.Country.AddressLine');
+                        document.getElementById("AdressTo").value = this._reverseGeocode(finish).properties.get('metaDataProperty.GeocoderMetaData.AddressDetails.Country.AddressLine');
                     if (this._deferred && !this._deferred.promise().isResolved()) {
                         this._deferred.reject('New request');
                     }
