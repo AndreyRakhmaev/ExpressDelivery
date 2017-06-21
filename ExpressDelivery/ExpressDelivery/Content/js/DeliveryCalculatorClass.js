@@ -252,11 +252,11 @@ ymaps.modules.define(
                 }
                 if (pointType == 'start') 
                 {
-                    document.getElementById("AdressFrom").value = address;
+                    document.getElementById("AdressFrom").value = position;
                 }
                 else
                 {
-                    document.getElementById("AdressTo").value = address;
+                    document.getElementById("AdressTo").value = position;
                 }
             }
         });
