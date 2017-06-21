@@ -188,14 +188,6 @@ ymaps.modules.define(
                         }, this);
 
                 }
-                if (pointType == 'start') 
-                {
-                    document.getElementById("AdressFrom").value = address;
-                }
-                else
-                {
-                    document.getElementById("AdressTo").value = address;
-                }
             },
 
             /**
@@ -257,6 +249,14 @@ ymaps.modules.define(
                         this._setPointData("finish", finishPoint, res[1]);
                         this._setupRoute();
                     }, this);
+                }
+                if (pointType == 'start') 
+                {
+                    document.getElementById("AdressFrom").value = address;
+                }
+                else
+                {
+                    document.getElementById("AdressTo").value = address;
                 }
             }
         });
