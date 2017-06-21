@@ -25,7 +25,9 @@ namespace ExpressDelivery.Controllers
                 Width = viewModel.Width,
                 Height = viewModel.Height,
                 Weight = viewModel.Weight,
-                Distance = viewModel.Distance
+                Distance = viewModel.Distance,
+                AdressFrom = viewModel.AdressFrom,
+                AdressTo = viewModel.AdressTo
             };
             if (viewModel.Distance != 0)
             {

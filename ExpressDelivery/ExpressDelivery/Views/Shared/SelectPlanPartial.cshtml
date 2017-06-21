@@ -3,6 +3,8 @@
 @using (Ajax.BeginForm("kalkulyator", "forCustomers", new AjaxOptions { UpdateTargetId = "titlePlan" }))
 {
     @Html.TextBoxFor(m => m.Distance)
+    @Html.TextBoxFor(m => m.AdressFrom)
+    @Html.TextBoxFor(m => m.AdressTo)
     <input id="adressFrom" type="hidden" value="" name="adressFrom" />
     <input id="adressTo" type="hidden" value="" name="adressTo" />
     @Html.Label("lblPlan", "Выберите тарифный план");
