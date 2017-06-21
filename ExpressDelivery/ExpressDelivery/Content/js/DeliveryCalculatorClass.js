@@ -149,6 +149,8 @@ ymaps.modules.define(
                         finish = this._finishPoint.geometry.getCoordinates(),
                         startBalloon = this._startPointBalloonContent,
                         finishBalloon = this._finishPointBalloonContent;
+                        document.getElementById("AdressFrom").value = start;
+                        document.getElementById("AdressTo").value = finish;
                     if (this._deferred && !this._deferred.promise().isResolved()) {
                         this._deferred.reject('New request');
                     }
@@ -250,8 +252,6 @@ ymaps.modules.define(
                         this._setupRoute();
                     }, this);
                 }
-                    document.getElementById("AdressFrom").value = this._geocode(startPoint);
-                    document.getElementById("AdressTo").value = this._geocode(finishPoint);
             }
         });
 
