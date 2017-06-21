@@ -2,6 +2,7 @@
 
 @using (Ajax.BeginForm("kalkulyator", "forCustomers", new AjaxOptions { UpdateTargetId = "titlePlan" }))
 {
+    <input id="distance" type="text" value="" name="distance" />
     @Html.Label("lblPlan", "Выберите тарифный план");
     <br />
     @Html.DropDownListFor(
@@ -12,7 +13,7 @@
     <br />
     if (Model.PlanId != null)
     {
-        <input id="perCost" type="hidden" value="@Model.getPlan().стоимостьТарифа" />
+        @*<input id="perCost" type="hidden" value="@Model.getPlan().стоимостьТарифа" />*@
         @Html.Label("titlePlan", Model.getPlan().описаниеТарифа + "\nСтоимость перевозки за 1 км. составляет " + Model.getPlan().стоимостьТарифа.ToString("c"));
     }
     <br />
@@ -39,7 +40,7 @@
     </table>
     if (Model.Height != null && Model.Length != null && Model.Width != null && Model.Weight != null)
     {
-        <input id="perDelivery" type="hidden" value="@Model.getCost()" />
+        @*<input id="perDelivery" type="hidden" value="@Model.getCost()" />*@
         @Html.Label("lblAmount", "Объём груза " + Model.getAmount().ToString() + " см. куб. Стоимость перевозки составляет " + Model.getCost().ToString("c"));
     }
 }
@@ -47,7 +48,4 @@
                 $('#PlanId').change(function () {
                     $(this).parents('form').submit();
                 });
-                var perCostPlan = JSON.parse(document.getElementById("perCost").value);
-                var perCostDelivery = JSON.parse(document.getElementById("perDelivery").value);
-                       
             </script>

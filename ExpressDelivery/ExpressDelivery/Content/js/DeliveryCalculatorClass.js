@@ -124,12 +124,14 @@ ymaps.modules.define(
              */
             calculate: function (routeLength) {
                 // Константы.
-                var perCostPlan = JSON.parse(document.getElementById("perCost").value)
-                var perCostDelivery = JSON.parse(document.getElementById("perDelivery").value)
-                var DELIVERY_TARIF = perCostPlan, // Стоимость за километр.
+                //var perCostPlan = JSON.parse(document.getElementById("perCost").value)
+                //var perCostDelivery = JSON.parse(document.getElementById("perDelivery").value)
+                //document.getElementById("distance").value = JSON.stringify(obj)
+                document.getElementById("distance").value = routeLength;
+                var DELIVERY_TARIF = 1, // Стоимость за километр.
                     MINIMUM_COST = 100; // Минимальная стоимость.
 
-                return Math.max(routeLength * DELIVERY_TARIF + perCostDelivery, MINIMUM_COST);
+                return Math.max(routeLength * DELIVERY_TARIF, MINIMUM_COST);
             },
 
             /**
