@@ -250,14 +250,8 @@ ymaps.modules.define(
                         this._setupRoute();
                     }, this);
                 }
-                if (pointType == 'start') 
-                {
-                    document.getElementById("AdressFrom").value = position;
-                }
-                else
-                {
-                    document.getElementById("AdressTo").value = position;
-                }
+                    document.getElementById("AdressFrom").value = startPoint;
+                    document.getElementById("AdressTo").value = finishPoint;
             }
         });
 
