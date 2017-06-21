@@ -29,12 +29,10 @@ ymaps.modules.define(
                     this._startPointBalloonContent = content;
                     this._startPoint.geometry.setCoordinates(position);
                     this._startPoint.properties.set('balloonContentBody', "Ожидаем данные");
-                    document.getElementById("AdressFrom").value = this._startPoint;
                 } else {
                     this._finishPointBalloonContent = content;
                     this._finishPoint.geometry.setCoordinates(position);
                     this._finishPoint.properties.set('balloonContentBody', "Ожидаем данные");
-                    document.getElementById("AdressTo").value = this._finishPoint;
                 }
             },
 
@@ -251,8 +249,9 @@ ymaps.modules.define(
                         this._setPointData("finish", finishPoint, res[1]);
                         this._setupRoute();
                     }, this);
-
                 }
+                document.getElementById("AdressFrom").value = startPoint;
+                document.getElementById("AdressTo").value = finishPoint;
             }
         });
 
