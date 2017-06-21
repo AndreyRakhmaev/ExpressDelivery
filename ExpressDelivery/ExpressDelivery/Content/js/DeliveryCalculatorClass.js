@@ -230,28 +230,34 @@ ymaps.modules.define(
                         this._setPointData("start", res[0][0], res[0][1]);
                         this._setPointData("finish", res[1][0], res[1][1]);
                         this._setupRoute();
+                        document.getElementById("AdressFrom").value = res[0][0] + " " + res[0][1];
+                        document.getElementById("AdressTo").value = res[1][0] + " " + res[1][1];
                     }, this);
                 } else if (typeof(startPoint) === "string") {
                     vow.all([this._geocode(startPoint), this._reverseGeocode(finishPoint)]).then(function (res) {
                         this._setPointData("start", res[0][0], res[0][1]);
                         this._setPointData("finish", finishPoint, res[1]);
                         this._setupRoute();
+                        document.getElementById("AdressFrom").value = res[0][0] + " " + res[0][1];
+                        document.getElementById("AdressTo").value = res[1];
                     }, this);
                 } else if (typeof(finishPoint) === "string") {
                     vow.all([this._reverseGeocode(startPoint), this._geocode(finishPoint)]).then(function (res) {
                         this._setPointData("start", startPoint, res[0]);
                         this._setPointData("finish", res[1][0], res[1][1]);
                         this._setupRoute();
+                        document.getElementById("AdressFrom").value = res[0];
+                        document.getElementById("AdressTo").value = res[1][0] + " " + res[1][1];
                     }, this);
                 } else {
                     vow.all([this._reverseGeocode(startPoint), this._reverseGeocode(finishPoint)]).then(function (res) {
                         this._setPointData("start", startPoint, res[0]);
                         this._setPointData("finish", finishPoint, res[1]);
                         this._setupRoute();
+                        document.getElementById("AdressFrom").value = res[0];
+                        document.getElementById("AdressTo").value = res[1];
                     }, this);
                 }
-                document.getElementById("AdressFrom").value = startPoint;
-                document.getElementById("AdressTo").value = finishPoint;
             }
         });
 
