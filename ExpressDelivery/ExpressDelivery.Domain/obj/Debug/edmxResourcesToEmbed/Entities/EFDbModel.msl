@@ -203,6 +203,7 @@
     <EntitySetMapping Name="Тарифы">
       <EntityTypeMapping TypeName="ExpressDeliveryModel.Тарифы">
         <MappingFragment StoreEntitySet="Тарифы">
+          <ScalarProperty Name="длительностьОжидания" ColumnName="длительностьОжидания" />
           <ScalarProperty Name="кодТарифа" ColumnName="кодТарифа" />
           <ScalarProperty Name="наименованиеТарифа" ColumnName="наименованиеТарифа" />
           <ScalarProperty Name="стоимостьТарифа" ColumnName="стоимостьТарифа" />

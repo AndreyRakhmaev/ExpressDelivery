@@ -127,7 +127,7 @@ ymaps.modules.define(
                 //var perCostPlan = JSON.parse(document.getElementById("perCost").value)
                 //var perCostDelivery = JSON.parse(document.getElementById("perDelivery").value)
                 //document.getElementById("distance").value = JSON.stringify(obj)
-                document.getElementById("distance").value = routeLength;
+                document.getElementById("Distance").value = routeLength;
                 var DELIVERY_TARIF = 1, // Стоимость за километр.
                     MINIMUM_COST = 100; // Минимальная стоимость.
 
@@ -159,8 +159,8 @@ ymaps.modules.define(
                             if (!deferred.promise().isRejected()) {
                                 var price = this.calculate(Math.round(router.getLength() / 1000)),
                                     distance = ymaps.formatter.distance(router.getLength()),
-                                    message = '<span>Расстояние: ' + distance + '.</span><br/>' +
-                                        '<span style="font-weight: bold; font-style: italic">Стоимость доставки: %sр.</span>';
+                                    message = '<span>Расстояние: ' + distance + '.</span><br/>';
+                                    //+ '<span style="font-weight: bold; font-style: italic">Стоимость доставки: %sр.</span>';
 
                                 this._route = router.getPaths(); // Получаем коллекцию путей, из которых состоит маршрут.
 
@@ -219,6 +219,8 @@ ymaps.modules.define(
              * @param {Number[]|String} finishPoint Координаты точки или адрес.
              */
             setRoute: function (startPoint, finishPoint) {
+                document.getElementById("AdressFrom").value = startPoint;
+                document.getElementById("AdressTo").value = finishPoint;
                 if (!this._startPoint) {
                     this._addNewPoint("start");
                 }

@@ -23,3 +23,52 @@
         @Html.Partial("SelectPlanPartial", Model)
     </div>
     <div id="map"></div>
+    <div id="summary">
+        @if (@Model.PlanId !=null) {
+        <table class="table text-center">
+            <thead>
+                <tr>
+                    <th colspan="2">Стоимость и длительность перевозки</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>Пункт отправления</th>
+                    <td>@Model.AdressFrom</td>
+                </tr>
+                <tr>
+                    <th>Пункт назначения</th>
+                    <td>@Model.AdressTo</td>
+                </tr>
+                <tr>
+                    <th>Тарифный план</th>
+                    <td>@Model.getSelectPlan().наименованиеТарифа: @Model.getSelectPlan().описаниеТарифа:</td>
+                </tr>
+                <tr>
+                    <th>Габариты груза ДxВxШ (см.)</th>
+                    <td>@Model.Length x @Model.Height x @Model.Width</td>
+                </tr>
+                <tr>
+                    <th>Объем груза (см. куб.)</th>
+                    <td>@Model.Amount</td>
+                </tr>
+                <tr>
+                    <th>Масса груза (кг.)</th>
+                    <td>@Model.Weight</td>
+                </tr>
+                <tr>
+                    <th>Длина пути (км.)</th>
+                    <td>@Model.Distance</td>
+                </tr>
+                <tr>
+                    <th>Длительность перевозки (дн.)</th>
+                    <td>@Model.Durability</td>
+                </tr>
+                <tr>
+                    <th>Стоимость перевозки (руб.)</th>
+                    <td>@Model.TotalCost</td>
+                </tr>
+            </tbody>
+        </table>
+        }
+    </div>

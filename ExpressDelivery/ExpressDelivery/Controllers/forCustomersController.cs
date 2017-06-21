@@ -16,23 +16,36 @@ namespace ExpressDelivery.Controllers
             return View();
         }
 
-        public ActionResult kalkulyator(CalculatorViewModel viewModel, decimal? perPlan, decimal? perDelivery)
+        public ActionResult kalkulyator(CalculatorViewModel viewModel)
         {
             CalculatorViewModel plan = new CalculatorViewModel
             {
-                PlanId = viewModel.PlanId != null ? viewModel.PlanId : null,
-                Plans = Repository.Select<Тарифы>().ToList(),
+                PlanId = viewModel.PlanId,
                 Length = viewModel.Length,
                 Width = viewModel.Width,
                 Height = viewModel.Height,
-                Weight = viewModel.Weight
+                Weight = viewModel.Weight,
+                Distance = viewModel.Distance
             };
-                //decimal[] cost = new decimal[2];
-                //cost[0] = plan.getPlan().стоимостьТарифа;
-                //cost[1] = plan.getCost();
-                //decimal cost = plan.getCost();
-                //ViewBag.Result = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(cost);
+            if (viewModel.Distance != 0)
+            {
+                plan.Amount = getAmount(plan.Length, plan.Width, plan.Height);
+                plan.TotalCost = getTotalCost(plan.getSelectPlan().стоимостьТарифа, plan.Distance, plan.Amount, plan.Weight);
+            }
             return View(plan);
+        }
+
+        public double getAmount(double length, double width, double height)
+        {
+            return length * width * height;
+        }
+
+        public decimal getTotalCost(decimal costPlan, double distance, double amount, double weight)
+        {
+            //+35р за каждый кг груза
+            //+25р за каждые 10 см. куб. объёма
+            decimal cost = costPlan * (decimal)distance + (decimal)weight * 35 + (decimal)amount / 10 * 25;
+            return cost;
         }
     }
 }

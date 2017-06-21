@@ -2,7 +2,9 @@
 
 @using (Ajax.BeginForm("kalkulyator", "forCustomers", new AjaxOptions { UpdateTargetId = "titlePlan" }))
 {
-    <input id="distance" type="text" value="" name="distance" />
+    @Html.TextBoxFor(m => m.Distance)
+    <input id="adressFrom" type="hidden" value="" name="adressFrom" />
+    <input id="adressTo" type="hidden" value="" name="adressTo" />
     @Html.Label("lblPlan", "Выберите тарифный план");
     <br />
     @Html.DropDownListFor(
@@ -10,12 +12,6 @@
             new SelectList(Model.Plans, "кодТарифа", "наименованиеТарифа"),
             "Тариф не выбран"
         )
-    <br />
-    if (Model.PlanId != null)
-    {
-        @*<input id="perCost" type="hidden" value="@Model.getPlan().стоимостьТарифа" />*@
-        @Html.Label("titlePlan", Model.getPlan().описаниеТарифа + "\nСтоимость перевозки за 1 км. составляет " + Model.getPlan().стоимостьТарифа.ToString("c"));
-    }
     <br />
     <table>
         <thead>
@@ -38,11 +34,6 @@
             </tr>
         </tbody>
     </table>
-    if (Model.Height != null && Model.Length != null && Model.Width != null && Model.Weight != null)
-    {
-        @*<input id="perDelivery" type="hidden" value="@Model.getCost()" />*@
-        @Html.Label("lblAmount", "Объём груза " + Model.getAmount().ToString() + " см. куб. Стоимость перевозки составляет " + Model.getCost().ToString("c"));
-    }
 }
             <script type="text/javascript">
                 $('#PlanId').change(function () {

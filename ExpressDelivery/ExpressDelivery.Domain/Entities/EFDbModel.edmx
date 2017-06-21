@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище ExpressDeliveryModel" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Хранилище ExpressDeliveryModel" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="AspNetRoles">
           <Key>
             <PropertyRef Name="Id" />
@@ -82,7 +82,7 @@
             <PropertyRef Name="кодГорода" />
           </Key>
           <Property Name="кодГорода" Type="int" Nullable="false" />
-          <Property Name="наименованиеГорода" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="наименованиеГорода" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Грузы">
           <Key>
@@ -223,9 +223,10 @@
             <PropertyRef Name="кодТарифа" />
           </Key>
           <Property Name="кодТарифа" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="наименованиеТарифа" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="наименованиеТарифа" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="стоимостьТарифа" Type="money" Nullable="false" />
-          <Property Name="описаниеТарифа" Type="varchar" MaxLength="255" />
+          <Property Name="описаниеТарифа" Type="nvarchar" MaxLength="255" />
+          <Property Name="длительностьОжидания" Type="nchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="Уведомления">
           <Key>
@@ -253,8 +254,8 @@
             <PropertyRef Name="кодФилиала" />
           </Key>
           <Property Name="кодФилиала" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="наименованиеФилиала" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="адресФилиала" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="наименованиеФилиала" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="адресФилиала" Type="nvarchar" MaxLength="150" Nullable="false" />
           <Property Name="почтовыйИндекс" Type="varchar" MaxLength="6" Nullable="false" />
           <Property Name="телефонФилиала" Type="varchar" MaxLength="16" Nullable="false" />
           <Property Name="кодГорода" Type="int" Nullable="false" />
@@ -670,8 +671,7 @@
             <End Role="Филиалы" EntitySet="Филиалы" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ExpressDeliveryModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -752,7 +752,7 @@
             <PropertyRef Name="кодГорода" />
           </Key>
           <Property Name="кодГорода" Type="Int32" Nullable="false" />
-          <Property Name="наименованиеГорода" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="наименованиеГорода" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Филиалы" Relationship="Self.FK_Филиалы_Города" FromRole="Города" ToRole="Филиалы" />
         </EntityType>
         <EntityType Name="Грузы">
@@ -896,11 +896,12 @@
             <PropertyRef Name="кодТарифа" />
           </Key>
           <Property Name="кодТарифа" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="наименованиеТарифа" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="наименованиеТарифа" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="стоимостьТарифа" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
-          <Property Name="описаниеТарифа" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="описаниеТарифа" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Заказы" Relationship="Self.FK_Заказ_Тарифы" FromRole="Тарифы" ToRole="Заказы" />
           <NavigationProperty Name="Филиалы" Relationship="Self.ДоступныеТарифы" FromRole="Тарифы" ToRole="Филиалы" />
+          <Property Name="длительностьОжидания" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
         </EntityType>
         <EntityType Name="Уведомления">
           <Key>
@@ -931,8 +932,8 @@
             <PropertyRef Name="кодФилиала" />
           </Key>
           <Property Name="кодФилиала" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="наименованиеФилиала" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="адресФилиала" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="наименованиеФилиала" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="адресФилиала" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="почтовыйИндекс" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="телефонФилиала" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="кодГорода" Type="Int32" Nullable="false" />
@@ -1471,6 +1472,7 @@
           <EntitySetMapping Name="Тарифы">
             <EntityTypeMapping TypeName="ExpressDeliveryModel.Тарифы">
               <MappingFragment StoreEntitySet="Тарифы">
+                <ScalarProperty Name="длительностьОжидания" ColumnName="длительностьОжидания" />
                 <ScalarProperty Name="кодТарифа" ColumnName="кодТарифа" />
                 <ScalarProperty Name="наименованиеТарифа" ColumnName="наименованиеТарифа" />
                 <ScalarProperty Name="стоимостьТарифа" ColumnName="стоимостьТарифа" />

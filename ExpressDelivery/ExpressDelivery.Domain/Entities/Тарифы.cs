@@ -25,6 +25,7 @@ namespace ExpressDelivery.Domain.Entities
         public string наименованиеТарифа { get; set; }
         public decimal стоимостьТарифа { get; set; }
         public string описаниеТарифа { get; set; }
+        public string длительностьОжидания { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Заказы> Заказы { get; set; }
