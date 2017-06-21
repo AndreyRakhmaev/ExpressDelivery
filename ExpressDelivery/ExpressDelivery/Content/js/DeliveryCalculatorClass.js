@@ -156,8 +156,8 @@ ymaps.modules.define(
                         finish = this._finishPoint.geometry.getCoordinates(),
                         startBalloon = this._startPointBalloonContent,
                         finishBalloon = this._finishPointBalloonContent;
-                        document.getElementById("AdressFrom").value = this._reverseGeocode(start).properties.getAll();
-                        document.getElementById("AdressTo").value = this._reverseGeocode(finish).properties.getAll();
+                        document.getElementById("AdressFrom").value = start;
+                        document.getElementById("AdressTo").value = finis);
                     if (this._deferred && !this._deferred.promise().isResolved()) {
                         this._deferred.reject('New request');
                     }
