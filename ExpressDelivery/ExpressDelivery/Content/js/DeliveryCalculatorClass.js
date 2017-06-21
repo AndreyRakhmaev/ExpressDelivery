@@ -82,14 +82,6 @@ ymaps.modules.define(
                     this._setPointData(pointType, position, address);
                     this._setupRoute();
                 }
-                if (pointType == 'start') 
-                {
-                    document.getElementById("AdressFrom").value = address;
-                }
-                else
-                {
-                    document.getElementById("AdressTo").value = address;
-                }
             },
 
             /**
@@ -195,6 +187,14 @@ ymaps.modules.define(
                             this._finishPoint.balloon.autoPan();
                         }, this);
 
+                }
+                if (pointType == 'start') 
+                {
+                    document.getElementById("AdressFrom").value = address;
+                }
+                else
+                {
+                    document.getElementById("AdressTo").value = address;
                 }
             },
 
