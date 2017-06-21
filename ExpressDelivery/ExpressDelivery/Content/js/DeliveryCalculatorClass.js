@@ -157,7 +157,7 @@ ymaps.modules.define(
                         startBalloon = this._startPointBalloonContent,
                         finishBalloon = this._finishPointBalloonContent;
                         document.getElementById("AdressFrom").value = start;
-                        document.getElementById("AdressTo").value = finis;
+                        document.getElementById("AdressTo").value = finish;
                     if (this._deferred && !this._deferred.promise().isResolved()) {
                         this._deferred.reject('New request');
                     }
