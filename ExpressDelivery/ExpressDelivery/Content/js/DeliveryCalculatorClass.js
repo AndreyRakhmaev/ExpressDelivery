@@ -219,8 +219,6 @@ ymaps.modules.define(
              * @param {Number[]|String} finishPoint Координаты точки или адрес.
              */
             setRoute: function (startPoint, finishPoint) {
-                document.getElementById("AdressFrom").value = startPoint;
-                document.getElementById("AdressTo").value = finishPoint;
                 if (!this._startPoint) {
                     this._addNewPoint("start");
                 }
@@ -256,6 +254,8 @@ ymaps.modules.define(
             }
         });
 
+        document.getElementById("AdressFrom").value = this._startPoint;
+        document.getElementById("AdressTo").value = this._finishPoint;
         provide(DeliveryCalculator);
     }
 );
