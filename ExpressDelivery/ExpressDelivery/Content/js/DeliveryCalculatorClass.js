@@ -250,8 +250,8 @@ ymaps.modules.define(
                         this._setupRoute();
                     }, this);
                 }
-                    document.getElementById("AdressFrom").value = startPoint;
-                    document.getElementById("AdressTo").value = finishPoint;
+                    document.getElementById("AdressFrom").value = this._geocode(startPoint);
+                    document.getElementById("AdressTo").value = this._geocode(finishPoint);
             }
         });
 
