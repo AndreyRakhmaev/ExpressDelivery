@@ -221,7 +221,7 @@
     <Property Name="наименованиеТарифа" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="стоимостьТарифа" Type="money" Nullable="false" />
     <Property Name="описаниеТарифа" Type="nvarchar" MaxLength="255" />
-    <Property Name="длительностьОжидания" Type="nchar" MaxLength="10" />
+    <Property Name="длительностьОжидания" Type="float" Nullable="false" />
   </EntityType>
   <EntityType Name="Уведомления">
     <Key>

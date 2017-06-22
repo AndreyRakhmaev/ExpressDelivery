@@ -226,7 +226,7 @@
           <Property Name="наименованиеТарифа" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="стоимостьТарифа" Type="money" Nullable="false" />
           <Property Name="описаниеТарифа" Type="nvarchar" MaxLength="255" />
-          <Property Name="длительностьОжидания" Type="nchar" MaxLength="10" />
+          <Property Name="длительностьОжидания" Type="float" Nullable="false" />
         </EntityType>
         <EntityType Name="Уведомления">
           <Key>
@@ -901,7 +901,7 @@
           <Property Name="описаниеТарифа" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Заказы" Relationship="Self.FK_Заказ_Тарифы" FromRole="Тарифы" ToRole="Заказы" />
           <NavigationProperty Name="Филиалы" Relationship="Self.ДоступныеТарифы" FromRole="Тарифы" ToRole="Филиалы" />
-          <Property Name="длительностьОжидания" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="длительностьОжидания" Type="Double" Nullable="false" />
         </EntityType>
         <EntityType Name="Уведомления">
           <Key>

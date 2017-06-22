@@ -226,7 +226,7 @@
     <Property Name="описаниеТарифа" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Заказы" Relationship="Self.FK_Заказ_Тарифы" FromRole="Тарифы" ToRole="Заказы" />
     <NavigationProperty Name="Филиалы" Relationship="Self.ДоступныеТарифы" FromRole="Тарифы" ToRole="Филиалы" />
-    <Property Name="длительностьОжидания" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="длительностьОжидания" Type="Double" Nullable="false" />
   </EntityType>
   <EntityType Name="Уведомления">
     <Key>

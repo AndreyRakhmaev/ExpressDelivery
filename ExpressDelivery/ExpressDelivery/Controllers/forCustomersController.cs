@@ -29,10 +29,11 @@ namespace ExpressDelivery.Controllers
                 AdressFrom = viewModel.AdressFrom,
                 AdressTo = viewModel.AdressTo
             };
-            if (viewModel.Distance != 0)
+            if (viewModel.Distance != 0 && viewModel.Length != 0 && viewModel.Height != 0 && viewModel.Width != 0 && viewModel.Weight != 0)
             {
                 plan.Amount = getAmount(plan.Length, plan.Width, plan.Height);
                 plan.TotalCost = getTotalCost(plan.getSelectPlan().стоимостьТарифа, plan.Distance, plan.Amount, plan.Weight);
+                plan.Durability = plan.Distance / 90 / 24 + plan.getSelectPlan().длительностьОжидания;
             }
             return View(plan);
         }
