@@ -1,7 +1,7 @@
 ﻿@model ExpressDelivery.Models.CalculatorViewModel
 
 @{
-    ViewBag.Title = "Расчитать стоимость";
+    ViewBag.Title = "Калькулятор";
 }
 
 <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
@@ -19,6 +19,110 @@
     }
 </style>
 <h1>Расчитать стоимость перевозки</h1>
-    <div id="plans">
-        @Html.Partial("SelectPlanPartial", Model)
+
+@using (@Html.BeginForm("kalkulyator", "forCustomers"))
+{
+    <div class="row">
+        <div class="col-lg-12 col-md-12">
+            @Html.HiddenFor(m => m.Distance)
+            @Html.HiddenFor(m => m.AdressFrom)
+            @Html.HiddenFor(m => m.AdressTo)
+            <h3>Тарифный план</h3>
+            @Html.DropDownListFor(
+            m => m.PlanId,
+            new SelectList(Model.Plans, "кодТарифа", "наименованиеТарифа"),
+            "Тариф не выбран"
+            )
+        </div>
     </div>
+    <div class="row">
+        <div class="col-lg-12 col-md-12">
+            <h3>Параметры груза</h3>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Длина (см)</th>
+                        <th>Ширина (см)</th>
+                        <th>Высота (см)</th>
+                        <th>Масса (кг)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>@Html.TextBoxFor(m => m.Length)</td>
+                        <td>@Html.TextBoxFor(m => m.Width)</td>
+                        <td>@Html.TextBoxFor(m => m.Height)</td>
+                        <td>@Html.TextBoxFor(m => m.Weight)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 col-md-12">
+            <h3>Пункты отправления/назначения</h3>
+            <div id="map"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 col-md-12">
+            <div id="summary">
+                @if (@Model.PlanId != null)
+                {
+                    <h3>Приблизительная стоимость и длительность перевозки</h3>
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <th>Пункт отправления:</th>
+                                <td>@Model.AdressFrom</td>
+                            </tr>
+                            <tr>
+                                <th>Пункт назначения:</th>
+                                <td>@Model.AdressTo</td>
+                            </tr>
+                            <tr>
+                                <th>Тарифный план:</th>
+                                <td>@Model.getSelectPlan().наименованиеТарифа. @Model.getSelectPlan().описаниеТарифа:</td>
+                            </tr>
+                            <tr>
+                                <th>Габариты груза ДxВxШ:</th>
+                                <td>@Model.Length x @Model.Height x @Model.Width см.</td>
+                            </tr>
+                            <tr>
+                                <th>Объем груза:</th>
+                                <td>@Model.Amount см.куб.</td>
+                            </tr>
+                            <tr>
+                                <th>Масса груза:</th>
+                                <td>@Model.Weight кг.</td>
+                            </tr>
+                            <tr>
+                                <th>Длина пути:</th>
+                                <td>@Model.Distance км.</td>
+                            </tr>
+                            <tr>
+                                <th>Длительность перевозки:</th>
+                                <td>@Model.Durability дн.</td>
+                            </tr>
+                            <tr>
+                                <th>Стоимость перевозки:</th>
+                                <td>@Model.TotalCost р.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 col-md-12">
+            <button class="btn btn-info">Рассчитать стоимость</button>
+        </div>
+    </div>
+}
+<br />
+@*<script type="text/javascript">
+        $('#PlanId').change(function () {
+        $(this).parents('form').submit();
+        });
+    </script>*@

@@ -33,7 +33,7 @@ namespace ExpressDelivery.Controllers
             {
                 plan.Amount = getAmount(plan.Length, plan.Width, plan.Height);
                 plan.TotalCost = getTotalCost(plan.getSelectPlan().стоимостьТарифа, plan.Distance, plan.Amount, plan.Weight);
-                plan.Durability = plan.Distance / 90 / 24 + plan.getSelectPlan().длительностьОжидания;
+                plan.Durability = Math.Ceiling(plan.Distance / 90 / 12  + plan.getSelectPlan().длительностьОжидания);
             }
             return View(plan);
         }

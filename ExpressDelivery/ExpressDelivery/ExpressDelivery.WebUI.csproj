@@ -311,7 +311,6 @@
     <Content Include="Views\forCustomers\POZ.cshtml" />
     <Content Include="Views\AboutCompany\PunktyPriyemaIVydachi.cshtml" />
     <Content Include="Views\forCustomers\kalkulyator.cshtml" />
-    <Content Include="Views\Shared\SelectPlanPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
