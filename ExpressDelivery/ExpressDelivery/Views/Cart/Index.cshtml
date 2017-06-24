@@ -29,7 +29,10 @@
                             @using (Html.BeginForm("ShowOrderDetails", "Cart"))
                             {
                                 @Html.Hidden("orderId", line.Product.OrderNumber)
+                                if (@line.Product.OrderStatus == "Подтвержден")
+                                {
                                 <button class="btn btn-info">Детали заказа</button>
+                                }
                             }
                         </td>
                         <td>@line.Product.DateOrder</td>
@@ -39,7 +42,7 @@
                             <button class="btn btn-info">Оплатить</button>
                         </td>
                         <td>
-                            Заказ в обработке <br />
+                            Ожидает отправки <br />
                             @using (Html.BeginForm("RemoveFromCart", "Cart"))
                             {
                                 @Html.Hidden("orderId", line.Product.OrderNumber)
@@ -76,15 +79,18 @@
                             @line.Product.PriceDelivery.ToString("c")
                         </td>
                         <td>
-                        @using (Html.BeginForm("ShowMassage", "Cart"))
+                        @using (Html.BeginForm())
                         {
                             @Html.Hidden("orderId", line.Product.OrderNumber)
-                            @Html.DropDownList("OrderStatus",  new[] {
-                           new SelectListItem() { Text = "Заказ в обработке", Value = "1"},
-                           new SelectListItem() { Text = "Подтверждён", Value = "2f" },
-                           new SelectListItem() { Text = "Отменён", Value = "3" }
-                       })
-                            //<button class="btn btn-info">Сохранить</button> <br />
+                            @Html.Hidden("massage", line.Product.Comment)
+                            @Html.DropDownListFor(
+                            m => m.StatusId,
+                            new SelectList(Model.Statuses),
+                            new { @class = "form-control" }
+                            )
+                            line.Product.Comment = "Ваш заказ № " + line.Product.OrderNumber + " изменен. Код " + Model.StatusId;
+                                    @*<br>
+                                    <button class="btn btn-info">Сохранить изменения</button> <br />*@
                         }
                         </td>
                     </tr>

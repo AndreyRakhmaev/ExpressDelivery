@@ -31,6 +31,7 @@ namespace ExpressDelivery.Controllers
             newOrder.OrderNumber = rand.Next();
             newOrder.DateOrder = DateTime.Now;
             newOrder.DateTo = DateTime.Now.AddDays(3);
+            newOrder.PriceDelivery = 480 + rand.Next(300, 800);
             if (newOrder != null)
             {
                 cart.AddItem(newOrder);

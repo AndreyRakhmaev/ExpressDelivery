@@ -9,6 +9,7 @@ namespace ExpressDelivery.Models
     {
         public Cart Cart { get; set; }
         public string ReturnUrl { get; set; }
-        public string OrderStatus { get; set; }
+        public int StatusId { get; set; }
+        public List<string> Statuses { get { return new List<string> { "Заказ в обработке", "Подтвержден","Отменен" } ; } }
     }
 }
