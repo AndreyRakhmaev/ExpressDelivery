@@ -8,7 +8,7 @@ namespace ExpressDelivery.Controllers
 {
     public class ServicesAndPlansController : Controller
     {
-        public ActionResult Plans()
+        public ActionResult index()
         {
             return View();
         }
