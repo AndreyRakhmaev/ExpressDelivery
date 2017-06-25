@@ -39,6 +39,10 @@ span.error{background:transparent url(../img/icons/error.png) no-repeat top left
 .stop{position:relative;z-index:101;}
 #aside1{display:block;box-shadow:0 0 3px 1px #999;}
 #mapSurface{width:600px;height:600px;border:solid 1px #ccc;margin:0 auto;padding:20px;}
+body {
+  margin: 0 0 0 20px;
+  background: url(https://html5book.ru/wp-content/uploads/2015/01/blur.jpg);
+}
 .wrap {
   width: 640px;
   margin: 50px auto 0;

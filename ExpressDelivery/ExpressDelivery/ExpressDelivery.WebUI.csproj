@@ -312,7 +312,6 @@
     <Content Include="Views\forCustomers\POZ.cshtml" />
     <Content Include="Views\AboutCompany\PunktyPriyemaIVydachi.cshtml" />
     <Content Include="Views\forCustomers\kalkulyator.cshtml" />
-    <Content Include="Views\ServicesAndPlans\Plans.cshtml" />
     <Content Include="Views\ServicesAndPlans\index.cshtml" />
   </ItemGroup>
   <ItemGroup>
