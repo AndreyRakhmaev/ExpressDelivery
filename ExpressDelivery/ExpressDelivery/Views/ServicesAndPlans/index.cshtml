@@ -1,4 +1,4 @@
-﻿@model ExpressDelivery.Domain.Entities.Тарифы
+﻿@model List<ExpressDelivery.Domain.Entities.Тарифы>
 
 @{
     ViewBag.Title = "index";
@@ -30,24 +30,26 @@
                     <div id="plans" class="tab-pane fade in active">
                         <h2>Тарифы</h2>
                         <div class="wrap">
+                            @foreach (var plan in Model)
+                            {
                             <div class="box">
                                 <div class="top">
-                                    <p class="title">«Всё за 200»</p>
+                                    <p class="title">«@plan.наименованиеТарифа»</p>
+                                    <hr />
                                     <p class="price">
-                                        <sup>P</sup>
-                                        200
-                                        <span>/МЕС.</span>
+                                        @plan.стоимостьТарифа
+                                        <span>₽/км.</span>
                                     </p>
                                     <a class="button" href="#">Перейти на тариф</a>
                                 </div>
                                 <div class="bottom">
                                     <ul>
-                                        <li>Услуга «Будь в курсе +»</li>
-                                        <li>Услуга «Есть контакт»</li>
-                                        <li>500 Мб в месяц</li>
+                                        <li>Срок отправки до @plan.длительностьОжидания дн.</li>
                                     </ul>
+                                    <p>@plan.описаниеТарифа</p>
                                 </div>
                             </div>
+                            }
                         </div>
                     </div>
                     <div id="services" class="tab-pane fade">

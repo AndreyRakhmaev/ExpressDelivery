@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ExpressDelivery.Domain.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,7 +11,8 @@ namespace ExpressDelivery.Controllers
     {
         public ActionResult index()
         {
-            return View();
+            var list = Repository.Select<Тарифы>().ToList();
+            return View(list);
         }
     }
 }
