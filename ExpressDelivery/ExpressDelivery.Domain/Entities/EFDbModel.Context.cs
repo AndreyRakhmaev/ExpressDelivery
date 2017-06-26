@@ -45,5 +45,6 @@ namespace ExpressDelivery.Domain.Entities
         public virtual DbSet<Уведомления> Уведомления { get; set; }
         public virtual DbSet<Услуги> Услуги { get; set; }
         public virtual DbSet<Филиалы> Филиалы { get; set; }
+        public virtual DbSet<Акции> Акции { get; set; }
     }
 }

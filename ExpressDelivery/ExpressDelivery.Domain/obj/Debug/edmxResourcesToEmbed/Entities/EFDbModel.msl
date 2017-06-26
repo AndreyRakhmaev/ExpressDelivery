@@ -270,5 +270,17 @@
         <ScalarProperty Name="кодФилиала" ColumnName="кодФилиала" />
       </EndProperty>
     </AssociationSetMapping>
+    <EntitySetMapping Name="Акции">
+      <EntityTypeMapping TypeName="ExpressDeliveryModel.Акции">
+        <MappingFragment StoreEntitySet="Акции">
+          <ScalarProperty Name="датаОкончания" ColumnName="датаОкончания" />
+          <ScalarProperty Name="датаНачала" ColumnName="датаНачала" />
+          <ScalarProperty Name="скидка" ColumnName="скидка" />
+          <ScalarProperty Name="описаниеАкции" ColumnName="описаниеАкции" />
+          <ScalarProperty Name="наименованиеАкции" ColumnName="наименованиеАкции" />
+          <ScalarProperty Name="кодАкции" ColumnName="кодАкции" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

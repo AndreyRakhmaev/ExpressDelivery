@@ -234,6 +234,7 @@
     <Compile Include="Models\OrderDetails.cs" />
     <Compile Include="Models\PagingInfo.cs" />
     <Compile Include="Models\OrdersListViewModel.cs" />
+    <Compile Include="Models\ServicesAndPlansViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>

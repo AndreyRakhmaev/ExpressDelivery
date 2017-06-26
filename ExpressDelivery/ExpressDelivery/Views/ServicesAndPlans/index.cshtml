@@ -1,4 +1,4 @@
-﻿@model List<ExpressDelivery.Domain.Entities.Тарифы>
+﻿@model ExpressDelivery.Models.ServicesAndPlansViewModel
 
 @{
     ViewBag.Title = "index";
@@ -30,16 +30,18 @@
                     <div id="plans" class="tab-pane fade in active">
                         <h2>Тарифы</h2>
                         <div class="wrap">
-                            @foreach (var plan in Model)
+                            @foreach (var plan in Model.Plans)
                             {
                             <div class="box">
                                 <div class="top">
                                     <p class="title">«@plan.наименованиеТарифа»</p>
                                     <hr />
+                                    <br />
                                     <p class="price">
                                         @plan.стоимостьТарифа
                                         <span>₽/км.</span>
                                     </p>
+                                    <br />
                                     <a class="button" href="#">Перейти на тариф</a>
                                 </div>
                                 <div class="bottom">
@@ -54,9 +56,54 @@
                     </div>
                     <div id="services" class="tab-pane fade">
                         <h2>Услуги</h2>
+                        <div class="wrap">
+                            @foreach (var service in Model.Services)
+                            {
+                                <div class="box">
+                                    <div class="top">
+                                        <p class="title">«@service.наименованиеУслуги»</p>
+                                        <hr />
+                                        <br />
+                                        <p class="price">
+                                            @service.стоимостьУслуги
+                                            <span>₽</span>
+                                        </p>
+                                        <br />
+                                        <a class="button" href="#">Добавить услугу</a>
+                                    </div>
+                                    <div class="bottom">
+                                        <p>@service.описаниеУслуги</p>
+                                    </div>
+                                </div>
+                            }
+                        </div>
                     </div>
                     <div id="shares" class="tab-pane fade">
-                        <h2>Акции</h2>
+                        <h2>Акции и бонусы</h2>
+                        <div class="wrap">
+                            @foreach (var shares in Model.Shares)
+                            {
+                                <div class="box">
+                                    <div class="top">
+                                        <p class="title">«@shares.наименованиеАкции»</p>
+                                        <hr />
+                                        <br />
+                                        <p class="price">
+                                            - @shares.скидка
+                                            <span>%</span>
+                                        </p>
+                                        <br />
+                                        <a class="button" href="#">Активировать</a>
+                                    </div>
+                                    <div class="bottom">
+                                        <ul>
+                                            <li>@shares.датаНачала - @shares.датаОкончания</li>
+                                        </ul>
+                                        <p>@shares.описаниеАкции</p>
+                                    </div>
+                                </div>
+                            }
+                        </div>
                     </div>
                 </div>
             </div>

@@ -26,7 +26,7 @@ namespace ExpressDelivery.Domain.Entities
         public decimal суммаПлатежа { get; set; }
         public string номерСчетаОткуда { get; set; }
         public string номерСчетаКуда { get; set; }
-        public decimal комиссия { get; set; }
+        public double комиссия { get; set; }
         public string примечаниеКПлатежу { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

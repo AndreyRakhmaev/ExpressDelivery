@@ -87,6 +87,9 @@
     <Compile Include="Entities\Автомобили.cs">
       <DependentUpon>EFDbModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entities\Акции.cs">
+      <DependentUpon>EFDbModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entities\Города.cs">
       <DependentUpon>EFDbModel.tt</DependentUpon>
     </Compile>

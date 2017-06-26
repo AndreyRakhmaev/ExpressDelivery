@@ -21,7 +21,7 @@
         <EntityTypeShape EntityType="ExpressDeliveryModel.Платежи" Width="1.5" PointX="3.75" PointY="16.5" IsExpanded="true" />
         <EntityTypeShape EntityType="ExpressDeliveryModel.Сообщения" Width="1.5" PointX="6" PointY="23.375" IsExpanded="true" />
         <EntityTypeShape EntityType="ExpressDeliveryModel.Сотрудники" Width="1.5" PointX="3.75" PointY="24.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="ExpressDeliveryModel.Тарифы" Width="3.75" PointX="3.75" PointY="29.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ExpressDeliveryModel.Тарифы" Width="1.875" PointX="6.75" PointY="29.625" IsExpanded="true" />
         <EntityTypeShape EntityType="ExpressDeliveryModel.Уведомления" Width="1.5" PointX="6" PointY="26.5" IsExpanded="true" />
         <EntityTypeShape EntityType="ExpressDeliveryModel.Услуги" Width="1.5" PointX="1.5" PointY="31.25" IsExpanded="true" />
         <EntityTypeShape EntityType="ExpressDeliveryModel.Филиалы" Width="1.5" PointX="1.5" PointY="24.75" IsExpanded="true" />
@@ -45,6 +45,7 @@
         <AssociationConnector Association="ExpressDeliveryModel.AspNetUserRoles" ManuallyRouted="false" />
         <AssociationConnector Association="ExpressDeliveryModel.ДоступныеТарифы" ManuallyRouted="false" />
         <AssociationConnector Association="ExpressDeliveryModel.ПредоставляемыеУслуги" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ExpressDeliveryModel.Акции" Width="1.5" PointX="9.375" PointY="5.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

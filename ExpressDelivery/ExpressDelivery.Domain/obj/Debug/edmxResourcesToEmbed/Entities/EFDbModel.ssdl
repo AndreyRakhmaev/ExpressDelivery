@@ -66,11 +66,22 @@
       <PropertyRef Name="кодАвтомобиля" />
     </Key>
     <Property Name="кодАвтомобиля" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="грнАвтомобиля" Type="varchar" MaxLength="6" Nullable="false" />
-    <Property Name="модельАвтомобиля" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="грнАвтомобиля" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="модельАвтомобиля" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="грузоподъёмность" Type="float" Nullable="false" />
     <Property Name="габаритыАвтомобиля" Type="nvarchar" MaxLength="15" Nullable="false" />
     <Property Name="степеньЗагруженности" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Акции">
+    <Key>
+      <PropertyRef Name="кодАкции" />
+    </Key>
+    <Property Name="кодАкции" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="наименованиеАкции" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="описаниеАкции" Type="nvarchar" MaxLength="255" />
+    <Property Name="скидка" Type="float" Nullable="false" />
+    <Property Name="датаНачала" Type="datetime" Nullable="false" />
+    <Property Name="датаОкончания" Type="datetime" Nullable="false" />
   </EntityType>
   <EntityType Name="Города">
     <Key>
@@ -84,12 +95,12 @@
       <PropertyRef Name="кодГруза" />
     </Key>
     <Property Name="кодГруза" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="габаритыГруза" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="габаритыГруза" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="массаГруза" Type="float" Nullable="false" />
-    <Property Name="типГруза" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="статусГруза" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="номерОтслеживания" Type="varchar" MaxLength="13" Nullable="false" />
-    <Property Name="примечание" Type="varchar" MaxLength="255" />
+    <Property Name="типГруза" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="статусГруза" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="номерОтслеживания" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="примечание" Type="nvarchar" MaxLength="255" />
     <Property Name="грнАвтомобиля" Type="int" Nullable="false" />
     <Property Name="кодЗаказа" Type="int" Nullable="false" />
   </EntityType>
@@ -111,9 +122,9 @@
     <Property Name="датаЗаказа" Type="date" Nullable="false" />
     <Property Name="фиоПолучателя" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="ГородПолучателя" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="адресПолучателя" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="адресПолучателя" Type="nvarchar" MaxLength="150" Nullable="false" />
     <Property Name="почтовыйИндекс" Type="nvarchar" MaxLength="50" />
-    <Property Name="стоимостьЗзаказа" Type="money" Nullable="false" />
+    <Property Name="стоимостьЗзаказа" Type="decimal" Precision="18" Scale="2" Nullable="false" />
     <Property Name="примечаниеКЗаказу" Type="nvarchar" MaxLength="255" />
     <Property Name="табельныйНомерСотрудника" Type="int" Nullable="false" />
     <Property Name="кодКлиента" Type="nvarchar" MaxLength="128" Nullable="false" />
@@ -129,8 +140,8 @@
     <Property Name="кодЗаписи" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="кодГруза" Type="int" Nullable="false" />
     <Property Name="датаЗаписи" Type="date" Nullable="false" />
-    <Property Name="пунктРегистрации" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="примечание" Type="varchar" MaxLength="255" />
+    <Property Name="пунктРегистрации" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="примечание" Type="nvarchar" MaxLength="255" />
   </EntityType>
   <EntityType Name="Клиенты">
     <Key>
@@ -158,27 +169,27 @@
       <PropertyRef Name="кодМаршрута" />
     </Key>
     <Property Name="кодМаршрута" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="наименованиеМаршрута" Type="varchar" MaxLength="150" Nullable="false" />
-    <Property Name="пунктОтправления" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="наименованиеМаршрута" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="пунктОтправления" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="датаОтправления" Type="date" Nullable="false" />
     <Property Name="протяженностьМаршрута" Type="float" Nullable="false" />
-    <Property Name="пунктНазначения" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="пунктНазначения" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="датаПрибытия" Type="date" Nullable="false" />
     <Property Name="длительностьПеревозки" Type="float" Nullable="false" />
-    <Property Name="стоимостьПеревозки" Type="money" Nullable="false" />
+    <Property Name="стоимостьПеревозки" Type="decimal" Precision="18" Scale="2" Nullable="false" />
   </EntityType>
   <EntityType Name="Платежи">
     <Key>
       <PropertyRef Name="номерПлатежа" />
     </Key>
     <Property Name="номерПлатежа" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="видПлатежнойСистемы" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="видПлатежнойСистемы" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="датаПлатежа" Type="date" Nullable="false" />
-    <Property Name="суммаПлатежа" Type="money" Nullable="false" />
-    <Property Name="номерСчетаОткуда" Type="varchar" MaxLength="25" Nullable="false" />
-    <Property Name="номерСчетаКуда" Type="varchar" MaxLength="150" Nullable="false" />
-    <Property Name="комиссия" Type="money" Nullable="false" />
-    <Property Name="примечаниеКПлатежу" Type="varchar" MaxLength="255" />
+    <Property Name="суммаПлатежа" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="номерСчетаОткуда" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="номерСчетаКуда" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="комиссия" Type="float" Nullable="false" />
+    <Property Name="примечаниеКПлатежу" Type="nvarchar" MaxLength="255" />
   </EntityType>
   <!--Ошибки, обнаруженные при создании:
 предупреждение 6002: В таблице или представлении "dbb95fb7d3e6594a6ba0a8a78f01878071.dbo.ПредоставляемыеУслуги" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
@@ -190,6 +201,12 @@
     <Property Name="кодФилиала" Type="int" Nullable="false" />
     <Property Name="кодУслуги" Type="int" Nullable="false" />
   </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6013: Первичный ключ в таблице или представлении "dbb95fb7d3e6594a6ba0a8a78f01878071.dbo.ПроводимыеАкции" не определен, его не удалось вывести. Эта таблица или представление исключены. Чтобы использовать сущность, необходимо проверить схему, добавить правильные ключи и раскомментировать ее.
+        <EntityType Name="ПроводимыеАкции">
+          <Property Name="кодФилиала" Type="int" />
+          <Property Name="кодАкции" Type="int" />
+        </EntityType>-->
   <EntityType Name="Сообщения">
     <Key>
       <PropertyRef Name="кодСообщения" />
@@ -206,11 +223,11 @@
       <PropertyRef Name="табельныйНомер" />
     </Key>
     <Property Name="табельныйНомер" Type="int" Nullable="false" />
-    <Property Name="фиоСотрудника" Type="varchar" MaxLength="150" Nullable="false" />
-    <Property Name="должность" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="фиоСотрудника" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="должность" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="датаРождения" Type="date" />
-    <Property Name="рабочийТелефон" Type="varchar" MaxLength="16" Nullable="false" />
-    <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="рабочийТелефон" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="email" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="кодФилиала" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Тарифы">
@@ -219,7 +236,7 @@
     </Key>
     <Property Name="кодТарифа" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="наименованиеТарифа" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="стоимостьТарифа" Type="money" Nullable="false" />
+    <Property Name="стоимостьТарифа" Type="decimal" Precision="18" Scale="2" Nullable="false" />
     <Property Name="описаниеТарифа" Type="nvarchar" MaxLength="255" />
     <Property Name="длительностьОжидания" Type="float" Nullable="false" />
   </EntityType>
@@ -240,8 +257,8 @@
       <PropertyRef Name="кодУслуги" />
     </Key>
     <Property Name="кодУслуги" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="наименованиеУслуги" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="стоимостьУслуги" Type="money" Nullable="false" />
+    <Property Name="наименованиеУслуги" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="стоимостьУслуги" Type="decimal" Precision="18" Scale="2" Nullable="false" />
     <Property Name="описаниеУслуги" Type="varchar" MaxLength="255" />
   </EntityType>
   <EntityType Name="Филиалы">
@@ -491,6 +508,12 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <!--Ошибки, обнаруженные при создании:
+ошибка 6004: Невозможно найти таблицу "dbb95fb7d3e6594a6ba0a8a78f01878071.dbo.ПроводимыеАкции", на которую ссылается связь.
+        <Association Name="FK_ПроводимыеАкции_Акции" />-->
+  <!--Ошибки, обнаруженные при создании:
+ошибка 6004: Невозможно найти таблицу "dbb95fb7d3e6594a6ba0a8a78f01878071.dbo.ПроводимыеАкции", на которую ссылается связь.
+        <Association Name="FK_ПроводимыеАкции_Филиалы" />-->
   <Association Name="FK_Сообщения_Сотрудники">
     <End Role="Сотрудники" Type="Self.Сотрудники" Multiplicity="1" />
     <End Role="Сообщения" Type="Self.Сообщения" Multiplicity="*" />
@@ -547,6 +570,7 @@
     <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Автомобили" EntityType="Self.Автомобили" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Акции" EntityType="Self.Акции" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Города" EntityType="Self.Города" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Грузы" EntityType="Self.Грузы" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Заказы" EntityType="Self.Заказы" Schema="dbo" store:Type="Tables" />

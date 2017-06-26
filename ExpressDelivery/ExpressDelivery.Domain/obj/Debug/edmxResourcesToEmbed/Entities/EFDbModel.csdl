@@ -65,8 +65,8 @@
       <PropertyRef Name="кодАвтомобиля" />
     </Key>
     <Property Name="кодАвтомобиля" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="грнАвтомобиля" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="модельАвтомобиля" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="грнАвтомобиля" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="модельАвтомобиля" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="грузоподъёмность" Type="Double" Nullable="false" />
     <Property Name="габаритыАвтомобиля" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="степеньЗагруженности" Type="Int32" Nullable="false" />
@@ -85,12 +85,12 @@
       <PropertyRef Name="кодГруза" />
     </Key>
     <Property Name="кодГруза" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="габаритыГруза" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="габаритыГруза" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="массаГруза" Type="Double" Nullable="false" />
-    <Property Name="типГруза" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="статусГруза" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="номерОтслеживания" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="примечание" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="типГруза" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="статусГруза" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="номерОтслеживания" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="примечание" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
     <Property Name="грнАвтомобиля" Type="Int32" Nullable="false" />
     <Property Name="кодЗаказа" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Автомобили" Relationship="Self.FK_Грузы_Автомобили" FromRole="Грузы" ToRole="Автомобили" />
@@ -105,9 +105,9 @@
     <Property Name="датаЗаказа" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="фиоПолучателя" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="ГородПолучателя" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="адресПолучателя" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="адресПолучателя" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="почтовыйИндекс" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="стоимостьЗзаказа" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="стоимостьЗзаказа" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
     <Property Name="примечаниеКЗаказу" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
     <Property Name="табельныйНомерСотрудника" Type="Int32" Nullable="false" />
     <Property Name="кодКлиента" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
@@ -130,8 +130,8 @@
     <Property Name="кодЗаписи" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="кодГруза" Type="Int32" Nullable="false" />
     <Property Name="датаЗаписи" Type="DateTime" Nullable="false" Precision="0" />
-    <Property Name="пунктРегистрации" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="примечание" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="пунктРегистрации" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="примечание" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Грузы" Relationship="Self.FK_ИсторияОтслеживания_Грузы" FromRole="ИсторияОтслеживания" ToRole="Грузы" />
   </EntityType>
   <EntityType Name="Клиенты">
@@ -164,14 +164,14 @@
       <PropertyRef Name="кодМаршрута" />
     </Key>
     <Property Name="кодМаршрута" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="наименованиеМаршрута" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="пунктОтправления" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="наименованиеМаршрута" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="пунктОтправления" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="датаОтправления" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="протяженностьМаршрута" Type="Double" Nullable="false" />
-    <Property Name="пунктНазначения" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="пунктНазначения" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="датаПрибытия" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="длительностьПеревозки" Type="Double" Nullable="false" />
-    <Property Name="стоимостьПеревозки" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="стоимостьПеревозки" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
     <NavigationProperty Name="Заказы" Relationship="Self.FK_Заказы_Маршруты" FromRole="Маршруты" ToRole="Заказы" />
   </EntityType>
   <EntityType Name="Платежи">
@@ -179,13 +179,13 @@
       <PropertyRef Name="номерПлатежа" />
     </Key>
     <Property Name="номерПлатежа" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="видПлатежнойСистемы" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="видПлатежнойСистемы" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="датаПлатежа" Type="DateTime" Nullable="false" Precision="0" />
-    <Property Name="суммаПлатежа" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
-    <Property Name="номерСчетаОткуда" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="номерСчетаКуда" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="комиссия" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
-    <Property Name="примечаниеКПлатежу" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="суммаПлатежа" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="номерСчетаОткуда" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="номерСчетаКуда" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="комиссия" Type="Double" Nullable="false" />
+    <Property Name="примечаниеКПлатежу" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Заказы" Relationship="Self.FK_Заказы_Платежи" FromRole="Платежи" ToRole="Заказы" />
   </EntityType>
   <EntityType Name="Сообщения">
@@ -205,11 +205,11 @@
       <PropertyRef Name="табельныйНомер" />
     </Key>
     <Property Name="табельныйНомер" Type="Int32" Nullable="false" />
-    <Property Name="фиоСотрудника" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="должность" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="фиоСотрудника" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="должность" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="датаРождения" Type="DateTime" Precision="0" />
-    <Property Name="рабочийТелефон" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="рабочийТелефон" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="кодФилиала" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Заказы" Relationship="Self.FK_Заказы_Сотрудники" FromRole="Сотрудники" ToRole="Заказы" />
     <NavigationProperty Name="Сообщения" Relationship="Self.FK_Сообщения_Сотрудники" FromRole="Сотрудники" ToRole="Сообщения" />
@@ -222,7 +222,7 @@
     </Key>
     <Property Name="кодТарифа" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="наименованиеТарифа" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="стоимостьТарифа" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="стоимостьТарифа" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
     <Property Name="описаниеТарифа" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Заказы" Relationship="Self.FK_Заказ_Тарифы" FromRole="Тарифы" ToRole="Заказы" />
     <NavigationProperty Name="Филиалы" Relationship="Self.ДоступныеТарифы" FromRole="Тарифы" ToRole="Филиалы" />
@@ -246,8 +246,8 @@
       <PropertyRef Name="кодУслуги" />
     </Key>
     <Property Name="кодУслуги" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="наименованиеУслуги" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="стоимостьУслуги" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="наименованиеУслуги" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="стоимостьУслуги" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
     <Property Name="описаниеУслуги" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Заказы" Relationship="Self.FK_Заказы_Услуги" FromRole="Услуги" ToRole="Заказы" />
     <NavigationProperty Name="Филиалы" Relationship="Self.ПредоставляемыеУслуги" FromRole="Услуги" ToRole="Филиалы" />
@@ -588,5 +588,17 @@
       <End Role="Услуги" EntitySet="Услуги" />
       <End Role="Филиалы" EntitySet="Филиалы" />
     </AssociationSet>
+    <EntitySet Name="Акции" EntityType="ExpressDeliveryModel.Акции" />
   </EntityContainer>
+  <EntityType Name="Акции">
+    <Key>
+      <PropertyRef Name="кодАкции" />
+    </Key>
+    <Property Name="кодАкции" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="наименованиеАкции" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="описаниеАкции" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="скидка" Type="Double" Nullable="false" />
+    <Property Name="датаНачала" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="датаОкончания" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
 </Schema>
