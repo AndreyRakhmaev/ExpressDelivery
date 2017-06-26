@@ -51,7 +51,7 @@ span.error{background:transparent url(../img/icons/error.png) no-repeat top left
   margin-right: 20px;
 }
 .top {
-  background: #36454A;
+  background: #49cfad;
   padding: 20px;
   text-align: center;
   border-top-right-radius: 5px;
@@ -82,7 +82,7 @@ sup {
   top: -15px;
   color: #6eaca7;
 }
-span {
+.price span {
     font-size: 16px;
     color: #6eaca7;
     text-transform: uppercase;
