@@ -6,7 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace ExpressDelivery.Content
+namespace ExpressDelivery.Controllers
 {
     public class AboutCompanyController : Controller
     {
